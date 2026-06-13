@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Page Transition Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+}
+
+@keyframes expandIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes overlayFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes overlayFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Page Transition Classes */
+.page-enter {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.page-exit {
+    animation: fadeOutDown 0.4s ease-in forwards;
+}
+
+.page-enter-slide {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+.page-exit-slide {
+    animation: slideOut 0.4s ease-in forwards;
+}
+
+.page-enter-expand {
+    animation: expandIn 0.5s ease-out forwards;
+}
+
+.transition-overlay {
+    animation: overlayFadeIn 0.3s ease-out forwards;
+}
+
+.transition-overlay-exit {
+    animation: overlayFadeOut 0.3s ease-in forwards;
+}
+
+/* Page Content Exit Animation */
+body.page-transitioning {
+    opacity: 0.95;
+    filter: blur(0.5px);
+}
