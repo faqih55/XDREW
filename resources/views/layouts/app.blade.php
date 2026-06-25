@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@yield('title', 'XDrew Fashion')</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -20,10 +20,10 @@
         body { 
             background-color: #0e1511; 
             color: #dde4dd; 
-            font-family: 'Inter', sans-serif; 
+            font-family: 'Poppins', sans-serif; 
         }
         h1, h2, h3, .font-heading { 
-            font-family: 'Montserrat', sans-serif; 
+            font-family: 'Outfit', sans-serif; 
         }
         /* Tambahan untuk memastikan widget chat tidak tertutup elemen lain */
         [x-cloak] { display: none !important; }

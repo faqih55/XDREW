@@ -1,100 +1,106 @@
-<!DOCTYPE html>
-<html class="dark" lang="id">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Akun Saya | XDrew Fashion</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <style>
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
-        .glass-card { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .glow-hover:hover { box-shadow: 0 0 20px rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); }
-        body { background-color: #0e1511; color: #dde4dd; }
-    </style>
-</head>
-<body class="font-body-md text-on-surface selection:bg-primary selection:text-on-primary">
-    
-    <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-white/10 shadow-sm">
-        @include('components.navbar')
+@extends('layouts.profile')
+
+@section('title', 'Profil Saya | XDrew Fashion')
+
+@section('content')
+<div class="max-w-5xl mx-auto space-y-8 animate-smooth-reveal">
+    <header class="mb-8">
+        <h1 class="font-['Outfit'] text-3xl font-extrabold text-[#1A2E26] mb-2 tracking-tight">Profil Saya</h1>
+        <p class="text-[#1A2E26]/70 text-sm">Kelola informasi akun Anda untuk pengalaman yang lebih baik.</p>
     </header>
 
-    <main class="pt-32 pb-20 px-6 md:px-16 max-w-[1440px] mx-auto w-full">
-        <div class="mb-4 flex items-center gap-2">
-            <a href="{{ route('home') }}" class="text-xs text-on-surface-variant hover:text-primary">Beranda</a>
-            <span class="material-symbols-outlined text-[14px] text-on-surface-variant">chevron_right</span>
-            <span class="text-xs text-primary">Akun Saya</span>
-        </div>
-
-        <h1 class="text-4xl md:text-5xl mb-10 tracking-tighter uppercase font-bold">AKUN SAYA</h1>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
-            <aside class="md:col-span-3">
-                <div class="glass-card rounded-xl p-4 flex flex-col gap-2">
-                    <a href="{{ route('profile.show') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container">
-                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
-                        <span class="text-sm">Profil</span>
-                    </a>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-white/5 transition-all">
-                        <span class="material-symbols-outlined">shopping_basket</span>
-                        <span class="text-sm">Pesanan Saya</span>
-                    </a>
-                    <div class="h-[1px] bg-white/10 my-2"></div>
-                    <form id="logout-form" action="{{ route('pelanggan.logout') }}" method="POST">
-                        @csrf
-                        <button type="button" onclick="confirmLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-error hover:bg-error/10 text-left transition-all">
-                            <span class="material-symbols-outlined">logout</span>
-                            <span class="text-sm">Keluar</span>
-                        </button>
-                    </form>
-                </div>
-            </aside>
-
-            <div class="md:col-span-9 flex flex-col gap-8">
-                <section class="glass-card rounded-xl p-8 flex flex-col md:flex-row items-center gap-8">
-                    <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-primary/50">
-                        <img src="https://ui-avatars.com/api/?name={{ urlencode($user->nama_lengkap ?? 'User') }}&background=10b981&color=fff" alt="Profile" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-center md:text-left flex-grow">
-                        <h2 class="text-2xl font-bold mb-1">{{ $user->nama_lengkap ?? $user->name }}</h2>
-                        <p class="text-on-surface-variant mb-4">{{ $user->email }}</p>
-                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs border border-primary/20">
-                            Bergabung {{ $user->created_at ? $user->created_at->format('F Y') : '2026' }}
-                        </span>
-                    </div>
-                    <a href="{{ route('profile.edit') }}" class="px-8 py-2 rounded-lg bg-transparent border border-white/20 text-on-surface hover:bg-white/5 transition-all text-sm font-bold">
-                        Edit Profil
-                    </a>
-                </section>
-
-                <section>
-                    <div class="flex justify-between items-end mb-4">
-                        <h3 class="text-xl font-bold tracking-tight">Pesanan Terbaru</h3>
-                        <a class="text-primary hover:underline text-sm" href="#">Lihat Semua</a>
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        @forelse($orders as $order)
-                        <div class="glass-card rounded-xl p-4 flex justify-between items-center hover:border-primary/30 transition-all emerald-glow">
-                            <div>
-                                <p class="text-sm font-bold">#ORD-{{ $order->id }}</p>
-                                <p class="text-xs text-on-surface-variant">{{ $order->created_at->format('d M Y') }}</p>
-                            </div>
-                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-lg text-xs">{{ $order->status }}</span>
-                            <p class="text-lg font-bold">Rp {{ number_format($order->total_harga, 0, ',', '.') }}</p>
-                        </div>
-                        @empty
-                        <p class="text-on-surface-variant text-sm">Belum ada pesanan.</p>
-                        @endforelse
-                    </div>
-                </section>
+    <div class="flex flex-col gap-8">
+        <!-- Profile Card -->
+        <div class="bg-white/40 backdrop-blur-md relative overflow-hidden rounded-[2rem] p-8 flex flex-col md:flex-row items-center gap-8 border border-white/60 shadow-lg group">
+            <!-- Subtle Glow -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#10b981]/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-[#10b981]/50 shadow-[0_4px_20px_rgba(16,185,129,0.15)] shrink-0 group-hover:scale-105 transition-transform duration-500">
+                @if($user->foto ?? $user->FOTO)
+                    <img src="{{ asset('storage/' . ($user->foto ?? $user->FOTO)) }}" alt="Profile" class="w-full h-full object-cover">
+                @else
+                    <img src="https://ui-avatars.com/api/?name={{ urlencode($user->nama_lengkap ?? $user->NAMA_LENGKAP ?? 'Pelanggan XDrew') }}&background=10b981&color=fff&size=200&bold=true" alt="Profile" class="w-full h-full object-cover">
+                @endif
+            </div>
+            
+            <div class="text-center md:text-left flex-grow relative z-10">
+                <h2 class="font-['Outfit'] text-3xl font-bold mb-2 uppercase tracking-wide text-[#1A2E26]">{{ $user->nama_lengkap ?? $user->NAMA_LENGKAP ?? 'Pelanggan XDrew' }}</h2>
+                <p class="text-[#1A2E26]/70 mb-4 flex items-center justify-center md:justify-start gap-2 text-sm">
+                    <span class="material-symbols-outlined text-[18px]">mail</span> {{ $user->email ?? $user->EMAIL ?? 'Belum ada email' }}
+                </p>
+                <span class="inline-flex items-center gap-1.5 bg-[#10b981]/10 backdrop-blur-md text-[#10b981] text-xs font-bold px-3 py-1.5 rounded-full border border-[#10b981]/30 tracking-widest uppercase">
+                    <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
+                    Bergabung {{ ($user->created_at ?? $user->CREATED_AT) ? \Carbon\Carbon::parse($user->created_at ?? $user->CREATED_AT)->format('Y') : '2026' }}
+                </span>
+            </div>
+            
+            <div class="shrink-0 mt-6 md:mt-0 w-full md:w-auto relative z-10">
+                <a href="{{ route('profile.edit') }}" class="w-full md:w-auto py-3 px-6 bg-[#10b981] text-white font-bold rounded-xl shadow-[0_4px_15px_rgba(16,185,129,0.2)] hover:shadow-[0_6px_25px_rgba(16,185,129,0.3)] transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                    <span class="material-symbols-outlined text-[20px]">edit</span>
+                    Edit Profil
+                </a>
             </div>
         </div>
-    </main>
 
-    <script>
-        function confirmLogout() {
-            if (confirm("Apakah Anda yakin ingin keluar?")) { document.getElementById('logout-form').submit(); }
-        }
-    </script>
-</body>
-</html>
+        <!-- Recent Orders -->
+        <div>
+            <div class="flex justify-between items-end mb-6">
+                <h3 class="font-['Outfit'] text-2xl font-bold text-[#1A2E26]">Pesanan Terbaru</h3>
+                <a class="text-[#10b981] hover:text-[#1A2E26] uppercase tracking-widest text-xs font-bold transition-colors border-b border-transparent hover:border-[#1A2E26] pb-1" href="{{ route('profile.pesanan') }}">Lihat Semua</a>
+            </div>
+            
+            <div class="flex flex-col gap-4">
+                @forelse($orders ?? [] as $order)
+                    @php
+                        $firstDetail = $order->detailPesanan->first();
+                        $firstProduct = $firstDetail ? $firstDetail->produk : null;
+                        $firstFoto = $firstProduct ? ($firstProduct->foto ?? $firstProduct->FOTO) : 'default.jpg';
+                        $firstNama = $firstProduct ? ($firstProduct->nama_produk ?? $firstProduct->NAMA_PRODUK) : 'Produk XDrew';
+                        $itemCount = $order->detailPesanan->count();
+                    @endphp
+                <div class="relative group cursor-pointer" onclick="window.location.href='{{ route('checkout.pesanan.show', $order->id ?? $order->ID) }}'">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#10b981]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur"></div>
+                    <div class="relative bg-white/40 backdrop-blur-md rounded-2xl p-5 flex flex-col md:flex-row justify-between md:items-center gap-4 hover:-translate-y-1 transition-all duration-300 border border-white/60 group-hover:border-[#10b981]/40 shadow-sm hover:shadow-md">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-white/60 border border-white/80 shrink-0 overflow-hidden flex items-center justify-center">
+                                <img src="{{ asset('images/' . $firstFoto) }}" alt="{{ $firstNama }}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/100'">
+                            </div>
+                            <div>
+                                <p class="font-bold uppercase tracking-wider text-[#1A2E26] group-hover:text-[#10b981] transition-colors text-sm flex flex-wrap items-center gap-x-2">
+                                    <span class="normal-case">{{ $firstNama }}@if($itemCount > 1), (+{{ $itemCount - 1 }} lainnya)@endif</span>
+                                    <span class="text-xs text-slate-500 font-medium normal-case">— #ORD-{{ $order->id ?? $order->ID }}</span>
+                                </p>
+                                <p class="text-xs text-[#1A2E26]/60 mt-1">{{ \Carbon\Carbon::parse($order->created_at ?? $order->CREATED_AT ?? $order->TANGGAL_PESANAN)->format('d M Y, H:i') }}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between md:justify-end gap-4 md:gap-6 border-t md:border-t-0 border-[#1A2E26]/10 pt-4 md:pt-0">
+                            <p class="font-['Outfit'] text-xl font-bold text-[#1A2E26] group-hover:text-[#10b981] transition-colors">Rp {{ number_format($order->total_harga ?? $order->TOTAL_HARGA, 0, ',', '.') }}</p>
+                            <span class="bg-[#10b981]/10 backdrop-blur-md text-[#10b981] text-[10px] font-bold px-3 py-1.5 rounded-full border border-[#10b981]/30 tracking-widest uppercase shadow-[0_2px_10px_rgba(16,185,129,0.1)]">
+                                {{ $order->status_pesanan ?? $order->STATUS_PESANAN ?? 'Diproses' }}
+                            </span>
+                            <a href="{{ route('checkout.pesanan.lacak', $order->id ?? $order->ID) }}" 
+                               onclick="event.stopPropagation();" 
+                               class="bg-[#10b981] hover:bg-[#1A2E26] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all duration-300 shadow-[0_2px_8px_rgba(16,185,129,0.15)] hover:shadow-[0_4px_12px_rgba(26,46,38,0.2)] whitespace-nowrap">
+                                Lacak Pesanan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @empty
+                <div class="py-16 flex flex-col items-center text-center max-w-md mx-auto bg-white/40 backdrop-blur-md rounded-[2rem] border border-white/60">
+                    <div class="w-24 h-24 rounded-full bg-white/60 flex items-center justify-center mb-6 border border-white/80 text-[#1A2E26]/40">
+                        <span class="material-symbols-outlined text-4xl">inventory_2</span>
+                    </div>
+                    <h2 class="font-['Outfit'] text-2xl font-bold text-[#1A2E26] mb-2">Anda belum memiliki pesanan</h2>
+                    <p class="text-[#1A2E26]/70 mb-8 text-sm">Semua pesanan Anda akan muncul di sini.</p>
+                    <a class="px-8 py-3 bg-[#10b981] text-white font-bold rounded-xl shadow-[0_4px_15px_rgba(16,185,129,0.2)] hover:shadow-[0_6px_25px_rgba(16,185,129,0.3)] transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5" href="{{ route('produk.index') }}">
+                        Mulai Belanja
+                    </a>
+                </div>
+                @endforelse
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

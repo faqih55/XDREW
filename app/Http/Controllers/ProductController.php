@@ -17,14 +17,36 @@ class ProductController extends Controller
         }
 
         if ($request->filled('ukuran')) {
-            $query->where('UKURAN', $request->input('ukuran'));
+            $query->where('UKURAN', 'LIKE', '%' . $request->input('ukuran') . '%');
         }
 
-        $produk = $query->get();
+        if ($request->filled('warna')) {
+            $query->where('WARNA', 'LIKE', '%' . $request->input('warna') . '%');
+        }
+
+        if ($request->filled('harga_maksimal')) {
+            $query->where('HARGA', '<=', $request->input('harga_maksimal'));
+        }
+
+        $sort = $request->input('sort', 'newest');
+        if ($sort === 'price-asc') {
+            $query->orderBy('HARGA', 'asc');
+        } elseif ($sort === 'price-desc') {
+            $query->orderBy('HARGA', 'desc');
+        } else {
+            // newest
+            $query->orderBy('CREATED_AT', 'desc');
+        }
+
+        // Gunakan paginate dan pertahankan query string
+        $produk = $query->paginate(8)->withQueryString();
+
         $selectedKategori = $request->input('kategori', '');
         $selectedUkuran = $request->input('ukuran', '');
+        $selectedWarna = $request->input('warna', '');
+        $hargaMaksimal = $request->input('harga_maksimal', 7000000); // Default 7jt
 
-        return view('produk', compact('produk', 'selectedKategori', 'selectedUkuran'));
+        return view('produk', compact('produk', 'selectedKategori', 'selectedUkuran', 'selectedWarna', 'hargaMaksimal', 'sort'));
     }
 
     // FUNGSI SEARCH YANG SUDAH DIPERBAIKI

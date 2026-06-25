@@ -1,205 +1,393 @@
 <!DOCTYPE html>
-<html class="dark" lang="id">
+<html lang="id">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>{{ $produk->nama_produk ?? $produk->NAMA_PRODUK }} | XDrew Fashion</title>
+    <title>{{ $produk->nama_produk ?? $produk->NAMA_PRODUK ?? 'Produk' }} | XDrew Fashion</title>
     
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
     <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "primary": "#4edea3",
-                      "background": "#0e1511",
-                      "surface-container-low": "#161d19",
-                      "surface-container": "#1a211d",
-                      "surface-container-highest": "#2f3632",
-                      "outline-variant": "#3c4a42",
-                      "on-surface-variant": "#bbcabf"
-              },
-              "fontFamily": {
-                      "headline-md": ["Montserrat"],
-                      "headline-sm": ["Montserrat"],
-                      "display-lg": ["Montserrat"],
-                      "body-md": ["Inter"],
-                      "label-md": ["Inter"]
-              }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+                primary: "#10b981",
+                surface: "#F7F9F8",
+                "surface-container": "#ffffff",
+            },
+            fontFamily: {
+                heading: ["Outfit", "sans-serif"],
+                body: ["Poppins", "sans-serif"],
             }
-          }
-        }
+          },
+        },
+      }
     </script>
+
     <style>
-        body { background-color: #0e1511; color: #dde4dd; overflow-x: hidden; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .product-thumb:hover, .product-thumb.active { border-color: #4edea3; }
+        body { background-color: #EAF3EF; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+        
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0e1511; }
-        ::-webkit-scrollbar-thumb { background: #3c4a42; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #4edea3; }
+        ::-webkit-scrollbar-track { background: #EAF3EF; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
         [x-cloak] { display: none !important; }
+
+        @keyframes pulse-emerald {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-emerald 3s infinite;
+        }
+
+        /* Grid Pattern */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Premium Liquid Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4) !important;
+            backdrop-filter: blur(28px) saturate(220%) !important;
+            -webkit-backdrop-filter: blur(28px) saturate(220%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.6) !important;
+            box-shadow: 
+                0 16px 40px -10px rgba(98, 124, 112, 0.15), 
+                inset 0 1px 3px rgba(255, 255, 255, 0.8) !important;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.4) !important;
+            box-shadow: 0 20px 45px rgba(98, 124, 112, 0.2), inset 0 1px 3px rgba(255,255,255,0.8) !important;
+            transform: translateY(-2px);
+        }
+
+        .glass-card.emerald-glow {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+        }
+        .glass-card.emerald-glow:hover {
+            box-shadow: 
+                0 20px 50px 0 rgba(98, 124, 112, 0.2), 
+                inset 0 1px 3px rgba(255,255,255,0.8), 
+                0 0 25px rgba(16, 185, 129, 0.3) !important;
+            transform: translateY(-4px);
+        }
+
+        /* Glass Image Frame */
+        .glass-image-container {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 16px 40px -10px rgba(98, 124, 112, 0.15), inset 0 1px 3px rgba(255, 255, 255, 0.8);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-image-container:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 45px rgba(98, 124, 112, 0.2), inset 0 1px 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(16, 185, 129, 0.15);
+        }
+
+        /* Glass Thumbnail Buttons */
+        .glass-thumb {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-thumb:hover, .glass-thumb.active {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: #10b981 !important;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+            transform: scale(1.03);
+        }
+
+        /* Premium Buttons */
+        .btn-solid-glow {
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        .btn-solid-glow:hover {
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4), 0 0 15px rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+        .btn-solid-glow:active {
+            transform: translateY(1px);
+        }
+
+        .btn-outline-glow {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.5) !important;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .btn-outline-glow:hover {
+            background-color: #10b981;
+            color: #ffffff !important;
+            box-shadow: 0 12px 25px rgba(16, 185, 129, 0.3), 0 0 15px rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+        .btn-outline-glow:active {
+            transform: translateY(1px);
+        }
+
+        /* Glass Qty Selector */
+        .glass-qty-container {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Glass Size Selector */
+        .size-btn {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            color: #1A2E26;
+        }
+        .size-btn:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-1px);
+        }
+        .size-btn.active {
+            background: rgba(16, 185, 129, 0.1) !important;
+            border-color: #10b981 !important;
+            color: #10b981 !important;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2), inset 0 1px 2px rgba(16, 185, 129, 0.1);
+        }
+
+        /* Glass Accordion */
+        .glass-accordion {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-accordion:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Page Animations */
+        @keyframes pageFadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-enter { animation: pageFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        .product-thumb { transition: all 0.3s ease; }
+        .product-thumb:hover, .product-thumb.active { border-color: #10b981; opacity: 1; }
     </style>
 </head>
-<body class="font-body-md text-body-md selection:bg-primary selection:text-black">
+<body class="selection:bg-primary/30 selection:text-primary antialiased flex flex-col min-h-screen relative overflow-x-hidden">
 
-    @include('components.navbar')
+    <!-- Background and Glows (Emerald & Soft Blue Theme) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-40 animate-pulse-slow"></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-25"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#3bd58f] blur-[130px] opacity-35 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+    </div>
 
-    <main class="pt-32 pb-24 px-6 md:px-16 w-full max-w-[1440px] mx-auto">
+    <header class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/60 shadow-sm transition-all duration-300">
+        @include('components.navbar')
+    </header>
+
+    <main class="relative z-10 flex-grow pt-32 pb-24 px-6 md:px-16 max-w-[1440px] mx-auto w-full">
         
         @if(session('success'))
-            <div class="mb-6 p-4 bg-primary/20 border border-primary text-primary rounded-lg flex items-center justify-between">
-                <span>{{ session('success') }}</span>
-                <a href="#" class="font-bold underline hover:text-white">Lihat Keranjang</a>
+            <div class="mb-8 p-4 bg-primary/10 border border-primary/50 text-primary rounded-xl flex items-center justify-between page-enter">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span class="font-medium text-sm">{{ session('success') }}</span>
+                </div>
+                <a href="{{ route('cart.index') }}" class="font-bold text-sm hover:text-[#1A2E26] transition-colors">Lihat Keranjang</a>
             </div>
         @endif
 
-        <nav class="mb-12 flex items-center gap-2 text-on-surface-variant font-label-md text-sm">
+        <nav class="mb-10 flex items-center gap-2 text-[#1A2E26]/60 text-xs font-semibold uppercase tracking-widest page-enter" style="animation-delay: 0.1s;">
             <a class="hover:text-primary transition-colors" href="{{ route('home') }}">Beranda</a>
             <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-            <a class="hover:text-primary transition-colors" href="{{ route('produk') }}">Koleksi</a>
+            <a class="hover:text-primary transition-colors" href="{{ route('produk.index') }}">Koleksi</a>
             <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-            <span class="text-white">{{ $produk->nama_produk ?? $produk->NAMA_PRODUK }}</span>
+            <span class="text-[#1A2E26]">{{ $produk->nama_produk ?? $produk->NAMA_PRODUK ?? 'Detail' }}</span>
         </nav>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <section class="space-y-4">
-                <div class="aspect-[4/5] overflow-hidden bg-surface-container rounded-xl relative group">
-                    <img id="mainImage" alt="{{ $produk->nama_produk ?? $produk->NAMA_PRODUK }}" class="w-full h-full object-cover transition-transform duration-500" 
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            
+            <section class="space-y-5 page-enter" style="animation-delay: 0.2s;">
+                <div class="aspect-[4/5] overflow-hidden glass-image-container rounded-[2rem] relative group">
+                    <img id="mainImage" alt="{{ $produk->nama_produk ?? $produk->NAMA_PRODUK }}" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105" 
                          src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
                 </div>
                 
                 <div class="grid grid-cols-4 gap-4">
-                    <button class="aspect-square bg-surface-container rounded-lg border border-primary product-thumb overflow-hidden transition-all active">
+                    <button class="aspect-square rounded-xl glass-thumb product-thumb overflow-hidden active cursor-pointer">
                         <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
                     </button>
-                    <button class="aspect-square bg-surface-container rounded-lg border border-outline-variant product-thumb overflow-hidden transition-all">
-                        <img class="w-full h-full object-cover opacity-80" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
+                    <button class="aspect-square rounded-xl glass-thumb product-thumb overflow-hidden opacity-60 hover:opacity-100 cursor-pointer">
+                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
                     </button>
-                    <button class="aspect-square bg-surface-container rounded-lg border border-outline-variant product-thumb overflow-hidden transition-all">
-                        <img class="w-full h-full object-cover opacity-60" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
+                    <button class="aspect-square rounded-xl glass-thumb product-thumb overflow-hidden opacity-60 hover:opacity-100 cursor-pointer">
+                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
                     </button>
-                    <button class="aspect-square bg-surface-container rounded-lg border border-outline-variant product-thumb overflow-hidden transition-all">
-                        <img class="w-full h-full object-cover opacity-40" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
+                    <button class="aspect-square rounded-xl glass-thumb product-thumb overflow-hidden opacity-60 hover:opacity-100 cursor-pointer">
+                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
                     </button>
                 </div>
             </section>
 
-            <section class="flex flex-col">
-                <div class="mb-4">
-                    <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-label-md text-xs uppercase tracking-widest font-bold">
+            <section class="flex flex-col page-enter" style="animation-delay: 0.3s;">
+                
+                <div class="mb-5 flex gap-3 flex-wrap">
+                    <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/30 text-xs uppercase tracking-widest font-bold shadow-[0_0_10px_rgba(16,185,129,0.1)]">
                         {{ $produk->kategori ?? $produk->KATEGORI ?? 'Koleksi Terbaru' }}
                     </span>
+                    @if(($produk->status_produk ?? $produk->STATUS_PRODUK))
+                    <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-black/5 text-[#1A2E26] border border-black/10 text-xs uppercase tracking-widest font-bold shadow-sm">
+                        {{ $produk->status_produk ?? $produk->STATUS_PRODUK }}
+                    </span>
+                    @endif
                 </div>
                 
-                <h1 class="font-headline-md text-4xl mb-2 text-white">{{ $produk->nama_produk ?? $produk->NAMA_PRODUK }}</h1>
-                <p class="font-headline-sm text-2xl text-primary mb-8 font-bold">Rp {{ number_format($produk->harga ?? $produk->HARGA, 0, ',', '.') }}</p>
+                <h1 class="text-4xl md:text-5xl mb-3 text-[#1A2E26] font-extrabold uppercase tracking-tight">{{ $produk->nama_produk ?? $produk->NAMA_PRODUK }}</h1>
+                <p class="text-3xl text-primary mb-8 font-extrabold tracking-wide drop-shadow-sm">Rp {{ number_format($produk->harga ?? $produk->HARGA, 0, ',', '.') }}</p>
                 
-                <div class="mb-8">
-                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-6">
-                        {{ $produk->keterangan ?? $produk->deskripsi ?? 'Pakaian premium ini dibuat dengan teknologi ramah lingkungan yang memadukan estetika modern dan kenyamanan optimal.' }}
+                <div class="mb-10">
+                    <p class="text-[#1A2E26]/70 font-light leading-relaxed text-sm">
+                        {{ $produk->keterangan ?? $produk->deskripsi ?? 'Pakaian premium ini dibuat dengan teknologi ramah lingkungan yang memadukan estetika modern dan kenyamanan optimal. Potongan terstruktur untuk gaya urban yang tak lekang oleh waktu.' }}
                     </p>
                 </div>
 
-                <form action="{{ route('cart.add') }}" method="POST">
+                <form action="{{ route('cart.add') }}" method="POST" class="mb-10">
                     @csrf
                     <input type="hidden" name="produk_id" value="{{ $produk->id ?? $produk->ID }}">
 
-                    <div class="mb-8">
+                    <div class="mb-10">
                         <div class="flex justify-between items-center mb-4">
-                            <span class="font-label-md text-xs font-bold uppercase tracking-widest text-on-surface-variant">Pilih Ukuran</span>
-                            <button type="button" class="text-primary font-label-md text-xs font-bold uppercase tracking-widest hover:underline">Panduan Ukuran</button>
+                            <span class="text-xs font-bold uppercase tracking-widest text-[#1A2E26]/60">Pilih Ukuran</span>
+                            <button type="button" class="text-primary text-xs font-bold uppercase tracking-widest hover:text-[#1A2E26] transition-colors">Panduan Ukuran</button>
                         </div>
                         
                         @php
-                            // Mengambil data ukuran dari Oracle
                             $dataUkuran = $produk->ukuran ?? $produk->UKURAN;
                         @endphp
                         
                         @if(!empty($dataUkuran))
                             @php
-                                // Memecah string "XL,L,M,S" menjadi Array
                                 $arrayUkuran = explode(',', $dataUkuran);
                             @endphp
                             
-                            <div class="grid grid-cols-4 gap-4">
+                            <div class="grid grid-cols-4 gap-3">
                                 @foreach($arrayUkuran as $index => $size)
                                     @php $size = trim($size); @endphp
-                                    <button type="button" class="size-btn py-3 border {{ $index == 0 ? 'border-primary bg-primary/5 text-primary' : 'border-outline-variant text-white' }} rounded-lg hover:border-primary transition-all font-bold">
+                                    <button type="button" class="size-btn py-3.5 rounded-xl font-bold text-sm tracking-wider cursor-pointer {{ $index == 0 ? 'active' : '' }}">
                                         {{ $size }}
                                     </button>
                                 @endforeach
                             </div>
-                            
                             <input type="hidden" name="ukuran_terpilih" id="ukuran_terpilih" value="{{ trim($arrayUkuran[0]) }}">
                         @else
-                            <p class="text-gray-500 text-sm italic">Ukuran tunggal (All Size)</p>
+                            <div class="w-full py-4 border border-black/10 bg-white/60 rounded-xl text-center text-[#1A2E26]/70 font-medium">All Size (Satu Ukuran)</div>
                             <input type="hidden" name="ukuran_terpilih" id="ukuran_terpilih" value="All Size">
                         @endif
                     </div>
 
-                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                        <div class="flex items-center border border-outline-variant rounded-lg bg-surface-container-low">
-                            <button type="button" class="px-4 py-3 hover:text-primary transition-colors text-white" onclick="this.nextElementSibling.stepDown()">
-                                <span class="material-symbols-outlined">remove</span>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        
+                        <div class="flex items-center glass-qty-container rounded-xl h-14 overflow-hidden">
+                            <button type="button" class="w-14 h-full hover:bg-black/5 transition-colors text-[#1A2E26]/70 flex items-center justify-center cursor-pointer active:bg-black/10" onclick="this.nextElementSibling.stepDown()">
+                                <span class="material-symbols-outlined text-[18px]">remove</span>
                             </button>
-                            <input name="jumlah" class="w-12 bg-transparent text-center border-none focus:ring-0 font-bold text-white" max="{{ $produk->stok ?? $produk->STOK ?? 10 }}" min="1" type="number" value="1"/>
-                            <button type="button" class="px-4 py-3 hover:text-primary transition-colors text-white" onclick="this.previousElementSibling.stepUp()">
-                                <span class="material-symbols-outlined">add</span>
+                            <input name="jumlah" class="w-12 bg-transparent text-center border-none focus:ring-0 font-bold text-[#1A2E26] text-lg p-0" max="{{ $produk->stok ?? $produk->STOK ?? 10 }}" min="1" type="number" value="1"/>
+                            <button type="button" class="w-14 h-full hover:bg-black/5 transition-colors text-[#1A2E26]/70 flex items-center justify-center cursor-pointer active:bg-black/10" onclick="this.previousElementSibling.stepUp()">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
                             </button>
                         </div>
+                        
                         <div class="flex flex-col sm:flex-row gap-4 flex-1">
-                            <button type="submit" class="flex-1 bg-surface-container-low border border-primary text-primary font-bold uppercase tracking-widest text-sm py-4 rounded-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 hover:bg-primary/10">
-                                <span class="material-symbols-outlined">shopping_cart</span>
-                                Tambah ke Keranjang
+                            <button type="submit" class="flex-1 h-14 bg-transparent border border-primary text-primary font-bold uppercase tracking-widest text-xs rounded-xl btn-outline-glow flex items-center justify-center gap-2 cursor-pointer">
+                                <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                                Keranjang
                             </button>
-                            <button type="button" onclick="beliSekarang()" class="flex-1 bg-primary text-black font-bold uppercase tracking-widest text-sm py-4 rounded-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/10">
-                                <span class="material-symbols-outlined">local_mall</span>
+                            
+                            <button type="button" onclick="beliSekarang()" class="flex-1 h-14 bg-primary text-white font-extrabold uppercase tracking-widest text-xs rounded-xl btn-solid-glow flex items-center justify-center gap-2 cursor-pointer">
+                                <span class="material-symbols-outlined text-[20px]">flash_on</span>
                                 Beli Sekarang
                             </button>
                         </div>
                     </div>
                 </form>
 
-                <div class="space-y-px bg-outline-variant/30 rounded-lg overflow-hidden border border-white/5">
-                    <details class="group bg-surface-container-low" open>
-                        <summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-surface-container-highest transition-colors list-none outline-none">
-                            <span class="font-label-md text-xs font-bold uppercase tracking-widest text-white">Material & Perawatan</span>
-                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-white">expand_more</span>
-                        </summary>
-                        <div class="p-6 text-on-surface-variant font-body-md border-t border-outline-variant/30 bg-surface-container-highest/20">
-                            Cuci dengan suhu dingin dan jangan gunakan pemutih untuk menjaga kualitas kain.
+                <div class="space-y-3">
+                    <div x-data="{ open: true }" class="glass-accordion rounded-2xl overflow-hidden">
+                        <button @click="open = !open" type="button" class="w-full flex justify-between items-center p-5 outline-none text-[#1A2E26] hover:bg-black/5 transition-colors cursor-pointer">
+                            <span class="font-bold uppercase tracking-widest text-xs">Material & Perawatan</span>
+                            <span class="material-symbols-outlined transition-transform duration-300" :class="open ? 'rotate-180 text-primary' : 'text-[#1A2E26]/60'">expand_more</span>
+                        </button>
+                        <div x-show="open" x-collapse>
+                            <div class="p-5 pt-0 text-sm text-[#1A2E26]/70 font-light leading-relaxed">
+                                Ditenun dari kapas organik bersertifikat 100%. Cuci mesin dengan suhu dingin bersama warna senada. Jangan gunakan pemutih. Keringkan di tempat teduh untuk menjaga kualitas pigmen warna eco-friendly.
+                            </div>
                         </div>
-                    </details>
+                    </div>
+
+                    <div x-data="{ open: false }" class="glass-accordion rounded-2xl overflow-hidden">
+                        <button @click="open = !open" type="button" class="w-full flex justify-between items-center p-5 outline-none text-[#1A2E26] hover:bg-black/5 transition-colors cursor-pointer">
+                            <span class="font-bold uppercase tracking-widest text-xs">Pengiriman & Pengembalian</span>
+                            <span class="material-symbols-outlined transition-transform duration-300" :class="open ? 'rotate-180 text-primary' : 'text-[#1A2E26]/60'">expand_more</span>
+                        </button>
+                        <div x-show="open" x-collapse x-cloak>
+                            <div class="p-5 pt-0 text-sm text-[#1A2E26]/70 font-light leading-relaxed">
+                                Pengiriman standar gratis untuk pesanan di atas Rp 1.000.000. Pengembalian gratis dalam waktu 14 hari setelah barang diterima, syarat dan ketentuan berlaku.
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </section>
         </div>
 
-        <section class="mt-24 pt-16 border-t border-outline-variant/30">
-            <h2 class="font-headline-md text-3xl mb-10 text-white font-bold">Lengkapi Gaya Anda</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                @foreach($related_products as $related)
-                <a href="{{ route('produk.show', $related->id ?? $related->ID) }}" class="group cursor-pointer block">
-                    <div class="aspect-[3/4] rounded-xl overflow-hidden bg-surface-container relative mb-4">
-                        <img alt="{{ $related->nama_produk ?? $related->NAMA_PRODUK }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+        <section class="mt-32 pt-16 border-t border-black/5">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-3xl text-[#1A2E26] font-extrabold uppercase tracking-tight">Lengkapi Gaya Anda</h2>
+                <div class="h-1 w-16 bg-primary mx-auto rounded-full mt-4 shadow-sm"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                @foreach($related_products as $index => $related)
+                <a href="{{ route('produk.show', $related->id ?? $related->ID) }}" class="group block glass-card p-2.5 sm:p-4 rounded-[1.2rem] sm:rounded-3xl emerald-glow scroll-reveal" style="transition-delay: {{ $index * 100 }}ms;">
+                    <div class="aspect-[3/4] rounded-[0.8rem] sm:rounded-2xl overflow-hidden bg-white/60 relative mb-3 sm:mb-5 border border-white/60">
+                        <img alt="{{ $related->nama_produk ?? $related->NAMA_PRODUK }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
                              src="{{ asset('images/' . ($related->foto ?? $related->FOTO)) }}"/>
                         
-                        <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-primary/20" 
+                        <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <button class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-md border border-white/60 shadow-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:border-primary group/btn translate-y-4 group-hover:translate-y-0 cursor-pointer" 
                                 onclick="event.preventDefault(); window.location.href='{{ route('produk.show', $related->id ?? $related->ID) }}'">
-                            <span class="material-symbols-outlined text-primary">visibility</span>
+                            <span class="material-symbols-outlined text-[#1A2E26] text-[18px] sm:text-[20px] group-hover/btn:text-white">arrow_forward</span>
                         </button>
                     </div>
-                    <h3 class="font-bold text-white text-lg">{{ $related->nama_produk ?? $related->NAMA_PRODUK }}</h3>
-                    <p class="font-bold text-primary mt-1">Rp {{ number_format($related->harga ?? $related->HARGA, 0, ',', '.') }}</p>
+                    <div class="px-1 pb-1">
+                        <h3 class="font-bold text-[#1A2E26] text-[10px] sm:text-base tracking-wide truncate">{{ $related->nama_produk ?? $related->NAMA_PRODUK }}</h3>
+                        <p class="font-extrabold text-primary mt-1 text-[11px] sm:text-sm drop-shadow-sm">Rp {{ number_format($related->harga ?? $related->HARGA, 0, ',', '.') }}</p>
+                    </div>
                 </a>
                 @endforeach
-                
             </div>
         </section>
 
@@ -208,58 +396,67 @@
     @include('components.footer')
 
     <script>
-        // Interaksi Size (Otomatis Mengubah Input Form Tersembunyi)
+        // Logika Pilihan Ukuran dengan Efek Glow Baru
         const sizeButtons = document.querySelectorAll('.size-btn');
         const hiddenSizeInput = document.getElementById('ukuran_terpilih');
         
         sizeButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // Reset semua warna tombol
-                sizeButtons.forEach(b => {
-                    b.classList.remove('border-primary', 'bg-primary/5', 'text-primary');
-                    b.classList.add('border-outline-variant', 'text-white');
-                });
+            btn.addEventListener('click', () => {
+                sizeButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
                 
-                // Set warna tombol yang diklik
-                btn.classList.add('border-primary', 'bg-primary/5', 'text-primary');
-                btn.classList.remove('border-outline-variant', 'text-white');
-                
-                // Ubah nilai input tersembunyi sesuai dengan tombol yang diklik
                 if(hiddenSizeInput) {
                     hiddenSizeInput.value = btn.innerText.trim();
                 }
             });
         });
 
-        // Gallery Switcher
+        // Logika Penggantian Thumbnail Foto
         const mainImage = document.getElementById('mainImage');
         const thumbnails = document.querySelectorAll('.product-thumb');
+        
         thumbnails.forEach(thumbBtn => {
             thumbBtn.addEventListener('click', () => {
-                thumbnails.forEach(b => b.classList.remove('border-primary', 'active'));
-                thumbnails.forEach(b => b.classList.add('border-outline-variant'));
+                thumbnails.forEach(b => {
+                    b.classList.remove('active');
+                    b.classList.add('opacity-60');
+                });
                 
-                thumbBtn.classList.add('border-primary', 'active');
-                thumbBtn.classList.remove('border-outline-variant');
+                thumbBtn.classList.add('active');
+                thumbBtn.classList.remove('opacity-60');
 
                 const img = thumbBtn.querySelector('img');
                 mainImage.style.opacity = 0; 
                 setTimeout(() => {
                     mainImage.src = img.src;
                     mainImage.style.opacity = 1; 
-                }, 150);
+                }, 200);
             });
         });
 
-        // Function untuk tombol Beli Sekarang
         function beliSekarang() {
             const ukuran = document.getElementById('ukuran_terpilih').value;
             const jumlah = document.querySelector('input[name="jumlah"]').value;
             const produkId = {{ $produk->id ?? $produk->ID }};
             
-            // Redirect ke halaman pembayaran dengan parameter produk, jumlah, dan ukuran
-            window.location.href = `{{ route('pembayaran') }}?produk_id=${produkId}&jumlah=${jumlah}&ukuran=${ukuran}`;
+            // DIPERBAIKI 3: Menggunakan url() agar tidak terjadi error jika nama rute berbeda
+            window.location.href = `{{ url('/checkout/pembayaran') }}?produk_id=${produkId}&jumlah=${jumlah}&ukuran=${ukuran}`;
         }
+
+        // Scroll Reveal Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>

@@ -91,7 +91,7 @@ return [
             'prefix_indexes' => true,
         ],
 
-'oracle' => [
+        'oracle' => [
             'driver'         => 'oracle',
             'tns'            => env('DB_TNS', ''),
             'host'           => env('DB_HOST', '127.0.0.1'),
@@ -102,7 +102,7 @@ return [
             'charset'        => 'AL32UTF8',
             'prefix'         => '',
             'prefix_schema'  => '',
-            'service_name'   => 'XEPDB1', // Ini bagian krusialnya
+            'service_name'   => 'XEPDB1',
         ],
     ],
 

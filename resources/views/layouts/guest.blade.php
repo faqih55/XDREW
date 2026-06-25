@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>@yield('title', 'XDrew Fashion')</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script>
         tailwind.config = {
@@ -79,14 +79,14 @@
                         "md": "24px"
                     },
                     "fontFamily": {
-                        "body-md": ["Inter"],
-                        "headline-sm": ["Montserrat"],
-                        "display-lg": ["Montserrat"],
-                        "caption": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "headline-md": ["Montserrat"],
-                        "label-md": ["Inter"],
-                        "display-lg-mobile": ["Montserrat"]
+                        "body-md": ["Poppins"],
+                        "headline-sm": ["Outfit"],
+                        "display-lg": ["Outfit"],
+                        "caption": ["Poppins"],
+                        "body-lg": ["Poppins"],
+                        "headline-md": ["Outfit"],
+                        "label-md": ["Poppins"],
+                        "display-lg-mobile": ["Outfit"]
                     },
                     "fontSize": {
                         "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
@@ -119,9 +119,16 @@
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             vertical-align: middle;
         }
+        @keyframes smoothReveal {
+            from { opacity: 0; transform: translateY(15px); filter: blur(4px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        .animate-smooth-reveal {
+            animation: smoothReveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
     </style>
 </head>
-<body class="bg-background text-on-background min-h-screen flex font-body-md selection:bg-primary/30 selection:text-primary">
+<body class="bg-background text-on-background min-h-screen flex font-body-md selection:bg-primary/30 selection:text-primary animate-smooth-reveal">
     @yield('content')
 </body>
 </html>

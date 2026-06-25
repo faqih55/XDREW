@@ -7,21 +7,25 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
 class Authenticate extends Middleware
 {
     /**
-     * Get the path the user should be redirected to when they are not authenticated.
+     * Tentukan ke mana user diarahkan jika tidak terautentikasi.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
     protected function redirectTo($request)
     {
+        // Jika request BUKAN mengharapkan JSON (bukan API), lakukan redirect
         if (! $request->expectsJson()) {
-            // Jika request menuju ke path /admin/*, arahkan ke login admin
+            
+            // Jika user mencoba mengakses rute yang berawalan 'admin/'
             if ($request->is('admin/*')) {
                 return route('admin.login');
             }
-            
-            // Jika bukan admin (berarti untuk pelanggan), arahkan ke login pelanggan
+
+            // Default: arahkan ke login pelanggan
             return route('pelanggan.login');
         }
+        
+        return null;
     }
 }

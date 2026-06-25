@@ -9,27 +9,65 @@ class Pesanan extends Model
 {
     use HasFactory;
 
-    // Nama tabel di database Anda
-    protected $table = 'pesanan';
+    // Mengarahkan model untuk menggunakan koneksi Oracle
+    protected $connection = 'oracle';
 
-    // Menambahkan field yang diperlukan untuk checkout
+    // Nama tabel di Oracle (Wajib HURUF BESAR)
+    protected $table = 'PESANAN'; 
+
+    // Primary Key (Wajib 'ID' sesuai skema yang Anda miliki)
+    protected $primaryKey = 'ID'; 
+
+    // Konfigurasi ID agar Laravel tahu bahwa ini auto-increment
+    public $incrementing = true;
+    protected $keyType = 'int';
+
+    // Aktifkan timestamps karena tabel Anda memiliki CREATED_AT & UPDATED_AT
+    public $timestamps = true; 
+
+    // Daftar kolom yang diizinkan untuk diisi massal
     protected $fillable = [
-        'pelanggan_id',
-        'total_harga',
-        'status',
-        'nama_penerima', // Wajib ditambahkan
-        'alamat',        // Wajib ditambahkan
+        'ID_PELANGGAN',
+        'TANGGAL_PESANAN',
+        'STATUS_PESANAN',
+        'TOTAL_HARGA'
     ];
 
-    // RELASI: Satu Pesanan milik satu Pelanggan
+    /**
+     * RELASI
+     * Pastikan semua Foreign Key menggunakan nama kolom yang benar: 'ID_PESANAN'
+     */
+
     public function pelanggan()
     {
-        return $this->belongsTo(Pelanggan::class, 'pelanggan_id');
+        return $this->belongsTo(Pelanggan::class, 'id_pelanggan', 'id');
     }
 
-    // RELASI: Satu Pesanan memiliki banyak Detail_Pesanan
-    public function details()
+    public function detailPesanan()
     {
-        return $this->hasMany(Detail_Pesanan::class, 'pesanan_id');
+        return $this->hasMany(DetailPesanan::class, 'id_pesanan', 'id');
+    }
+
+    public function pembayaran()
+    {
+        return $this->hasOne(Pembayaran::class, 'id_pesanan', 'id');
+    }
+
+    public function pengiriman()
+    {
+        return $this->hasOne(Pengiriman::class, 'id_pesanan', 'id');
+    }
+
+    /**
+     * SANGAT PENTING UNTUK ORACLE:
+     * Oracle PDO mengembalikan nama kolom dalam huruf KECIL.
+     * Jembatan alias dari 'ID' (yang dicari Eloquent) ke 'id' (yang dikembalikan PDO).
+     */
+    public function getAttribute($key)
+    {
+        if (strtoupper($key) === 'ID') {
+            return parent::getAttribute('id') ?? parent::getAttribute('ID');
+        }
+        return parent::getAttribute($key);
     }
 }

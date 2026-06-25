@@ -4,45 +4,149 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\RedirectResponse;
+use App\Models\Pelanggan;
+use App\Models\Admin;
+use App\Notifications\SystemNotification;
 
 class PelangganController extends Controller
 {
-    // Menampilkan halaman form login pelanggan
+    /**
+     * Menampilkan halaman form login pelanggan
+     */
     public function showLogin()
     {
+        // Jika sudah login, langsung ke halaman utama
+        if (Auth::guard('pelanggan')->check()) {
+            return redirect()->route('home');
+        }
         return view('pelanggan.login'); 
     }
 
-    // Memproses data login
-    public function login(Request $request)
+    /**
+     * Memproses data login
+     */
+    public function login(Request $request): RedirectResponse
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
+        $request->validate([
+            'email'    => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        // Coba login menggunakan guard 'pelanggan'
-        if (Auth::guard('pelanggan')->attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
+        $email = strtolower($request->email);
+        $pelanggan = Pelanggan::whereRaw('LOWER(EMAIL) = ?', [$email])->first();
+
+        // Verifikasi password menggunakan Hash
+        if ($pelanggan && Hash::check($request->password, $pelanggan->getAuthPassword())) {
             
+            // Kirim notifikasi ke admin
+            try {
+                $admins = Admin::all();
+                $custName = $pelanggan->getAttribute('nama_lengkap') ?? $pelanggan->getAttribute('NAMA_LENGKAP') ?? 'Pelanggan';
+                foreach ($admins as $adm) {
+                    $adm->notify(new SystemNotification(
+                        'Pelanggan Masuk Sesi! 🔑',
+                        'Pelanggan <strong>' . $custName . '</strong> (' . $email . ') baru saja masuk ke akun mereka.',
+                        'login',
+                        '#eab308',
+                        route('admin.pelanggan')
+                    ));
+                }
+            } catch (\Exception $admNotifErr) {
+                Log::warning('Gagal mengirim notifikasi login ke admin: ' . $admNotifErr->getMessage());
+            }
+
+            // Login menggunakan guard 'pelanggan'
+            Auth::guard('pelanggan')->login($pelanggan);
+            
+            // Regenerasi sesi untuk keamanan
             $request->session()->regenerate();
             
-            // Jika berhasil, arahkan ke halaman utama
-            return redirect()->intended('/');
+            Log::info('Login Berhasil: ' . $email);
+            
+            // DIPERBAIKI: Mengarahkan langsung ke rute 'home'
+            // Ini akan mengabaikan URL lama yang mungkin tersangkut di sesi dan menyebabkan 404
+            return redirect()->route('home'); 
         }
 
+        Log::warning('Login Gagal untuk email: ' . $email);
+        
         return back()->withErrors([
-            'email' => 'Email atau Kata Sandi yang Anda masukkan salah.',
+            'email' => 'Email atau Kata Sandi salah.',
         ])->onlyInput('email');
     }
 
-    // Fitur Logout Pelanggan
-    public function logout(Request $request)
+    /**
+     * Logout Pelanggan
+     */
+    public function logout(Request $request): RedirectResponse
     {
+        // Logout hanya untuk guard pelanggan
         Auth::guard('pelanggan')->logout();
+        
+        // Hapus sesi dan regenerasi token CSRF
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         
-        // Setelah logout, arahkan ke halaman login (pelanggan.login)
-        return redirect()->route('pelanggan.login');
+        return redirect()->route('home');
+    }
+
+    /**
+     * Menampilkan halaman form registrasi pelanggan
+     */
+    public function showRegister()
+    {
+        // Jika sudah login, langsung ke halaman utama
+        if (Auth::guard('pelanggan')->check()) {
+            return redirect()->route('home');
+        }
+        return view('pelanggan.register'); 
+    }
+
+    /**
+     * Memproses data registrasi pelanggan baru
+     */
+    public function register(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'nama_lengkap' => ['required', 'string', 'max:255'],
+            'email'        => ['required', 'string', 'email', 'max:255', 'unique:PELANGGAN,EMAIL'],
+            'password'     => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        // Simpan ke Database
+        $pelanggan = Pelanggan::create([
+            'NAMA_LENGKAP' => $validated['nama_lengkap'],
+            'EMAIL'        => strtolower($validated['email']),
+            'KATA_SANDI'   => Hash::make($validated['password']),
+        ]);
+
+        // Kirim notifikasi ke admin
+        try {
+            $admins = Admin::all();
+            foreach ($admins as $adm) {
+                $adm->notify(new SystemNotification(
+                    'Pendaftaran Pelanggan Baru! 👤',
+                    'Pelanggan baru bernama <strong>' . $validated['nama_lengkap'] . '</strong> (' . strtolower($validated['email']) . ') telah bergabung.',
+                    'person_add',
+                    '#3b82f6',
+                    route('admin.pelanggan')
+                ));
+            }
+        } catch (\Exception $admNotifErr) {
+            Log::warning('Gagal mengirim notifikasi registrasi ke admin: ' . $admNotifErr->getMessage());
+        }
+
+        // Login menggunakan guard 'pelanggan'
+        Auth::guard('pelanggan')->login($pelanggan);
+        
+        // Regenerasi sesi untuk keamanan
+        $request->session()->regenerate();
+        
+        Log::info('Registrasi Pelanggan Berhasil: ' . $validated['email']);
+        
+        return redirect()->route('home')->with('success', 'Pendaftaran berhasil!');
     }
 }

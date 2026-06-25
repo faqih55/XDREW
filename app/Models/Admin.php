@@ -9,30 +9,70 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
-    // 1. Arahkan ke nama tabel yang benar di database
-    protected $table = 'admin';
+    // Mengarahkan model untuk menggunakan koneksi Oracle
+    protected $connection = 'oracle';
 
-    // 2. Kolom yang boleh diisi
+    // 1. Arahkan ke nama tabel yang benar di database (Oracle membaca secara KAPITAL)
+    protected $table = 'ADMIN';
+
+    // 2. SANGAT PENTING: Tentukan Primary Key agar Sesi Login stabil
+    protected $primaryKey = 'ID'; 
+
+    // 3. Kolom yang boleh diisi (Gunakan HURUF BESAR menyesuaikan Oracle)
     protected $fillable = [
-        'nama_admin',
-        'email',
-        'kata_sandi',
+        'NAMA_ADMIN',
+        'EMAIL',
+        'KATA_SANDI',
     ];
 
-    // 3. Sembunyikan kata sandi untuk keamanan
+    // 4. Sembunyikan dari respons array demi keamanan
     protected $hidden = [
-        'kata_sandi',
+        'KATA_SANDI',
+        'kata_sandi', // Menutupi format kecil untuk jaga-jaga
+        'remember_token',
     ];
 
-    // 4. Set custom password column name untuk authentication
-    public function getAuthPasswordName()
-    {
-        return 'kata_sandi';
-    }
+    // CATATAN: Jika tabel ADMIN Anda di Oracle TIDAK memiliki kolom CREATED_AT dan UPDATED_AT,
+    // hapus tanda komentar (//) pada baris di bawah ini agar tidak terjadi error saat menambah data:
+    public $timestamps = false;
 
-    // 5. Jembatan untuk memberitahu Laravel bahwa kolom password bernama 'kata_sandi'
+    // 5. Jembatan untuk memberitahu Laravel bahwa kolom password bernama KATA_SANDI
     public function getAuthPassword()
     {
-        return $this->kata_sandi;
+        // Oracle PDO mengembalikan kolom dalam huruf kecil, prioritaskan itu
+        return $this->getAttribute('kata_sandi') 
+            ?? $this->getAttribute('KATA_SANDI');
+    }
+
+    // =====================================================================
+    // 6. PELINDUNG SESI ORACLE (Mencegah ter-logout otomatis)
+    // =====================================================================
+    public function getAuthIdentifierName()
+    {
+        return $this->primaryKey;
+    }
+
+    public function getAuthIdentifier()
+    {
+        // Oracle PDO mengembalikan kolom dalam huruf kecil
+        return $this->getAttribute('id') 
+            ?? $this->getAttribute('ID');
+    }
+
+    /**
+     * Disable remember token for Oracle compatibility since the table does not have remember_token
+     */
+    public function getRememberToken()
+    {
+        return null;
+    }
+
+    public function setRememberToken($value)
+    {
+    }
+
+    public function getRememberTokenName()
+    {
+        return '';
     }
 }

@@ -7,18 +7,32 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "ai-chat:build": "webpack --config webpack.ai-chat.js --mode production",
+        "ai-chat:watch": "webpack --config webpack.ai-chat.js --watch --mode development"
     },
     "devDependencies": {
+        "@babel/core": "^7.29.7",
+        "@babel/preset-env": "^7.29.7",
+        "@babel/preset-react": "^7.29.7",
         "@tailwindcss/forms": "^0.5.2",
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
         "axios": "^0.25",
+        "babel-loader": "^10.1.1",
         "laravel-mix": "^6.0.49",
         "lodash": "^4.17.19",
         "postcss": "^8.4.6",
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7",
         "tailwindcss": "^3.1.0",
-        "webpack": "^5.107.2",
+        "webpack": "^5.75.0",
         "webpack-cli": "^4.10.0"
+    },
+    "dependencies": {
+        "@ai-sdk/react": "^3.0.210",
+        "ai": "^6.0.208",
+        "ws": "^8.21.0",
+        "zod": "^4.4.3"
     }
 }
