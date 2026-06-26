@@ -44,7 +44,6 @@
 
     <div class="flex-1 flex overflow-hidden w-full max-w-[1600px] mx-auto pt-28 relative">
         
-        <!-- Mobile Profile Menu Toggle -->
         <div class="lg:hidden absolute top-28 left-0 w-full bg-white/60 backdrop-blur-md border-b border-white/80 z-50 flex justify-between items-center p-4 shadow-sm">
             <h1 class="text-lg font-bold text-[#1A2E26] font-['Outfit']">Menu Profil</h1>
             <button @click="mobileOpen = !mobileOpen" class="text-[#1A2E26] hover:text-[#10b981] focus:outline-none transition-colors">
@@ -52,10 +51,8 @@
             </button>
         </div>
 
-        <!-- Mobile Overlay -->
         <div x-show="mobileOpen" @click="mobileOpen = false" x-transition.opacity class="fixed inset-0 bg-black/60 z-40 lg:hidden backdrop-blur-sm" style="display: none;"></div>
 
-        <!-- Sidebar -->
         <aside :class="{ 'lg:w-20': isMini, 'lg:w-72': !isMini, 'translate-x-0': mobileOpen, '-translate-x-full lg:translate-x-0': !mobileOpen }" 
                class="fixed inset-y-0 left-0 z-50 w-72 lg:w-auto transform lg:static transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col shrink-0 lg:my-auto lg:ml-6 lg:rounded-[32px] lg:h-[calc(100vh-160px)] border-r lg:border border-white/60"
                style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.2) 100%); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border-color: rgba(255, 255, 255, 0.6); box-shadow: inset 0 1px 1px rgba(255,255,255,0.8), 0 8px 32px rgba(98,124,112,0.1);">
@@ -63,7 +60,6 @@
             <div class="border-b border-[#1A2E26]/10 flex flex-col justify-center gap-4 transition-all duration-500 relative"
                  :class="isMini ? 'px-4 py-6 items-center' : 'p-6'">
                 <div x-show="!isMini" x-transition:enter="transition ease-out duration-200" class="flex flex-col justify-center w-full overflow-hidden">
-                    <!-- Brand Logo -->
                     <h1 class="text-2xl font-extrabold uppercase tracking-widest font-['Outfit'] text-[#1A2E26] leading-none mb-5">XDREW<span class="text-[#10b981]">.</span></h1>
                     
                     @auth('pelanggan')
@@ -101,7 +97,6 @@
             <nav class="flex-1 overflow-y-auto mt-2 transition-all duration-500"
                  :class="isMini ? 'px-3 py-4' : 'px-4 py-6'">
                 
-                <!-- MAIN SECTION -->
                 <div class="flex flex-col gap-1.5 relative mb-6">
                     <h3 class="text-[10px] font-bold text-[#1A2E26]/50 tracking-[0.2em] uppercase transition-all duration-300 mb-1"
                         :class="isMini ? 'text-center text-[8px] opacity-0 h-0 overflow-hidden' : 'px-4 opacity-100 h-auto'">Akun Saya</h3>
@@ -151,35 +146,6 @@
                     </a>
                 </div>
 
-                <!-- SETTINGS SECTION -->
-                <div class="flex flex-col gap-1.5 relative">
-                    <div class="h-px bg-[#1A2E26]/10 mb-3 transition-all duration-300" :class="isMini ? 'mx-2' : 'mx-4'"></div>
-                    <h3 class="text-[10px] font-bold text-[#1A2E26]/50 tracking-[0.2em] uppercase transition-all duration-300 mb-1"
-                        :class="isMini ? 'text-center text-[8px] opacity-0 h-0 overflow-hidden' : 'px-4 opacity-100 h-auto'">Pengaturan</h3>
-                    
-                    @php $isActive = request()->routeIs('profile.alamat'); @endphp
-                    <a href="{{ route('profile.alamat') }}" 
-                       class="flex items-center gap-4 rounded-2xl font-medium tracking-wide transition-all duration-300 relative overflow-hidden group {{ $isActive ? 'bg-gradient-to-r from-white/80 to-white/40 text-[#10b981] shadow-[0_4px_15px_rgba(98,124,112,0.1)] border border-white/80' : 'text-[#1A2E26]/70 hover:bg-white/60 hover:text-[#1A2E26]' }}"
-                       :class="isMini ? 'justify-center px-0 py-3' : 'px-4 py-3.5'">
-                        @if($isActive)
-                            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 bg-[#10b981] rounded-r-full shadow-[0_0_12px_rgba(16,185,129,0.5)] transition-all duration-300" :class="isMini ? 'h-5' : 'h-8'"></div>
-                        @endif
-                        <span class="material-symbols-outlined shrink-0 transition-transform group-hover:scale-110" style="{{ $isActive ? 'font-variation-settings: \'FILL\' 1;' : '' }}">location_on</span>
-                        <span class="whitespace-nowrap transition-all duration-300" :class="isMini ? 'opacity-0 w-0 hidden' : 'opacity-100 block'">Alamat</span>
-                    </a>
-
-                    @php $isActive = request()->routeIs('profile.keamanan'); @endphp
-                    <a href="{{ route('profile.keamanan') }}" 
-                       class="flex items-center gap-4 rounded-2xl font-medium tracking-wide transition-all duration-300 relative overflow-hidden group {{ $isActive ? 'bg-gradient-to-r from-white/80 to-white/40 text-[#10b981] shadow-[0_4px_15px_rgba(98,124,112,0.1)] border border-white/80' : 'text-[#1A2E26]/70 hover:bg-white/60 hover:text-[#1A2E26]' }}"
-                       :class="isMini ? 'justify-center px-0 py-3' : 'px-4 py-3.5'">
-                        @if($isActive)
-                            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 bg-[#10b981] rounded-r-full shadow-[0_0_12px_rgba(16,185,129,0.5)] transition-all duration-300" :class="isMini ? 'h-5' : 'h-8'"></div>
-                        @endif
-                        <span class="material-symbols-outlined shrink-0 transition-transform group-hover:scale-110" style="{{ $isActive ? 'font-variation-settings: \'FILL\' 1;' : '' }}">security</span>
-                        <span class="whitespace-nowrap transition-all duration-300" :class="isMini ? 'opacity-0 w-0 hidden' : 'opacity-100 block'">Keamanan</span>
-                    </a>
-                </div>
-
             </nav>
             
             <div class="p-4 border-t border-[#1A2E26]/10 mt-auto">
@@ -193,7 +159,6 @@
             </div>
         </aside>
 
-        <!-- Main Content Area -->
         <main class="flex-1 h-full overflow-y-auto bg-[#EAF3EF] pt-16 lg:pt-0 w-full min-w-0 px-4 py-6 lg:p-10">
             @yield('content')
             

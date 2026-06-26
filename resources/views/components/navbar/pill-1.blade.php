@@ -41,4 +41,41 @@
                 </a>
             @endforeach
         </div>
+
+            {{-- MENU DUKUNGAN DROPDOWN --}}
+    <div class="relative hidden lg:block" @click.outside="supportOpen = false">
+        <button @click="supportOpen = !supportOpen"
+                class="flex items-center gap-1 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 px-4 py-2 hover:text-[#10b981] {{ request()->is('*dukungan*') ? 'text-[#10b981]' : 'text-[#1A2E26]' }}">
+            Dukungan
+            <span class="material-symbols-outlined text-[16px] transition-transform duration-300" 
+                  :class="supportOpen ? 'rotate-180' : ''">expand_more</span>
+        </button>
+
+        <div x-show="supportOpen"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0 translate-y-4"
+             class="absolute left-0 top-[calc(100%+16px)] w-[240px] bg-white/80 backdrop-blur-xl border border-white/80 shadow-[0_15px_35px_rgba(98,124,112,0.1)] rounded-[1.5rem] p-2 z-50"
+             style="display: none;"
+             x-cloak>
+            <div class="flex flex-col gap-1">
+                <a href="{{ route('profile.lacak') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[11px] font-bold text-[#1A2E26]/80 uppercase tracking-widest hover:text-[#10b981] hover:bg-white transition-all">
+                    <span class="material-symbols-outlined text-[18px]">local_shipping</span> Lacak Pesanan
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[11px] font-bold text-[#1A2E26]/80 uppercase tracking-widest hover:text-[#10b981] hover:bg-white transition-all">
+                    <span class="material-symbols-outlined text-[18px]">policy</span> Kebijakan Privasi
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[11px] font-bold text-[#1A2E26]/80 uppercase tracking-widest hover:text-[#10b981] hover:bg-white transition-all">
+                    <span class="material-symbols-outlined text-[18px]">gavel</span> Syarat & Ketentuan
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-[11px] font-bold text-[#1A2E26]/80 uppercase tracking-widest hover:text-[#10b981] hover:bg-white transition-all">
+                    <span class="material-symbols-outlined text-[18px]">support_agent</span> Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </div>
+        
     </nav>

@@ -76,16 +76,31 @@
                     <input type="text" name="nama_pelanggan" value="{{ old('nama_pelanggan', $user->NAMA_PELANGGAN ?? $user->NAMA_LENGKAP) }}" required class="w-full bg-white/60 border border-white/80 rounded-xl px-4 py-3 text-[#1A2E26] focus:bg-white focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] shadow-inner transition-all duration-300">
                     @error('nama_pelanggan') <span class="text-[#e11d48] text-sm mt-1 block">{{ $message }}</span> @enderror
                 </div>
+                
                 <div class="group">
                     <label class="text-sm text-[#1A2E26]/70 block mb-2 font-bold group-focus-within:text-[#10b981] transition-colors">Email</label>
                     <input type="email" name="email" value="{{ old('email', $user->EMAIL) }}" required class="w-full bg-white/60 border border-white/80 rounded-xl px-4 py-3 text-[#1A2E26] focus:bg-white focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] shadow-inner transition-all duration-300">
                     @error('email') <span class="text-[#e11d48] text-sm mt-1 block">{{ $message }}</span> @enderror
                 </div>
+                
                 <div class="group">
                     <label class="text-sm text-[#1A2E26]/70 block mb-2 font-bold group-focus-within:text-[#10b981] transition-colors">Nomor Telepon</label>
                     <input type="text" name="no_telepon" value="{{ old('no_telepon', $user->NO_TELEPON ?? $user->NOMOR_TELEPON) }}" placeholder="Contoh: 081234567890" class="w-full bg-white/60 border border-white/80 rounded-xl px-4 py-3 text-[#1A2E26] focus:bg-white focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] shadow-inner transition-all duration-300 placeholder-[#1A2E26]/30">
                     @error('no_telepon') <span class="text-[#e11d48] text-sm mt-1 block">{{ $message }}</span> @enderror
                 </div>
+
+                <div class="group">
+                    <label class="text-sm text-[#1A2E26]/70 block mb-2 font-bold group-focus-within:text-[#10b981] transition-colors">Provinsi</label>
+                    <input type="text" name="provinsi" value="{{ old('provinsi', $user->PROVINSI ?? $user->provinsi) }}" placeholder="Contoh: DI Yogyakarta" required class="w-full bg-white/60 border border-white/80 rounded-xl px-4 py-3 text-[#1A2E26] focus:bg-white focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] shadow-inner transition-all duration-300 placeholder-[#1A2E26]/30">
+                    @error('provinsi') <span class="text-[#e11d48] text-sm mt-1 block">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="group">
+                    <label class="text-sm text-[#1A2E26]/70 block mb-2 font-bold group-focus-within:text-[#10b981] transition-colors">Kota / Kabupaten</label>
+                    <input type="text" name="kota" value="{{ old('kota', $user->KOTA ?? $user->kota) }}" placeholder="Contoh: Sleman" required class="w-full bg-white/60 border border-white/80 rounded-xl px-4 py-3 text-[#1A2E26] focus:bg-white focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] shadow-inner transition-all duration-300 placeholder-[#1A2E26]/30">
+                    @error('kota') <span class="text-[#e11d48] text-sm mt-1 block">{{ $message }}</span> @enderror
+                </div>
+
                 <div class="md:col-span-2 group">
                     <label class="text-sm text-[#1A2E26]/70 block mb-2 font-bold group-focus-within:text-[#10b981] transition-colors">Alamat Lengkap</label>
                     <textarea name="alamat" rows="3" class="w-full bg-white/60 border border-white/80 rounded-xl px-4 py-3 text-[#1A2E26] focus:bg-white focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] shadow-inner transition-all duration-300 resize-y">{{ old('alamat', $user->ALAMAT) }}</textarea>

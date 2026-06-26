@@ -140,7 +140,7 @@
                             <p class="text-[10px] text-[#1A2E26]/60 uppercase tracking-widest mb-2">Metode Pembayaran</p>
                             <div class="flex items-center gap-3">
                                 <span class="material-symbols-outlined text-primary">credit_card</span>
-                                <span class="text-sm font-bold text-[#1A2E26] uppercase tracking-wider">{{ $pesanan->metode_pembayaran ?? 'Transfer Bank' }}</span>
+                                <span class="text-sm font-bold text-[#1A2E26] uppercase tracking-wider">{{ $pesanan->pembayaran->metode_bayar ?? $pesanan->pembayaran->METODE_BAYAR ?? 'Transfer Bank' }}</span>
                             </div>
                         </div>
 

@@ -491,16 +491,8 @@
         let windowSubtotal = 0;
 
         // 2. Deteksi apakah ada keranjang
-        const isCartExist = {
-            {
-                (session('cart') && count(session('cart')) > 0) ? 'true' : 'false'
-            }
-        };
-        const subtotalDariCart = {
-            {
-                $subtotalCart ?? 0
-            }
-        };
+        const isCartExist = {{ (session('cart') && count(session('cart')) > 0) ? 'true' : 'false' }};
+        const subtotalDariCart = {{ $subtotalCart ?? 0 }};
 
         // 3. Tangkap URL Parameters dari tombol "Beli Langsung"
         const queryParams = new URLSearchParams(window.location.search);

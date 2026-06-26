@@ -23,7 +23,7 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Memproses data checkout ke dalam database Oracle
+     * Memproses data checkout ke dalam database
      */
     public function process(Request $request)
     {
@@ -38,7 +38,7 @@ class CheckoutController extends Controller
             'total_pembayaran' => 'required|numeric',
         ]);
 
-        // 1.5 Cek apakah ada barang yang dipesan (Dari Keranjang atau Beli Langsung)
+        // 1.5 Cek apakah ada barang yang dipesan
         $cart = session('cart', []);
         $isSingleProduct = ($request->filled('produk_id') && $request->produk_id !== 'null' && $request->is_beli_langsung == 'true');
 
@@ -46,8 +46,9 @@ class CheckoutController extends Controller
             return response()->json(['success' => false, 'message' => 'Keranjang belanja Anda kosong.'], 400);
         }
 
-        // Ambil nama produk pertama untuk deskripsi pesanan / notifikasi
+        // Ambil nama & foto produk pertama untuk notifikasi
         $firstProductName = 'Produk XDrew';
+        $firstProductImage = null; 
         $extraCount = 0;
         
         if ($isSingleProduct) {
@@ -55,12 +56,16 @@ class CheckoutController extends Controller
             $prod = \App\Models\Produk::find($idProduk);
             if ($prod) {
                 $firstProductName = $prod->nama_produk ?? $prod->NAMA_PRODUK ?? 'Produk';
+                // PENCARIAN FOTO EKSTRA AMAN: Mencakup semua variasi nama kolom
+                $firstProductImage = $prod->foto_produk ?? $prod->FOTO_PRODUK ?? $prod->gambar ?? $prod->GAMBAR ?? $prod->foto ?? $prod->FOTO ?? $prod->gambar_produk ?? $prod->GAMBAR_PRODUK ?? null; 
             }
         } else {
             $cartItems = array_values($cart);
             if (!empty($cartItems)) {
                 $firstItem = $cartItems[0];
                 $firstProductName = $firstItem['nama_produk'] ?? $firstItem['NAMA_PRODUK'] ?? 'Produk';
+                // PENCARIAN FOTO DI KERANJANG
+                $firstProductImage = $firstItem['foto'] ?? $firstItem['FOTO'] ?? $firstItem['gambar'] ?? $firstItem['GAMBAR'] ?? $firstItem['foto_produk'] ?? $firstItem['FOTO_PRODUK'] ?? null; 
                 $extraCount = count($cartItems) - 1;
             }
         }
@@ -81,34 +86,32 @@ class CheckoutController extends Controller
                 'STATUS_PESANAN'  => 'Pending'
             ]);
 
-            // Menggunakan getKey() jauh lebih aman untuk Oracle dibanding ->ID
             $pesanan_id = $pesanan->getKey(); 
 
             // 3. Simpan Item Pesanan
-                if ($isSingleProduct) {
-                    // Bersihkan ID: Ambil bagian sebelum tanda '-' (misal '5-XL' menjadi '5')
-                    $idProduk = explode('-', $request->produk_id)[0];
+            if ($isSingleProduct) {
+                $idProduk = explode('-', $request->produk_id)[0];
+                
+                DetailPesanan::create([
+                    'ID_PESANAN'   => $pesanan_id, 
+                    'ID_PRODUK'    => $idProduk, 
+                    'KUANTITAS'    => $request->jumlah,
+                    'HARGA_SATUAN' => ($request->total_pembayaran / $request->jumlah) 
+                ]);
+            } else {
+                foreach ($cart as $id => $item) {
+                    $idProduk = explode('-', $id)[0];
                     
                     DetailPesanan::create([
-                        'ID_PESANAN'   => $pesanan_id, 
-                        'ID_PRODUK'    => $idProduk, // Gunakan ID yang sudah bersih
-                        'KUANTITAS'    => $request->jumlah,
-                        'HARGA_SATUAN' => ($request->total_pembayaran / $request->jumlah) 
+                        'ID_PESANAN'   => $pesanan_id,
+                        'ID_PRODUK'    => $idProduk, 
+                        'KUANTITAS'    => $item['jumlah'] ?? $item['KUANTITAS'] ?? 1,
+                        'HARGA_SATUAN' => $item['harga'] ?? $item['HARGA'] ?? 0
                     ]);
-                } else {
-                    foreach ($cart as $id => $item) {
-                        // Bersihkan ID: Ambil bagian sebelum tanda '-'
-                        $idProduk = explode('-', $id)[0];
-                        
-                        DetailPesanan::create([
-                            'ID_PESANAN'   => $pesanan_id,
-                            'ID_PRODUK'    => $idProduk, // Gunakan ID yang sudah bersih
-                            'KUANTITAS'    => $item['jumlah'] ?? $item['KUANTITAS'] ?? 1,
-                            'HARGA_SATUAN' => $item['harga'] ?? $item['HARGA'] ?? 0
-                        ]);
-                    }
-                    session()->forget('cart');
                 }
+                session()->forget('cart');
+            }
+
             // 4. Simpan Data Pengiriman
             $alamat_tujuan = $request->alamat_lengkap . ', ' . $request->kota . ', ' . $request->provinsi . 
                              ' (Penerima: ' . $request->nama_penerima . ' - ' . $request->nomor_telepon . ')';
@@ -127,7 +130,7 @@ class CheckoutController extends Controller
                 'TANGGAL_BAYAR' => now()
             ]);
 
-            // Sync/update profile shipping address in database
+            // Sync/update profile shipping address
             $user = Auth::guard('pelanggan')->user();
             if ($user) {
                 $user->NOMOR_TELEPON = $request->nomor_telepon;
@@ -139,16 +142,16 @@ class CheckoutController extends Controller
 
             DB::commit();
 
-            // Kirim notifikasi ke pelanggan & admin
+            // 6. Kirim notifikasi ke pelanggan & admin (DENGAN GAMBAR PRODUK)
             try {
-                $user = Auth::guard('pelanggan')->user();
                 if ($user) {
                     $user->notify(new SystemNotification(
                         $namaPesanan . ' — #ORD-' . $pesanan_id,
                         'Pesanan senilai <strong>Rp ' . number_format($request->total_pembayaran, 0, ',', '.') . '</strong> sedang diproses. Silakan lakukan pembayaran.',
                         'shopping_bag',
                         '#4edea3',
-                        route('checkout.pesanan.show', $pesanan_id)
+                        route('checkout.pesanan.show', $pesanan_id),
+                        $firstProductImage // GAMBAR DIKIRIM KE SINI
                     ));
                     
                     // Notifikasi ke admin
@@ -160,7 +163,8 @@ class CheckoutController extends Controller
                             'Pelanggan <strong>' . $custName . '</strong> telah membuat pesanan senilai <strong>Rp ' . number_format($request->total_pembayaran, 0, ',', '.') . '</strong>.',
                             'shopping_bag',
                             '#10b981',
-                            route('admin.pesanan.show', $pesanan_id)
+                            route('admin.pesanan.show', $pesanan_id),
+                            $firstProductImage // GAMBAR DIKIRIM KE SINI
                         ));
                     }
                 }
@@ -185,12 +189,12 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Menampilkan halaman Invoice / Detail Pesanan setelah berhasil checkout
+     * Menampilkan halaman Invoice / Detail Pesanan
      */
     public function show($id)
     {
         $pesanan = Pesanan::with(['detailPesanan.produk', 'pembayaran', 'pengiriman'])->findOrFail($id);
-        return view('detail-pesanan', compact('pesanan')); // Pastikan Anda memiliki file resources/views/detail-pesanan.blade.php
+        return view('detail-pesanan', compact('pesanan'));
     }
 
     /**
@@ -200,7 +204,6 @@ class CheckoutController extends Controller
     {
         $pesanan = Pesanan::with(['detailPesanan.produk', 'pembayaran', 'pengiriman'])->findOrFail($id);
         
-        // Proteksi kepemilikan pesanan
         $idPelanggan = $pesanan->id_pelanggan ?? $pesanan->ID_PELANGGAN;
         if ($idPelanggan != Auth::guard('pelanggan')->id()) {
             abort(403, 'Anda tidak memiliki akses ke pesanan ini.');

@@ -9,41 +9,29 @@ class SystemNotification extends Notification
 {
     use Queueable;
 
-    public $title;
-    public $message;
-    public $icon;
-    public $color;
-    public $url;
+    protected $title;
+    protected $message;
+    protected $icon;
+    protected $color;
+    protected $url;
+    protected $image; // Parameter baru untuk gambar
 
-    /**
-     * Create a new notification instance.
-     */
-    public function __construct(
-        string $title,
-        string $message,
-        string $icon  = 'notifications',
-        string $color = '#4edea3',
-        ?string $url  = null
-    ) {
+    public function __construct($title, $message, $icon = 'notifications', $color = '#4edea3', $url = null, $image = null)
+    {
         $this->title   = $title;
         $this->message = $message;
         $this->icon    = $icon;
         $this->color   = $color;
         $this->url     = $url;
+        $this->image   = $image; // Simpan gambar
     }
 
-    /**
-     * Get the notification's delivery channels.
-     */
-    public function via($notifiable): array
+    public function via($notifiable)
     {
-        return ['database'];
+        return ['database']; // Menyimpan notifikasi di database
     }
 
-    /**
-     * Get the array representation of the notification.
-     */
-    public function toArray($notifiable): array
+    public function toDatabase($notifiable)
     {
         return [
             'title'   => $this->title,
@@ -51,6 +39,7 @@ class SystemNotification extends Notification
             'icon'    => $this->icon,
             'color'   => $this->color,
             'url'     => $this->url,
+            'image'   => $this->image, // Simpan path gambar ke kolom 'data'
         ];
     }
 }

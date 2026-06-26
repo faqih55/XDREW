@@ -282,7 +282,7 @@
                     <!-- Floating Glass Annotations -->
                     <div class="absolute top-12 -right-6 lg:-right-8 z-20 flex flex-col gap-1 p-4 bg-white/50 border border-white/70 backdrop-blur-md rounded-[1.5rem] shadow-[0_12px_32px_rgba(98,124,112,0.06)] max-w-[180px]" data-anime="float">
                         <span class="text-[9px] font-black uppercase tracking-[0.2em] text-[#10b981]">PREMIUM MATERIAL</span>
-                        <span class="text-[11px] font-bold text-[#1A2E26] leading-tight">Organic Cotton &amp; Recycled Fiber</span>
+                        <span class="text-[11px] font-bold text-[#1A2E26] leading-tight">Organic Cotton & Recycled Fiber</span>
                     </div>
 
                     <div class="absolute bottom-16 -left-6 lg:-left-8 z-20 flex flex-col gap-1 p-4 bg-white/50 border border-white/70 backdrop-blur-md rounded-[1.5rem] shadow-[0_12px_32px_rgba(98,124,112,0.06)] max-w-[180px]" data-anime="float-reverse">
@@ -340,40 +340,58 @@
             </div>
         </section>
         
-        <!-- Categories: Visual Blocks -->
+        <!-- Categories: Visual Blocks (Sudah Diperbarui Sesuai Desain Produk Terlaris) -->
         <section class="py-20 relative z-10 px-4 md:px-16 max-w-[1440px] mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 h-auto md:h-[550px]">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <!-- Kaos -->
-                <a href="{{ route('produk.index', ['kategori' => 'T-Shirt']) }}" class="group flex flex-col relative overflow-hidden h-[450px] md:h-full cursor-pointer glass-card rounded-[2rem] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(78,222,163,0.15)] hover:border-[#4edea3]/40 transition-all duration-500">
-                    <div class="flex-1 relative overflow-hidden bg-white/20">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Eo3DFkyBbMXapfbzePyG1ShZ10Vaygf0MTjx5sXYmjFC7561xwRArpD8jV_0ptcqCxAsvj8Hct7jm1CqUKXOD7H1C02IIkwx-d0XarcFV2l6CcgZ-Z1wD6kgC4fDULgp3z8E6R4mKIFfZNZoWS72aiUGayRM0k-gUDaywlqO7ied9qAchakjbh3Kxdm3AtVi8hZXFnWQOl537hEBHpaWJNbG4nmGqRDkq06mCqxtuKD4cZTP8B-BMNS2Cb--0DpPkc_oyRLH94sh"/>
+                <a href="{{ route('produk.index', ['kategori' => 'T-Shirt']) }}" class="group flex flex-col glass-card rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(78,222,163,0.15)] hover:border-[#4edea3]/40 cursor-pointer">
+                    <div class="aspect-[4/5] relative overflow-hidden bg-white/20">
+                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Eo3DFkyBbMXapfbzePyG1ShZ10Vaygf0MTjx5sXYmjFC7561xwRArpD8jV_0ptcqCxAsvj8Hct7jm1CqUKXOD7H1C02IIkwx-d0XarcFV2l6CcgZ-Z1wD6kgC4fDULgp3z8E6R4mKIFfZNZoWS72aiUGayRM0k-gUDaywlqO7ied9qAchakjbh3Kxdm3AtVi8hZXFnWQOl537hEBHpaWJNbG4nmGqRDkq06mCqxtuKD4cZTP8B-BMNS2Cb--0DpPkc_oyRLH94sh" alt="Kaos"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1A2E26]/30 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
                     </div>
-                    <div class="p-6 md:p-8 flex flex-col items-center justify-center bg-white/60 backdrop-blur-md border-t border-white/50">
-                        <h2 class="font-['Outfit'] font-black text-3xl text-[#1A2E26] uppercase mb-4 drop-shadow-sm tracking-[0.1em]">KAOS</h2>
-                        <span class="inline-block text-white bg-[#10b981] font-['Outfit'] font-black text-[12px] tracking-[0.25em] px-8 py-3 rounded-full hover:bg-[#1A2E26] hover:shadow-[0_8px_20px_rgba(78,222,163,0.3)] transition-all duration-500">JELAJAHI</span>
+                    <div class="flex flex-col p-5 bg-white/30 text-center border-t border-white/40 relative items-center justify-center flex-1">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-[#4edea3]/50"></div>
+                        <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#1A2E26] group-hover:text-[#10b981] transition-colors truncate px-1">KAOS</h3>
+                        <div class="mt-3 overflow-hidden">
+                            <span class="inline-flex items-center justify-center text-white bg-[#10b981] font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.15em] rounded-full transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] w-[100px] hover:w-[140px] h-[32px] hover:bg-[#059669] hover:shadow-[0_4px_15px_rgba(16,185,129,0.3)]">
+                                Jelajahi
+                            </span>
+                        </div>
                     </div>
                 </a>
 
                 <!-- Hoodie -->
-                <a href="{{ route('produk.index', ['kategori' => 'Hoodie']) }}" class="group flex flex-col relative overflow-hidden h-[450px] md:h-full cursor-pointer glass-card rounded-[2rem] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(78,222,163,0.15)] hover:border-[#4edea3]/40 transition-all duration-500">
-                    <div class="flex-1 relative overflow-hidden bg-white/20">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8ePTZUIOYVsb0ScDbDgyzWyF1klHG8Xi42XMeR4VJjYL8Atr5LfBWUCoBrJEVTYaQHVXM_5ae_qtEzOoz2zGNAQaUY-DaFnmF-pLhCYFsU2YotwrkglkTGcK1yxwab95tCwCmZvFsLA99fzJ5E9hl1EMsoPRdmyrcwg-cwtjDe7ytPYoiRbKkM-VEtTY0wrdpfQbVbB_Uy6pkrCPfyRlbX9qHwSzO31x44AEti-Q6UoEt7B7e6kOIpB0dN2MLUHrYxvwVb7-ymsO1"/>
+                <a href="{{ route('produk.index', ['kategori' => 'Hoodie']) }}" class="group flex flex-col glass-card rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(78,222,163,0.15)] hover:border-[#4edea3]/40 cursor-pointer">
+                    <div class="aspect-[4/5] relative overflow-hidden bg-white/20">
+                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8ePTZUIOYVsb0ScDbDgyzWyF1klHG8Xi42XMeR4VJjYL8Atr5LfBWUCoBrJEVTYaQHVXM_5ae_qtEzOoz2zGNAQaUY-DaFnmF-pLhCYFsU2YotwrkglkTGcK1yxwab95tCwCmZvFsLA99fzJ5E9hl1EMsoPRdmyrcwg-cwtjDe7ytPYoiRbKkM-VEtTY0wrdpfQbVbB_Uy6pkrCPfyRlbX9qHwSzO31x44AEti-Q6UoEt7B7e6kOIpB0dN2MLUHrYxvwVb7-ymsO1" alt="Hoodie"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1A2E26]/30 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
                     </div>
-                    <div class="p-6 md:p-8 flex flex-col items-center justify-center bg-white/60 backdrop-blur-md border-t border-white/50">
-                        <h2 class="font-['Outfit'] font-black text-3xl text-[#1A2E26] uppercase mb-4 drop-shadow-sm tracking-[0.1em]">HOODIE</h2>
-                        <span class="inline-block text-white bg-[#10b981] font-['Outfit'] font-black text-[12px] tracking-[0.25em] px-8 py-3 rounded-full hover:bg-[#1A2E26] hover:shadow-[0_8px_20px_rgba(78,222,163,0.3)] transition-all duration-500">JELAJAHI</span>
+                    <div class="flex flex-col p-5 bg-white/30 text-center border-t border-white/40 relative items-center justify-center flex-1">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-[#4edea3]/50"></div>
+                        <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#1A2E26] group-hover:text-[#10b981] transition-colors truncate px-1">HOODIE</h3>
+                        <div class="mt-3 overflow-hidden">
+                            <span class="inline-flex items-center justify-center text-white bg-[#10b981] font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.15em] rounded-full transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] w-[100px] hover:w-[140px] h-[32px] hover:bg-[#059669] hover:shadow-[0_4px_15px_rgba(16,185,129,0.3)]">
+                                Jelajahi
+                            </span>
+                        </div>
                     </div>
                 </a>
 
-                <!-- Cargo / Celana -->
-                <a href="{{ route('produk.index', ['kategori' => 'Cargo']) }}" class="group flex flex-col relative overflow-hidden h-[450px] md:h-full cursor-pointer glass-card rounded-[2rem] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(78,222,163,0.15)] hover:border-[#4edea3]/40 transition-all duration-500">
-                    <div class="flex-1 relative overflow-hidden bg-white/20">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRLRIfKc5EgwBtOdpPQyFKHqnXPTtPT--ChRqNBdNwjYCpe7PAI1NpSlofC-fdS11gKFHtfUxxgzq8LV45qOrQKltpTep33ZkddCqWORJcrbMAC5ASABHzARNMT7RkZCEvMbsOPRbZJ6OJGJewf8KQMurIkFWxFGXcw4evw_qOiOlClP70YnogW-KmYlYgUNpwuyzISj2YqQ3nFUZrpQ3kpG1OSBeZgIPM8TwEk6ffWYBHdTgsrTfBkgzwfJR8VasxrCpZDEnHNbWL"/>
+                <!-- Cargo -->
+                <a href="{{ route('produk.index', ['kategori' => 'Cargo']) }}" class="group flex flex-col glass-card rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(78,222,163,0.15)] hover:border-[#4edea3]/40 cursor-pointer">
+                    <div class="aspect-[4/5] relative overflow-hidden bg-white/20">
+                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRLRIfKc5EgwBtOdpPQyFKHqnXPTtPT--ChRqNBdNwjYCpe7PAI1NpSlofC-fdS11gKFHtfUxxgzq8LV45qOrQKltpTep33ZkddCqWORJcrbMAC5ASABHzARNMT7RkZCEvMbsOPRbZJ6OJGJewf8KQMurIkFWxFGXcw4evw_qOiOlClP70YnogW-KmYlYgUNpwuyzISj2YqQ3nFUZrpQ3kpG1OSBeZgIPM8TwEk6ffWYBHdTgsrTfBkgzwfJR8VasxrCpZDEnHNbWL" alt="Cargo"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1A2E26]/30 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
                     </div>
-                    <div class="p-6 md:p-8 flex flex-col items-center justify-center bg-white/60 backdrop-blur-md border-t border-white/50">
-                        <h2 class="font-['Outfit'] font-black text-3xl text-[#1A2E26] uppercase mb-4 drop-shadow-sm tracking-[0.1em]">CARGO</h2>
-                        <span class="inline-block text-white bg-[#10b981] font-['Outfit'] font-black text-[12px] tracking-[0.25em] px-8 py-3 rounded-full hover:bg-[#1A2E26] hover:shadow-[0_8px_20px_rgba(78,222,163,0.3)] transition-all duration-500">JELAJAHI</span>
+                    <div class="flex flex-col p-5 bg-white/30 text-center border-t border-white/40 relative items-center justify-center flex-1">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-[#4edea3]/50"></div>
+                        <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#1A2E26] group-hover:text-[#10b981] transition-colors truncate px-1">CARGO</h3>
+                        <div class="mt-3 overflow-hidden">
+                            <span class="inline-flex items-center justify-center text-white bg-[#10b981] font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.15em] rounded-full transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] w-[100px] hover:w-[140px] h-[32px] hover:bg-[#059669] hover:shadow-[0_4px_15px_rgba(16,185,129,0.3)]">
+                                Jelajahi
+                            </span>
+                        </div>
                     </div>
                 </a>
 
@@ -524,17 +542,6 @@
             </div>
         </section>
 
-        <!-- Newsletter Section -->
-        <section class="py-20 relative z-10 px-4 md:px-16 max-w-[1440px] mx-auto">
-            <div class="w-full max-w-[800px] mx-auto text-center border-y border-[#1A2E26]/15 py-16">
-                <h2 class="font-display-lg text-3xl md:text-headline-md uppercase mb-4 text-[#1A2E26] tracking-tight">Bergabung dengan Kolektif</h2>
-                <p class="text-[#1A2E26]/70 font-body-md mb-8">Berlangganan untuk akses eksklusif ke peluncuran koleksi terbaru, jurnal keberlanjutan, dan diskon 10% untuk pesanan pertama Anda.</p>
-                <form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
-                    <input class="flex-1 bg-white/40 border border-[#1A2E26]/15 rounded-full px-6 py-4 focus:outline-none focus:border-[#4edea3] focus:ring-1 focus:ring-[#4edea3] text-sm text-[#1A2E26] placeholder:text-[#1A2E26]/40 transition-colors uppercase tracking-widest" placeholder="ALAMAT EMAIL ANDA" type="email" required/>
-                    <button class="bg-[#1A2E26] text-white hover:bg-[#10b981] hover:shadow-[0_8px_20px_rgba(78,222,163,0.25)] rounded-full px-8 py-4 font-['Outfit'] font-black text-xs tracking-widest uppercase transition-all whitespace-nowrap" type="submit">Berlangganan</button>
-                </form>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->

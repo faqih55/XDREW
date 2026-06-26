@@ -15,11 +15,36 @@
             <!-- Subtle Glow -->
             <div class="absolute inset-0 bg-gradient-to-br from-[#10b981]/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
             
-            <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-[#10b981]/50 shadow-[0_4px_20px_rgba(16,185,129,0.15)] shrink-0 group-hover:scale-105 transition-transform duration-500">
-                @if($user->foto ?? $user->FOTO)
-                    <img src="{{ asset('storage/' . ($user->foto ?? $user->FOTO)) }}" alt="Profile" class="w-full h-full object-cover">
+            <!-- FOTO PROFIL DENGAN LOGIKA PINTAR -->
+            <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-[#10b981]/50 shadow-[0_4px_20px_rgba(16,185,129,0.15)] shrink-0 group-hover:scale-105 transition-transform duration-500 bg-white">
+                @php
+                    $foto = $user->foto ?? $user->FOTO;
+                    $nama = $user->nama_lengkap ?? $user->NAMA_LENGKAP ?? $user->nama_pelanggan ?? $user->NAMA_PELANGGAN ?? 'Pelanggan';
+                    
+                    // Logika Pintar Deteksi URL Foto
+                    $fotoUrl = null;
+                    if ($foto) {
+                        if (str_starts_with($foto, 'http')) {
+                            $fotoUrl = $foto; // Jika dari Google / URL luar
+                        } elseif (file_exists(public_path('images/' . $foto))) {
+                            $fotoUrl = asset('images/' . $foto); // Jika ada di public/images
+                        } else {
+                            // Default ke storage Laravel
+                            $fotoUrl = asset('storage/' . str_replace('public/', '', $foto)); 
+                        }
+                    }
+                    $defaultAvatar = 'https://ui-avatars.com/api/?name=' . urlencode($nama) . '&background=10b981&color=fff&size=200&bold=true';
+                @endphp
+
+                @if($fotoUrl)
+                    <img src="{{ $fotoUrl }}" 
+                         alt="Profile" 
+                         class="w-full h-full object-cover"
+                         onerror="this.onerror=null; this.src='{{ $defaultAvatar }}';">
                 @else
-                    <img src="https://ui-avatars.com/api/?name={{ urlencode($user->nama_lengkap ?? $user->NAMA_LENGKAP ?? 'Pelanggan XDrew') }}&background=10b981&color=fff&size=200&bold=true" alt="Profile" class="w-full h-full object-cover">
+                    <img src="{{ $defaultAvatar }}" 
+                         alt="Profile" 
+                         class="w-full h-full object-cover">
                 @endif
             </div>
             
