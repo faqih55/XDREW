@@ -1,5 +1,8 @@
-<img width="1919" height="916" alt="Screenshot 2026-06-13 222957" src="https://github.com/user-attachments/assets/afeb9817-aded-4e1e-9191-912a3551be18" />
-<img width="2398" height="1146" alt="Desain tanpa judul" src="https://github.com/user-attachments/assets/0e1b11e0-ce86-434b-ba77-30357ff63aca" />
+<img width="1918" height="971" alt="Screenshot 2026-06-29 205950" src="https://github.com/user-attachments/assets/9ac2c11f-017c-4c13-aa75-306d62a494f6" />
+<img width="1918" height="972" alt="Screenshot 2026-06-29 210029" src="https://github.com/user-attachments/assets/6b78fc22-b761-4159-9e62-5e87555be2d0" />
+<img width="1918" height="977" alt="Screenshot 2026-06-29 210140" src="https://github.com/user-attachments/assets/0688a67a-3fc3-44b6-8638-c749005dec63" />
+
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
