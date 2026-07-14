@@ -28,7 +28,7 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #EAF3EF;
+            background: #F9FAFB;
         }
         ::-webkit-scrollbar-thumb {
             background: #CBE3D9;
@@ -39,17 +39,15 @@
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.45) !important;
+            background: #ffffff !important;
             backdrop-filter: blur(24px) saturate(180%) !important;
             -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.6) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.85) !important;
-            border-left: 1px solid rgba(255, 255, 255, 0.75) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
             box-shadow: 
-                0 15px 35px rgba(98, 124, 112, 0.05),
-                inset 0 1px 3px rgba(255, 255, 255, 0.95),
-                inset 0 -1px 2px rgba(255, 255, 255, 0.2) !important;
-            color: #1A2E26 !important;
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
         }
 
         .emerald-glow:hover {
@@ -61,7 +59,7 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
-        .animate-pulse-slow {
+        . {
             animation: pulse-emerald 3s infinite;
         }
 
@@ -89,10 +87,10 @@
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(8px) rotate(-1deg); }
         }
-        [data-anime="float"] {
+        [] {
             animation: float-slow 6s ease-in-out infinite;
         }
-        [data-anime="float-reverse"] {
+        [] {
             animation: float-reverse-slow 7s ease-in-out infinite;
         }
     </style>
@@ -102,36 +100,36 @@
           theme: {
             extend: {
               "colors": {
-                      "on-tertiary": "#650911",
+                      "on-tertiary": "#3b0764",
                       "on-secondary": "#213145",
-                      "on-surface-variant": "#1A2E26",
-                      "inverse-surface": "#1A2E26",
-                      "surface-container": "#EAF3EF",
+                      "on-surface-variant": "#0A1612",
+                      "inverse-surface": "#0A1612",
+                      "surface-container": "#F9FAFB",
                       "surface-container-highest": "#DDF0E6",
-                      "surface-variant": "#EAF3EF",
+                      "surface-variant": "#F9FAFB",
                       "surface-bright": "#F4FAF7",
-                      "on-surface": "#1A2E26",
+                      "on-surface": "#0A1612",
                       "secondary": "#4edea3",
                       "background": "#DDF0E6",
-                      "surface-dim": "#EAF3EF",
+                      "surface-dim": "#F9FAFB",
                       "error-container": "#93000a",
                       "primary-container": "#4edea3",
-                      "on-secondary-container": "#1A2E26",
+                      "on-secondary-container": "#0A1612",
                       "outline": "#86948a",
                       "surface-container-high": "#DDF0E6",
-                      "on-background": "#1A2E26",
+                      "on-background": "#0A1612",
                       "on-primary-fixed-variant": "#4edea3",
-                      "on-tertiary-fixed-variant": "#842225",
-                      "on-tertiary-fixed": "#410005",
+                      "on-tertiary-fixed-variant": "#581c87",
+                      "on-tertiary-fixed": "#2e1065",
                       "surface-tint": "#4edea3",
-                      "tertiary-fixed-dim": "#ffb3af",
-                      "secondary-container": "#EAF3EF",
+                      "tertiary-fixed-dim": "#d8b4fe",
+                      "secondary-container": "#F9FAFB",
                       "primary-fixed-dim": "#4edea3",
-                      "on-tertiary-container": "#711419",
+                      "on-tertiary-container": "#f3e8ff",
                       "surface-container-low": "#F4FAF7",
-                      "tertiary-fixed": "#ffdad7",
+                      "tertiary-fixed": "#e9d5ff",
                       "on-error": "#690005",
-                      "tertiary": "#ffb3af",
+                      "tertiary": "#d8b4fe",
                       "secondary-fixed": "#d3e4fe",
                       "on-secondary-fixed": "#0b1c30",
                       "surface-container-lowest": "#F4FAF7",
@@ -144,11 +142,12 @@
                       "primary-fixed": "#6ffbbe",
                       "inverse-primary": "#4edea3",
                       "on-primary": "#003824",
-                      "tertiary-container": "#fc7c78",
+                      "tertiary-container": "#a855f7",
                       "outline-variant": "#3c4a42",
                       "on-primary-container": "#ffffff",
                       "secondary-fixed-dim": "#b7c8e1",
-                      "error": "#ffb4ab"
+                      "error": "#ffb4ab",
+                      "accent-purple": "#a855f7"
               },
               "borderRadius": {
                       "DEFAULT": "0.25rem",
@@ -192,19 +191,19 @@
         }
       </script>
 </head>
-<body class="bg-[#EAF3EF] text-[#1A2E26] font-body-md selection:bg-emerald-100 scroll-smooth relative overflow-x-hidden">
+<body class="bg-[#F9FAFB] text-[#0A1612] font-body-md selection:bg-emerald-100 scroll-smooth relative overflow-x-hidden">
 
-    <!-- Background and Glows (Emerald & Soft Blue Theme) -->
+        <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-40 animate-pulse-slow"></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-25"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#3bd58f] blur-[130px] opacity-35 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
     </div>
 
     <!-- Left Sidebar (Copyright) -->
     <div class="hidden lg:flex fixed left-8 bottom-24 z-20 flex-col items-center gap-6 pointer-events-none">
-        <span class="font-['Outfit'] text-[10px] font-bold text-[#1A2E26]/40 tracking-[0.25em] uppercase [writing-mode:vertical-lr] rotate-180">
+        <span class="font-['Outfit'] text-[10px] font-bold text-[#0A1612]/40 tracking-[0.25em] uppercase [writing-mode:vertical-lr] rotate-180">
             © {{ date('Y') }} XDREW FASHION. ALL RIGHTS RESERVED.
         </span>
         <div class="w-[1px] h-16 bg-[#1A2E26]/20"></div>
@@ -227,14 +226,14 @@
 
 
                     <!-- Typography Heading -->
-                    <h1 class="font-['Outfit'] font-black uppercase leading-[1.05] tracking-tight text-5xl md:text-7xl lg:text-8xl text-[#1A2E26]">
+                    <h1 class="font-['Outfit'] font-black uppercase leading-[1.05] tracking-tight text-5xl md:text-7xl lg:text-8xl text-[#0A1612]">
                         <span class="block text-outline-dark">DESIGNING</span>
-                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[#4edea3] to-[#10b981]">STREETWEAR</span>
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[#059669] via-[#0ea5e9] to-[#7c3aed]">STREETWEAR</span>
                         <span class="block">FUTURES</span>
                     </h1>
 
                     <!-- Paragraph description -->
-                    <p class="font-body-lg text-body-lg text-[#1A2E26]/80 max-w-xl leading-relaxed">
+                    <p class="font-body-lg text-body-lg text-[#0A1612]/80 max-w-xl leading-relaxed">
                         Bahan ramah lingkungan, minimalisme modern, kualitas premium, dan didesain oleh Mr. Muhamad Fakih untuk mengekspresikan jati diri Anda secara etis.
                     </p>
 
@@ -246,7 +245,7 @@
                                 <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
                             </button>
                         </a>
-                        <a href="{{ route('jurnal') }}" class="inline-flex items-center gap-2 font-['Outfit'] font-black uppercase text-xs tracking-[0.2em] text-[#1A2E26] hover:text-[#10b981] transition-all group">
+                        <a href="{{ route('jurnal') }}" class="inline-flex items-center gap-2 font-['Outfit'] font-black uppercase text-xs tracking-[0.2em] text-[#0A1612] hover:text-[#10b981] transition-all group">
                             Jelajahi Jurnal <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">north_east</span>
                         </a>
                     </div>
@@ -254,16 +253,16 @@
                     <!-- Bottom Stats -->
                     <div class="grid grid-cols-3 gap-6 pt-8 border-t border-[#1A2E26]/10 mt-12 max-w-lg">
                         <div>
-                            <p class="font-['Outfit'] font-black text-3xl text-[#1A2E26]">10+</p>
-                            <p class="text-[9px] font-black text-[#1A2E26]/50 uppercase tracking-widest mt-1">EXCLUSIVE RELEASES</p>
+                            <p class="font-['Outfit'] font-black text-3xl text-[#0A1612]">10+</p>
+                            <p class="text-[9px] font-black text-[#0A1612]/50 uppercase tracking-widest mt-1">EXCLUSIVE RELEASES</p>
                         </div>
                         <div>
-                            <p class="font-['Outfit'] font-black text-3xl text-[#1A2E26]">1000+</p>
-                            <p class="text-[9px] font-black text-[#1A2E26]/50 uppercase tracking-widest mt-1">HAPPY CUSTOMERS</p>
+                            <p class="font-['Outfit'] font-black text-3xl text-[#0A1612]">1000+</p>
+                            <p class="text-[9px] font-black text-[#0A1612]/50 uppercase tracking-widest mt-1">HAPPY CUSTOMERS</p>
                         </div>
                         <div>
-                            <p class="font-['Outfit'] font-black text-3xl text-[#1A2E26]">100%</p>
-                            <p class="text-[9px] font-black text-[#1A2E26]/50 uppercase tracking-widest mt-1">ECO-FRIENDLY</p>
+                            <p class="font-['Outfit'] font-black text-3xl text-[#0A1612]">100%</p>
+                            <p class="text-[9px] font-black text-[#0A1612]/50 uppercase tracking-widest mt-1">ECO-FRIENDLY</p>
                         </div>
                     </div>
                 </div>
@@ -274,25 +273,25 @@
                     <div class="absolute inset-0 bg-white/20 border border-white/40 rounded-[3rem] shadow-[0_20px_50px_rgba(98,124,112,0.04)] backdrop-blur-lg transform rotate-3 scale-95 lg:scale-100"></div>
                     
                     <!-- Main visual image -->
-                    <div class="relative z-10 w-[90%] aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-white/60 shadow-[0_15px_35px_rgba(0,0,0,0.1)] bg-[#EAF3EF]">
-                        <img src="{{ asset('images/Foto_header.jpg') }}" alt="Futuristic Visor Model" class="w-full h-full object-cover">
+                    <div class="relative z-10 w-[90%] aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-white/60 shadow-[0_15px_35px_rgba(0,0,0,0.1)] bg-[#F9FAFB]">
+                        <img src="{{ asset('images/Foto_header.jpg') }}" alt="Futuristic Visor Model" class="w-full h-full object-cover" fetchpriority="high">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#1A2E26]/10 via-transparent to-transparent"></div>
                     </div>
                     
                     <!-- Floating Glass Annotations -->
-                    <div class="absolute top-12 -right-6 lg:-right-8 z-20 flex flex-col gap-1 p-4 bg-white/50 border border-white/70 backdrop-blur-md rounded-[1.5rem] shadow-[0_12px_32px_rgba(98,124,112,0.06)] max-w-[180px]" data-anime="float">
+                    <div class="absolute top-12 -right-6 lg:-right-8 z-20 flex flex-col gap-1 p-4 bg-white/50 border border-white/70 backdrop-blur-md rounded-[1.5rem] shadow-[0_12px_32px_rgba(98,124,112,0.06)] max-w-[180px]" >
                         <span class="text-[9px] font-black uppercase tracking-[0.2em] text-[#10b981]">PREMIUM MATERIAL</span>
-                        <span class="text-[11px] font-bold text-[#1A2E26] leading-tight">Organic Cotton & Recycled Fiber</span>
+                        <span class="text-[11px] font-bold text-[#0A1612] leading-tight">Organic Cotton & Recycled Fiber</span>
                     </div>
 
-                    <div class="absolute bottom-16 -left-6 lg:-left-8 z-20 flex flex-col gap-1 p-4 bg-white/50 border border-white/70 backdrop-blur-md rounded-[1.5rem] shadow-[0_12px_32px_rgba(98,124,112,0.06)] max-w-[180px]" data-anime="float-reverse">
+                    <div class="absolute bottom-16 -left-6 lg:-left-8 z-20 flex flex-col gap-1 p-4 bg-white/50 border border-white/70 backdrop-blur-md rounded-[1.5rem] shadow-[0_12px_32px_rgba(98,124,112,0.06)] max-w-[180px]" >
                         <span class="text-[9px] font-black uppercase tracking-[0.2em] text-[#10b981]">ETHICAL PROD</span>
-                        <span class="text-[11px] font-bold text-[#1A2E26] leading-tight">Fair Trade Certified Factories</span>
+                        <span class="text-[11px] font-bold text-[#0A1612] leading-tight">Fair Trade Certified Factories</span>
                     </div>
 
-                    <div class="absolute bottom-1/2 -right-8 lg:-right-12 z-20 flex flex-col gap-1 p-4 bg-white/50 border border-white/70 backdrop-blur-md rounded-[1.5rem] shadow-[0_12px_32px_rgba(98,124,112,0.06)] max-w-[180px]" data-anime="float">
+                    <div class="absolute bottom-1/2 -right-8 lg:-right-12 z-20 flex flex-col gap-1 p-4 bg-white/50 border border-white/70 backdrop-blur-md rounded-[1.5rem] shadow-[0_12px_32px_rgba(98,124,112,0.06)] max-w-[180px]" >
                         <span class="text-[9px] font-black uppercase tracking-[0.2em] text-[#10b981]">SLOW FASHION</span>
-                        <span class="text-[11px] font-bold text-[#1A2E26] leading-tight">Designed for Timeless Wear</span>
+                        <span class="text-[11px] font-bold text-[#0A1612] leading-tight">Designed for Timeless Wear</span>
                     </div>
                 </div>
 
@@ -309,8 +308,8 @@
                         <span class="material-symbols-outlined text-[#4edea3] text-[32px]">eco</span>
                     </div>
                     <div class="relative z-10">
-                        <h3 class="font-display-lg text-[#1A2E26] tracking-widest uppercase text-xl mb-4 group-hover:text-[#10b981] transition-colors duration-300">Kapas Organik</h3>
-                        <p class="text-[#1A2E26]/70 text-sm leading-relaxed font-body-md">Gak pakai bahan kimia aneh-aneh. Kapas murni dari tanah yang dirawat sepenuh hati, biar alam dan petaninya tetap happy.</p>
+                        <h3 class="font-display-lg text-[#0A1612] tracking-widest uppercase text-xl mb-4 group-hover:text-[#10b981] transition-colors duration-300">Kapas Organik</h3>
+                        <p class="text-[#0A1612]/70 text-sm leading-relaxed font-body-md">Gak pakai bahan kimia aneh-aneh. Kapas murni dari tanah yang dirawat sepenuh hati, biar alam dan petaninya tetap happy.</p>
                     </div>
                 </div>
 
@@ -321,8 +320,8 @@
                         <span class="material-symbols-outlined text-[#4edea3] text-[32px]">recycling</span>
                     </div>
                     <div class="relative z-10">
-                        <h3 class="font-display-lg text-[#1A2E26] tracking-widest uppercase text-xl mb-4 group-hover:text-[#10b981] transition-colors duration-300">Kain Daur Ulang</h3>
-                        <p class="text-[#1A2E26]/70 text-sm leading-relaxed font-body-md">Bukan cuma soal keren, tapi soal repurposing. Limbah diolah jadi gear berkualitas yang siap nemenin aktivitas harian lo.</p>
+                        <h3 class="font-display-lg text-[#0A1612] tracking-widest uppercase text-xl mb-4 group-hover:text-[#10b981] transition-colors duration-300">Kain Daur Ulang</h3>
+                        <p class="text-[#0A1612]/70 text-sm leading-relaxed font-body-md">Bukan cuma soal keren, tapi soal repurposing. Limbah diolah jadi gear berkualitas yang siap nemenin aktivitas harian lo.</p>
                     </div>
                 </div>
 
@@ -333,8 +332,8 @@
                         <span class="material-symbols-outlined text-[#4edea3] text-[32px]">handshake</span>
                     </div>
                     <div class="relative z-10">
-                        <h3 class="font-display-lg text-[#1A2E26] tracking-widest uppercase text-xl mb-4 group-hover:text-[#10b981] transition-colors duration-300">PERDAGANGAN ADIL</h3>
-                        <p class="text-[#1A2E26]/70 text-sm leading-relaxed font-body-md">Kita fair dari awal. Transparan soal siapa yang bikin baju lo, biar semua orang dapat haknya dan kerja dengan aman.</p>
+                        <h3 class="font-display-lg text-[#0A1612] tracking-widest uppercase text-xl mb-4 group-hover:text-[#10b981] transition-colors duration-300">PERDAGANGAN ADIL</h3>
+                        <p class="text-[#0A1612]/70 text-sm leading-relaxed font-body-md">Kita fair dari awal. Transparan soal siapa yang bikin baju lo, biar semua orang dapat haknya dan kerja dengan aman.</p>
                     </div>
                 </div>
             </div>
@@ -347,12 +346,12 @@
                 <!-- Kaos -->
                 <a href="{{ route('produk.index', ['kategori' => 'T-Shirt']) }}" class="group flex flex-col glass-card rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(78,222,163,0.15)] hover:border-[#4edea3]/40 cursor-pointer">
                     <div class="aspect-[4/5] relative overflow-hidden bg-white/20">
-                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Eo3DFkyBbMXapfbzePyG1ShZ10Vaygf0MTjx5sXYmjFC7561xwRArpD8jV_0ptcqCxAsvj8Hct7jm1CqUKXOD7H1C02IIkwx-d0XarcFV2l6CcgZ-Z1wD6kgC4fDULgp3z8E6R4mKIFfZNZoWS72aiUGayRM0k-gUDaywlqO7ied9qAchakjbh3Kxdm3AtVi8hZXFnWQOl537hEBHpaWJNbG4nmGqRDkq06mCqxtuKD4cZTP8B-BMNS2Cb--0DpPkc_oyRLH94sh" alt="Kaos"/>
+                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Eo3DFkyBbMXapfbzePyG1ShZ10Vaygf0MTjx5sXYmjFC7561xwRArpD8jV_0ptcqCxAsvj8Hct7jm1CqUKXOD7H1C02IIkwx-d0XarcFV2l6CcgZ-Z1wD6kgC4fDULgp3z8E6R4mKIFfZNZoWS72aiUGayRM0k-gUDaywlqO7ied9qAchakjbh3Kxdm3AtVi8hZXFnWQOl537hEBHpaWJNbG4nmGqRDkq06mCqxtuKD4cZTP8B-BMNS2Cb--0DpPkc_oyRLH94sh" alt="Kaos" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-[#1A2E26]/30 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
                     </div>
                     <div class="flex flex-col p-5 bg-white/30 text-center border-t border-white/40 relative items-center justify-center flex-1">
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-[#4edea3]/50"></div>
-                        <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#1A2E26] group-hover:text-[#10b981] transition-colors truncate px-1">KAOS</h3>
+                        <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#0A1612] group-hover:text-[#10b981] transition-colors truncate px-1">KAOS</h3>
                         <div class="mt-3 overflow-hidden">
                             <span class="inline-flex items-center justify-center text-white bg-[#10b981] font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.15em] rounded-full transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] w-[100px] hover:w-[140px] h-[32px] hover:bg-[#059669] hover:shadow-[0_4px_15px_rgba(16,185,129,0.3)]">
                                 Jelajahi
@@ -364,12 +363,12 @@
                 <!-- Hoodie -->
                 <a href="{{ route('produk.index', ['kategori' => 'Hoodie']) }}" class="group flex flex-col glass-card rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(78,222,163,0.15)] hover:border-[#4edea3]/40 cursor-pointer">
                     <div class="aspect-[4/5] relative overflow-hidden bg-white/20">
-                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8ePTZUIOYVsb0ScDbDgyzWyF1klHG8Xi42XMeR4VJjYL8Atr5LfBWUCoBrJEVTYaQHVXM_5ae_qtEzOoz2zGNAQaUY-DaFnmF-pLhCYFsU2YotwrkglkTGcK1yxwab95tCwCmZvFsLA99fzJ5E9hl1EMsoPRdmyrcwg-cwtjDe7ytPYoiRbKkM-VEtTY0wrdpfQbVbB_Uy6pkrCPfyRlbX9qHwSzO31x44AEti-Q6UoEt7B7e6kOIpB0dN2MLUHrYxvwVb7-ymsO1" alt="Hoodie"/>
+                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8ePTZUIOYVsb0ScDbDgyzWyF1klHG8Xi42XMeR4VJjYL8Atr5LfBWUCoBrJEVTYaQHVXM_5ae_qtEzOoz2zGNAQaUY-DaFnmF-pLhCYFsU2YotwrkglkTGcK1yxwab95tCwCmZvFsLA99fzJ5E9hl1EMsoPRdmyrcwg-cwtjDe7ytPYoiRbKkM-VEtTY0wrdpfQbVbB_Uy6pkrCPfyRlbX9qHwSzO31x44AEti-Q6UoEt7B7e6kOIpB0dN2MLUHrYxvwVb7-ymsO1" alt="Hoodie" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-[#1A2E26]/30 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
                     </div>
                     <div class="flex flex-col p-5 bg-white/30 text-center border-t border-white/40 relative items-center justify-center flex-1">
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-[#4edea3]/50"></div>
-                        <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#1A2E26] group-hover:text-[#10b981] transition-colors truncate px-1">HOODIE</h3>
+                        <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#0A1612] group-hover:text-[#10b981] transition-colors truncate px-1">HOODIE</h3>
                         <div class="mt-3 overflow-hidden">
                             <span class="inline-flex items-center justify-center text-white bg-[#10b981] font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.15em] rounded-full transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] w-[100px] hover:w-[140px] h-[32px] hover:bg-[#059669] hover:shadow-[0_4px_15px_rgba(16,185,129,0.3)]">
                                 Jelajahi
@@ -381,12 +380,12 @@
                 <!-- Cargo -->
                 <a href="{{ route('produk.index', ['kategori' => 'Cargo']) }}" class="group flex flex-col glass-card rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(78,222,163,0.15)] hover:border-[#4edea3]/40 cursor-pointer">
                     <div class="aspect-[4/5] relative overflow-hidden bg-white/20">
-                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRLRIfKc5EgwBtOdpPQyFKHqnXPTtPT--ChRqNBdNwjYCpe7PAI1NpSlofC-fdS11gKFHtfUxxgzq8LV45qOrQKltpTep33ZkddCqWORJcrbMAC5ASABHzARNMT7RkZCEvMbsOPRbZJ6OJGJewf8KQMurIkFWxFGXcw4evw_qOiOlClP70YnogW-KmYlYgUNpwuyzISj2YqQ3nFUZrpQ3kpG1OSBeZgIPM8TwEk6ffWYBHdTgsrTfBkgzwfJR8VasxrCpZDEnHNbWL" alt="Cargo"/>
+                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRLRIfKc5EgwBtOdpPQyFKHqnXPTtPT--ChRqNBdNwjYCpe7PAI1NpSlofC-fdS11gKFHtfUxxgzq8LV45qOrQKltpTep33ZkddCqWORJcrbMAC5ASABHzARNMT7RkZCEvMbsOPRbZJ6OJGJewf8KQMurIkFWxFGXcw4evw_qOiOlClP70YnogW-KmYlYgUNpwuyzISj2YqQ3nFUZrpQ3kpG1OSBeZgIPM8TwEk6ffWYBHdTgsrTfBkgzwfJR8VasxrCpZDEnHNbWL" alt="Cargo" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-[#1A2E26]/30 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
                     </div>
                     <div class="flex flex-col p-5 bg-white/30 text-center border-t border-white/40 relative items-center justify-center flex-1">
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-[#4edea3]/50"></div>
-                        <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#1A2E26] group-hover:text-[#10b981] transition-colors truncate px-1">CARGO</h3>
+                        <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#0A1612] group-hover:text-[#10b981] transition-colors truncate px-1">CARGO</h3>
                         <div class="mt-3 overflow-hidden">
                             <span class="inline-flex items-center justify-center text-white bg-[#10b981] font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.15em] rounded-full transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] w-[100px] hover:w-[140px] h-[32px] hover:bg-[#059669] hover:shadow-[0_4px_15px_rgba(16,185,129,0.3)]">
                                 Jelajahi
@@ -401,8 +400,8 @@
         <!-- Produk Terlaris -->
         <section class="py-20 px-4 md:px-16 max-w-[1440px] mx-auto relative z-10">
             <div class="mb-12">
-                <h2 class="font-display-lg text-3xl md:text-headline-md uppercase text-[#1A2E26] tracking-tight">Produk Terlaris</h2>
-                <p class="text-[#1A2E26]/60 font-body-md mt-2">Dirancang dengan teliti, dibuat secara berkelanjutan.</p>
+                <h2 class="font-display-lg text-3xl md:text-headline-md uppercase text-[#0A1612] tracking-tight">Produk Terlaris</h2>
+                <p class="text-[#0A1612]/60 font-body-md mt-2">Dirancang dengan teliti, dibuat secara berkelanjutan.</p>
             </div>
             
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 gap-y-10">
@@ -420,13 +419,13 @@
                             <!-- Wishlist Button -->
                             <button type="button" 
                                     onclick="event.preventDefault(); event.stopPropagation(); toggleWishlist({{ $p->id ?? $p->ID }}, this);" 
-                                    class="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/60 backdrop-blur-md flex items-center justify-center text-[#1A2E26]/50 hover:text-red-500 hover:scale-110 transition-all duration-300 shadow-sm border border-white/80 card-action-btn wishlist-btn"
+                                    class="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/60 backdrop-blur-md flex items-center justify-center text-[#0A1612]/50 hover:text-red-500 hover:scale-110 transition-all duration-300 shadow-sm border border-white/80 card-action-btn wishlist-btn"
                                     data-id="{{ $p->id ?? $p->ID }}">
                                 <span class="material-symbols-outlined text-[16px] sm:text-[18px] select-none transition-colors">favorite</span>
                             </button>
                             <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-95 group-hover:opacity-100" 
                                  src="{{ asset('images/' . ($p->foto ?? $p->FOTO)) }}" 
-                                 alt="{{ $p->nama_produk ?? $p->NAMA_PRODUK }}"/>
+                                 alt="{{ $p->nama_produk ?? $p->NAMA_PRODUK }}" loading="lazy" decoding="async"/>
                             <div class="absolute inset-0 bg-gradient-to-t from-[#1A2E26]/30 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
                         </div>
                         <div class="flex flex-col p-5 bg-white/30 text-center border-t border-white/40 relative">
@@ -435,9 +434,9 @@
                                 @for($i = 0; $i < 5; $i++)
                                     <span class="material-symbols-outlined text-[14px] text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
                                 @endfor
-                                <span class="text-xs text-[#1A2E26]/60 ml-1 font-body-md">(5.0)</span>
+                                <span class="text-xs text-[#0A1612]/60 ml-1 font-body-md">(5.0)</span>
                             </div>
-                            <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#1A2E26] group-hover:text-[#10b981] transition-colors truncate px-1">{{ $p->nama_produk ?? $p->NAMA_PRODUK }}</h3>
+                            <h3 class="font-bold uppercase text-[12px] sm:text-[13px] tracking-[0.12em] text-[#0A1612] group-hover:text-[#10b981] transition-colors truncate px-1">{{ $p->nama_produk ?? $p->NAMA_PRODUK }}</h3>
                             <p class="text-[#10b981] font-black text-sm tracking-wider mt-2">Rp {{ number_format($p->harga ?? $p->HARGA, 0, ',', '.') }}</p>
 
                             <!-- Action Buttons -->
@@ -451,7 +450,7 @@
                                     <input type="hidden" name="produk_id" value="{{ $p->id ?? $p->ID }}">
                                     <input type="hidden" name="jumlah" value="1">
                                     <input type="hidden" name="ukuran_terpilih" value="{{ $defSize }}">
-                                    <button type="submit" class="w-10 h-10 rounded-full bg-white/60 border border-black/10 flex items-center justify-center text-[#1A2E26] hover:bg-[#10b981] hover:text-white hover:border-[#10b981] transition-all cursor-pointer shadow-sm active:scale-95" title="Tambah ke Keranjang">
+                                    <button type="submit" class="w-10 h-10 rounded-full bg-white/60 border border-black/10 flex items-center justify-center text-[#0A1612] hover:bg-[#10b981] hover:text-white hover:border-[#10b981] transition-all cursor-pointer shadow-sm active:scale-95" title="Tambah ke Keranjang">
                                         <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
                                     </button>
                                 </form>
@@ -471,8 +470,8 @@
         <!-- Ulasan / Review Pengguna -->
         <section class="py-20 relative z-10 px-4 md:px-16 max-w-[1440px] mx-auto">
             <div class="text-center mb-16">
-                <h2 class="font-display-lg text-3xl md:text-headline-md uppercase mb-2 text-[#1A2E26] tracking-tight">Suara Kolektif</h2>
-                <p class="text-[#1A2E26]/60 font-body-md">Apa kata mereka tentang kualitas dan visi XDrew Fashion.</p>
+                <h2 class="font-display-lg text-3xl md:text-headline-md uppercase mb-2 text-[#0A1612] tracking-tight">Suara Kolektif</h2>
+                <p class="text-[#0A1612]/60 font-body-md">Apa kata mereka tentang kualitas dan visi XDrew Fashion.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -483,12 +482,12 @@
                             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
                         @endfor
                     </div>
-                    <p class="text-[#1A2E26]/80 font-body-md italic leading-relaxed">
+                    <p class="text-[#0A1612]/80 font-body-md italic leading-relaxed">
                         "Kualitas hoodie-nya di luar ekspektasi. Bahannya tebal tapi adem, dan yang paling penting: eco-friendly. Desain Bang Fakih emang juara!"
                     </p>
                     <div class="mt-auto pt-6 border-t border-[#1A2E26]/10 w-full flex items-center justify-between">
                         <div>
-                            <h4 class="font-bold text-[#1A2E26] uppercase text-sm tracking-wide">Adrian S.</h4>
+                            <h4 class="font-bold text-[#0A1612] uppercase text-sm tracking-wide">Adrian S.</h4>
                             <p class="text-xs text-[#10b981] flex items-center gap-1 mt-1 font-semibold">
                                 <span class="material-symbols-outlined text-[14px]">verified</span> Pembeli Terverifikasi
                             </p>
@@ -504,12 +503,12 @@
                             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
                         @endfor
                     </div>
-                    <p class="text-[#1A2E26]/80 font-body-md italic leading-relaxed">
+                    <p class="text-[#0A1612]/80 font-body-md italic leading-relaxed">
                         "Akhirnya nemu brand lokal yang peduli lingkungan tanpa ngorbanin estetika streetwear. Celana cargo-nya punya fitting yang sempurna banget."
                     </p>
                     <div class="mt-auto pt-6 border-t border-[#1A2E26]/10 w-full flex items-center justify-between">
                         <div>
-                            <h4 class="font-bold text-[#1A2E26] uppercase text-sm tracking-wide">Bagas Pratama</h4>
+                            <h4 class="font-bold text-[#0A1612] uppercase text-sm tracking-wide">Bagas Pratama</h4>
                             <p class="text-xs text-[#10b981] flex items-center gap-1 mt-1 font-semibold">
                                 <span class="material-symbols-outlined text-[14px]">verified</span> Pembeli Terverifikasi
                             </p>
@@ -526,12 +525,12 @@
                         @endfor
                         <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
                     </div>
-                    <p class="text-[#1A2E26]/80 font-body-md italic leading-relaxed">
+                    <p class="text-[#0A1612]/80 font-body-md italic leading-relaxed">
                         "Packaging-nya 100% bebas plastik, kaos organik-nya lembut banget di kulit. Bener-bener definisi 'Consciously Crafted' sesuai tagline-nya."
                     </p>
                     <div class="mt-auto pt-6 border-t border-[#1A2E26]/10 w-full flex items-center justify-between">
                         <div>
-                            <h4 class="font-bold text-[#1A2E26] uppercase text-sm tracking-wide">Dina M.</h4>
+                            <h4 class="font-bold text-[#0A1612] uppercase text-sm tracking-wide">Dina M.</h4>
                             <p class="text-xs text-[#10b981] flex items-center gap-1 mt-1 font-semibold">
                                 <span class="material-symbols-outlined text-[14px]">verified</span> Pembeli Terverifikasi
                             </p>
@@ -597,12 +596,12 @@
                 wishlist.splice(index, 1);
                 icon.style.fontVariationSettings = "'FILL' 0";
                 button.classList.remove('text-red-500');
-                button.classList.add('text-[#1A2E26]/50');
+                button.classList.add('text-[#0A1612]/50');
             } else {
                 // Add to wishlist
                 wishlist.push(productId);
                 icon.style.fontVariationSettings = "'FILL' 1";
-                button.classList.remove('text-[#1A2E26]/50');
+                button.classList.remove('text-[#0A1612]/50');
                 button.classList.add('text-red-500');
             }
             localStorage.setItem('wishlist', JSON.stringify(wishlist));
@@ -615,15 +614,14 @@
                 if (wishlist.includes(productId)) {
                     const icon = button.querySelector('span');
                     icon.style.fontVariationSettings = "'FILL' 1";
-                    button.classList.remove('text-[#1A2E26]/50');
+                    button.classList.remove('text-[#0A1612]/50');
                     button.classList.add('text-red-500');
                 }
             });
         });
     </script>
 {{-- XDrew AI Chat (React) --}}
-<div id="xdrew-ai-chat"></div>
-<script src="{{ asset('js/ai-chat.js') }}" defer></script>
+
 
 </body>
 </html>

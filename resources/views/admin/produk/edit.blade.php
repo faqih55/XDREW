@@ -14,7 +14,7 @@
                 <span class="material-symbols-outlined text-slate-400 text-[16px]">chevron_right</span>
                 <span class="text-[#10b981] text-sm font-bold uppercase tracking-widest">Edit Produk</span>
             </div>
-            <h2 class="text-3xl font-extrabold text-[#1A2E26] tracking-tight uppercase">Edit Koleksi <span class="text-[#10b981]">Produk.</span></h2>
+            <h2 class="text-3xl font-extrabold text-[#0A1612] tracking-tight uppercase">Edit Koleksi <span class="text-[#10b981]">Produk.</span></h2>
         </div>
     </header>
 
@@ -31,34 +31,34 @@
         @method('PATCH')
         <div class="xl:col-span-2 space-y-6">
             <div class="glass-card rounded-3xl p-6 md:p-8 border-t-2 border-t-black/5 hover:border-t-[#10b981] transition-colors shadow-sm">
-                <h3 class="text-lg font-bold text-[#1A2E26] mb-6 flex items-center gap-2">Informasi Dasar</h3>
+                <h3 class="text-lg font-bold text-[#0A1612] mb-6 flex items-center gap-2">Informasi Dasar</h3>
 
                 <div class="space-y-6">
                     <div>
                         <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 block">Nama Koleksi / Produk <span class="text-red-500">*</span></label>
-                        <input type="text" name="nama_produk" required value="{{ old('nama_produk', $produk->NAMA_PRODUK ?? $produk->nama_produk) }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] focus:border-[#10b981] outline-none">
+                        <input type="text" name="nama_produk" required value="{{ old('nama_produk', $produk->NAMA_PRODUK ?? $produk->nama_produk) }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] focus:border-[#10b981] outline-none">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 block">Ukuran (Pisah dgn Koma) <span class="text-red-500">*</span></label>
-                            <input type="text" name="ukuran" required placeholder="Contoh: 39, 40, 41, 42 atau S, M, L" value="{{ old('ukuran', $produk->UKURAN ?? $produk->ukuran) }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] focus:border-[#10b981] outline-none">
+                            <input type="text" name="ukuran" required placeholder="Contoh: 39, 40, 41, 42 atau S, M, L" value="{{ old('ukuran', $produk->UKURAN ?? $produk->ukuran) }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] focus:border-[#10b981] outline-none">
                             <p class="text-[10px] text-slate-500 mt-2">Gunakan tanda koma (,) untuk menambahkan variasi lebih dari 1 ukuran.</p>
                         </div>
                         <div>
                             <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 block">Warna <span class="text-red-500">*</span></label>
-                            <input type="text" name="warna" required placeholder="Contoh: Emerald Green" value="{{ old('warna', $produk->WARNA ?? $produk->warna) }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] focus:border-[#10b981] outline-none">
+                            <input type="text" name="warna" required placeholder="Contoh: Emerald Green" value="{{ old('warna', $produk->WARNA ?? $produk->warna) }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] focus:border-[#10b981] outline-none">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 block">Harga (Rp) <span class="text-red-500">*</span></label>
-                            <input type="number" name="harga" required min="0" value="{{ old('harga', $produk->HARGA ?? $produk->harga) }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] focus:border-[#10b981] outline-none">
+                            <input type="number" name="harga" required min="0" value="{{ old('harga', $produk->HARGA ?? $produk->harga) }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] focus:border-[#10b981] outline-none">
                         </div>
                         <div>
                             <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 block">Stok <span class="text-red-500">*</span></label>
-                            <input type="number" name="stok" required min="0" value="{{ old('stok', $produk->STOK ?? $produk->stok) }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] focus:border-[#10b981] outline-none">
+                            <input type="number" name="stok" required min="0" value="{{ old('stok', $produk->STOK ?? $produk->stok) }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] focus:border-[#10b981] outline-none">
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
 
             <div class="glass-card rounded-3xl p-6 shadow-sm">
                 <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 block">Kategori <span class="text-red-500">*</span></label>
-                <select name="kategori" required class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] outline-none focus:border-[#10b981]">
+                <select name="kategori" required class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] outline-none focus:border-[#10b981]">
                     @php $kategori = old('kategori', $produk->KATEGORI ?? $produk->kategori); @endphp
                     <option value="T-Shirt" {{ $kategori == 'T-Shirt' ? 'selected' : '' }}>T-Shirt</option>
                     <option value="Kemeja" {{ $kategori == 'Kemeja' ? 'selected' : '' }}>Kemeja</option>

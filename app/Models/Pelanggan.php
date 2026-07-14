@@ -32,6 +32,7 @@ class Pelanggan extends Authenticatable
         'BIO',
         'PROVINSI',
         'KOTA',
+        'KABUPATEN',
         'FOTO',
         'REMEMBER_TOKEN',
         'CREATED_AT',

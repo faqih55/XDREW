@@ -58,11 +58,11 @@
     {{-- Header --}}
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-black/5 pb-6">
         <div>
-            <h1 class="text-3xl font-extrabold text-[#1A2E26] tracking-tight">Detail <span class="text-[#10b981]">Pesanan.</span></h1>
+            <h1 class="text-3xl font-extrabold text-[#0A1612] tracking-tight">Detail <span class="text-[#10b981]">Pesanan.</span></h1>
             <p class="text-slate-500 mt-1 text-sm">ID: <span class="font-mono text-[#10b981]">#ORD-{{ $id }}</span> &nbsp;·&nbsp; {{ $tanggal ? \Carbon\Carbon::parse($tanggal)->format('d F Y, H:i') : '-' }}</p>
         </div>
         <a href="{{ route('admin.pesanan') }}"
-           class="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-black/5 text-slate-500 text-sm font-semibold hover:bg-black/5 hover:text-[#1A2E26] bg-white/60 transition-all">
+           class="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-black/5 text-slate-500 text-sm font-semibold hover:bg-black/5 hover:text-[#0A1612] bg-white/60 transition-all">
             <span class="material-symbols-outlined text-[18px]">arrow_back</span> Kembali
         </a>
     </div>
@@ -84,7 +84,7 @@
             <div class="bg-white/60 rounded-2xl border border-black/5 overflow-hidden shadow-sm">
                 <div class="px-6 py-4 border-b border-black/5 flex items-center gap-2 bg-white/40">
                     <span class="material-symbols-outlined text-[#10b981] text-[20px]">receipt_long</span>
-                    <h3 class="font-bold text-[#1A2E26] uppercase tracking-wider text-sm">Ringkasan Pesanan</h3>
+                    <h3 class="font-bold text-[#0A1612] uppercase tracking-wider text-sm">Ringkasan Pesanan</h3>
                 </div>
                 <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
@@ -95,7 +95,7 @@
                     </div>
                     <div>
                         <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Metode Pembayaran</p>
-                        <p class="text-[#1A2E26] font-semibold text-sm">{{ strtoupper(str_replace(['-', '_'], ' ', $metodeBayar)) }}</p>
+                        <p class="text-[#0A1612] font-semibold text-sm">{{ strtoupper(str_replace(['-', '_'], ' ', $metodeBayar)) }}</p>
                     </div>
                     <div>
                         <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Total Harga</p>
@@ -103,11 +103,11 @@
                     </div>
                     <div>
                         <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Tanggal Pesanan</p>
-                        <p class="text-[#1A2E26] font-semibold text-sm">{{ $tanggal ? \Carbon\Carbon::parse($tanggal)->format('d M Y, H:i') : '-' }}</p>
+                        <p class="text-[#0A1612] font-semibold text-sm">{{ $tanggal ? \Carbon\Carbon::parse($tanggal)->format('d M Y, H:i') : '-' }}</p>
                     </div>
                     <div class="sm:col-span-2">
                         <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Alamat Pengiriman</p>
-                        <p class="text-[#1A2E26] font-semibold text-sm">{{ $alamat }}</p>
+                        <p class="text-[#0A1612] font-semibold text-sm">{{ $alamat }}</p>
                     </div>
                     @if($catatan && $catatan !== '-')
                     <div class="sm:col-span-2">
@@ -122,7 +122,7 @@
             <div class="bg-white/60 rounded-2xl border border-black/5 overflow-hidden shadow-sm">
                 <div class="px-6 py-4 border-b border-black/5 flex items-center gap-2 bg-white/40">
                     <span class="material-symbols-outlined text-[#10b981] text-[20px]">shopping_bag</span>
-                    <h3 class="font-bold text-[#1A2E26] uppercase tracking-wider text-sm">Daftar Item Pesanan</h3>
+                    <h3 class="font-bold text-[#0A1612] uppercase tracking-wider text-sm">Daftar Item Pesanan</h3>
                 </div>
                 <div class="p-6 divide-y divide-black/5">
                     @if(isset($pesanan) && $pesanan->detailPesanan && $pesanan->detailPesanan->count() > 0)
@@ -139,7 +139,7 @@
                                     <img src="{{ asset('images/' . $foto) }}" alt="{{ $nama_produk }}" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
                                 </div>
                                 <div class="flex-grow min-w-0">
-                                    <h4 class="text-[#1A2E26] font-semibold text-sm truncate uppercase tracking-wider">{{ $nama_produk }}</h4>
+                                    <h4 class="text-[#0A1612] font-semibold text-sm truncate uppercase tracking-wider">{{ $nama_produk }}</h4>
                                     <p class="text-xs text-slate-500 mt-1">Ukuran: {{ $detail->ukuran ?? $detail->UKURAN ?? 'Semua Ukuran' }} | Jumlah: {{ $qty }}x</p>
                                     <p class="text-xs text-slate-400 mt-0.5">Harga Satuan: Rp {{ number_format($harga, 0, ',', '.') }}</p>
                                 </div>
@@ -158,7 +158,7 @@
             <div class="bg-white/60 rounded-2xl border border-black/5 overflow-hidden shadow-sm">
                 <div class="px-6 py-4 border-b border-black/5 flex items-center gap-2 bg-white/40">
                     <span class="material-symbols-outlined text-[#10b981] text-[20px]">edit_note</span>
-                    <h3 class="font-bold text-[#1A2E26] uppercase tracking-wider text-sm">Update Status Pesanan</h3>
+                    <h3 class="font-bold text-[#0A1612] uppercase tracking-wider text-sm">Update Status Pesanan</h3>
                 </div>
                 <div class="p-6">
                     <form action="{{ url('admin/pesanan/' . $id . '/status') }}" method="POST" class="flex flex-col sm:flex-row gap-4">
@@ -167,7 +167,7 @@
                         <div class="flex-1">
                             <label class="text-[10px] text-slate-500 uppercase tracking-widest mb-2 block">Pilih Status Baru</label>
                             <select name="status_pesanan"
-                                    class="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-[#1A2E26] outline-none focus:border-[#10b981] transition-colors">
+                                    class="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-[#0A1612] outline-none focus:border-[#10b981] transition-colors">
                                 @foreach(['Pending','Konfirmasi Pembayaran','Diproses','Dikirim','Selesai','Dibatalkan'] as $s)
                                     <option value="{{ $s }}" {{ strtolower($status) == strtolower($s) ? 'selected' : '' }}>{{ $s }}</option>
                                 @endforeach
@@ -209,7 +209,7 @@
             <div class="bg-white/60 rounded-2xl border border-black/5 overflow-hidden shadow-sm">
                 <div class="px-6 py-4 border-b border-black/5 flex items-center gap-2 bg-white/40">
                     <span class="material-symbols-outlined text-[#10b981] text-[20px]">person</span>
-                    <h3 class="font-bold text-[#1A2E26] uppercase tracking-wider text-sm">Info Pelanggan</h3>
+                    <h3 class="font-bold text-[#0A1612] uppercase tracking-wider text-sm">Info Pelanggan</h3>
                 </div>
                 <div class="p-6 space-y-4">
                     <div class="flex items-center gap-4">
@@ -217,21 +217,21 @@
                             {{ strtoupper(substr($namaPelanggan, 0, 1)) }}
                         </div>
                         <div class="overflow-hidden">
-                            <p class="font-bold text-[#1A2E26] truncate">{{ $namaPelanggan }}</p>
+                            <p class="font-bold text-[#0A1612] truncate">{{ $namaPelanggan }}</p>
                             <p class="text-xs text-slate-500 truncate">{{ $emailPelanggan }}</p>
                         </div>
                     </div>
                     <div class="pt-4 border-t border-black/5 space-y-3">
                         <div>
                             <p class="text-[10px] text-slate-500 uppercase tracking-widest">Nomor Telepon</p>
-                            <p class="text-[#1A2E26] font-semibold text-sm mt-0.5">{{ $telpPelanggan }}</p>
+                            <p class="text-[#0A1612] font-semibold text-sm mt-0.5">{{ $telpPelanggan }}</p>
                         </div>
                     </div>
                     @if($pelanggan)
                         <a href="{{ route('admin.pelanggan.show', $pelanggan->getAttribute('id') ?? $pelanggan->ID) }}"
                            class="flex items-center justify-center gap-2 w-full mt-2 px-4 py-2.5 rounded-xl
                                   border border-black/5 text-slate-500 bg-white/60 text-xs font-bold uppercase tracking-widest
-                                  hover:bg-black/5 hover:text-[#1A2E26] transition-all">
+                                  hover:bg-black/5 hover:text-[#0A1612] transition-all">
                             <span class="material-symbols-outlined text-[16px]">open_in_new</span>
                             Lihat Profil Pelanggan
                         </a>

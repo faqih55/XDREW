@@ -27,6 +27,7 @@
         border-radius: 9999px !important;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
         transition: all 0.4s ease !important;
+        will-change: transform, backdrop-filter, background-color;
     }
 
     /* Default Navbar item colors */
@@ -106,6 +107,7 @@
         border: 1px solid rgba(255, 255, 255, 0.6) !important;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
         border-radius: 2rem !important;
+        will-change: transform, backdrop-filter, opacity;
     }
     .glass-dropdown a, .glass-dropdown button, .glass-dropdown p, .glass-dropdown div {
         color: #1A2E26 !important;

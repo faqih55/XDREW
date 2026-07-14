@@ -7,7 +7,7 @@
     <!-- Header & Greeting -->
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-            <h1 class="text-3xl font-extrabold text-[#1A2E26] tracking-tight">Daftar <span class="text-[#10b981]">Pesanan.</span></h1>
+            <h1 class="text-3xl font-extrabold text-[#0A1612] tracking-tight">Daftar <span class="text-[#10b981]">Pesanan.</span></h1>
             <p class="text-slate-500 mt-1">Kelola dan pantau semua pesanan yang masuk ke toko Anda.</p>
         </div>
     </div>
@@ -29,7 +29,7 @@
 
     <div class="glass-card rounded-3xl overflow-hidden border border-black/5 shadow-2xl">
         <div class="p-6 border-b border-black/5 flex justify-between items-center bg-white/60">
-            <h4 class="font-bold text-lg text-[#1A2E26] uppercase tracking-wide flex items-center gap-2">
+            <h4 class="font-bold text-lg text-[#0A1612] uppercase tracking-wide flex items-center gap-2">
                 <span class="material-symbols-outlined text-[#10b981]">receipt_long</span> Semua Pesanan
             </h4>
         </div>
@@ -80,12 +80,12 @@
                                     <img src="{{ asset('images/' . $firstFoto) }}" alt="{{ $firstNama }}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/50'">
                                 </div>
                                 <div class="flex flex-col">
-                                    <span class="text-sm font-bold text-[#1A2E26] font-sans normal-case tracking-normal max-w-[120px] truncate" title="{{ $firstNama }}">{{ $firstNama }}@if($itemCount > 1) (+{{ $itemCount - 1 }})@endif</span>
+                                    <span class="text-sm font-bold text-[#0A1612] font-sans normal-case tracking-normal max-w-[120px] truncate" title="{{ $firstNama }}">{{ $firstNama }}@if($itemCount > 1) (+{{ $itemCount - 1 }})@endif</span>
                                     <span class="text-xs text-[#10b981] font-mono font-bold">#ORD-{{ $id }}</span>
                                 </div>
                             </div>
                         </td>
-                        <td class="px-6 py-4 font-bold text-[#1A2E26]">{{ $nama }}</td>
+                        <td class="px-6 py-4 font-bold text-[#0A1612]">{{ $nama }}</td>
                         <td class="px-6 py-4 text-slate-500 text-xs">{{ $tanggalFormat }}</td>
                         <td class="px-6 py-4">
                             <span class="bg-slate-100 text-slate-600 text-[10px] px-3 py-1.5 rounded-full uppercase tracking-wider font-semibold border border-black/5">
@@ -103,7 +103,7 @@
                                 <span class="bg-blue-500/10 text-blue-400 text-[10px] px-3 py-1.5 rounded-full uppercase font-bold tracking-wider border border-blue-500/20">{{ $status }}</span>
                             @endif
                         </td>
-                        <td class="px-6 py-4 text-right font-extrabold text-[#1A2E26] group-hover:text-[#10b981] transition-colors">Rp {{ number_format($total, 0, ',', '.') }}</td>
+                        <td class="px-6 py-4 text-right font-extrabold text-[#0A1612] group-hover:text-[#10b981] transition-colors">Rp {{ number_format($total, 0, ',', '.') }}</td>
                         <td class="px-6 py-4 text-center">
                             <div class="flex items-center justify-center gap-3">
                                 <a href="{{ route('admin.pesanan.show', $id) }}" class="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.1)] hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]" title="Lihat/Edit Pesanan">
@@ -166,15 +166,15 @@
                             <img src="{{ asset('images/' . $firstFoto) }}" alt="{{ $firstNama }}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/50'">
                         </div>
                         <div class="flex flex-col">
-                            <p class="text-sm font-bold text-[#1A2E26] font-sans max-w-[150px] truncate" title="{{ $firstNama }}">{{ $firstNama }}@if($itemCount > 1) (+{{ $itemCount - 1 }})@endif</p>
+                            <p class="text-sm font-bold text-[#0A1612] font-sans max-w-[150px] truncate" title="{{ $firstNama }}">{{ $firstNama }}@if($itemCount > 1) (+{{ $itemCount - 1 }})@endif</p>
                             <p class="font-mono text-[#10b981] text-xs font-bold">#ORD-{{ $id }}</p>
                         </div>
                     </div>
-                    <p class="text-sm font-extrabold text-[#1A2E26]">Rp {{ number_format($total, 0, ',', '.') }}</p>
+                    <p class="text-sm font-extrabold text-[#0A1612]">Rp {{ number_format($total, 0, ',', '.') }}</p>
                 </div>
                 <div class="flex justify-between items-end">
                     <div>
-                        <p class="text-sm font-bold text-[#1A2E26]">{{ $nama }}</p>
+                        <p class="text-sm font-bold text-[#0A1612]">{{ $nama }}</p>
                         <p class="text-[11px] text-slate-500 mt-1">{{ $tanggal ? \Carbon\Carbon::parse($tanggal)->format('d M Y') : '-' }} • {{ str_replace(['va-', 'ewallet-'], '', $metode_pembayaran) }}</p>
                     </div>
                     @if(strtolower($status) == 'selesai')

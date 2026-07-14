@@ -20,6 +20,7 @@
                         "outline-variant": "#3c4a42",
                         "on-surface-variant": "#bbcabf",
                         "error": "#ffb4ab",
+                      "accent-purple": "#a855f7",
                         "on-primary-container": "#00422b"
                     },
                     fontFamily: {
@@ -229,7 +230,7 @@
             width: 350px;
             height: 350px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(78, 222, 163, 0.22) 0%, rgba(78, 222, 163, 0) 70%);
+            background: radial-gradient(circle, rgba(78, 222, 163, 0.15) 0%, rgba(78, 222, 163, 0) 70%);
             filter: blur(60px);
             z-index: 2;
             pointer-events: none;
@@ -243,7 +244,7 @@
             width: 380px;
             height: 380px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, rgba(234, 179, 8, 0) 70%);
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(168, 85, 247, 0) 70%);
             filter: blur(70px);
             z-index: 2;
             pointer-events: none;
@@ -267,7 +268,7 @@
     <div class="liquid-glow-2"></div>
 
     <!-- Centered Glass Card -->
-    <main class="w-full max-w-[420px] p-4 z-10">
+    <main class="w-full max-w-[420px] p-4 z-10 relative z-10">
         <div class="liquid-glass-card p-6 md:p-8">
             <!-- Header Row -->
             <div class="flex justify-between items-center mb-5 relative z-10">

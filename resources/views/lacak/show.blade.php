@@ -43,11 +43,11 @@
         }
     </script>
     <style>
-        body { background-color: #EAF3EF; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        body { background-color: #F9FAFB; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #EAF3EF; }
+        ::-webkit-scrollbar-track { background: #F9FAFB; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #10b981; }
 
@@ -55,7 +55,7 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
-        .animate-pulse-slow {
+        . {
             animation: pulse-emerald 3s infinite;
         }
 
@@ -121,12 +121,12 @@
 </head>
 <body class="selection:bg-primary/30 selection:text-primary antialiased flex flex-col min-h-screen relative overflow-x-hidden">
 
-    <!-- Background and Glows (Emerald & Soft Blue Theme) -->
+        <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-40 animate-pulse-slow"></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-25"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#3bd58f] blur-[130px] opacity-35 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
     </div>
 
     <header class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/60 shadow-sm transition-all duration-300">
@@ -136,15 +136,15 @@
     <main class="relative z-10 flex-grow pt-32 pb-20 px-4 md:px-8 max-w-[1440px] mx-auto w-full">
         <!-- Breadcrumb & Header -->
         <header class="mb-10 text-center md:text-left">
-            <div class="flex items-center gap-2 text-[#1A2E26]/60 text-xs font-semibold tracking-wider uppercase mb-3 justify-center md:justify-start">
+            <div class="flex items-center gap-2 text-[#0A1612]/60 text-xs font-semibold tracking-wider uppercase mb-3 justify-center md:justify-start">
                 <a class="hover:text-primary transition-colors" href="{{ route('profile.show') }}">Akun</a>
                 <span class="material-symbols-outlined text-[14px]">chevron_right</span>
                 <a class="hover:text-primary transition-colors" href="{{ route('profile.pesanan') }}">Pesanan</a>
                 <span class="material-symbols-outlined text-[14px]">chevron_right</span>
-                <span class="text-[#1A2E26]">Lacak Pesanan</span>
+                <span class="text-[#0A1612]">Lacak Pesanan</span>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold font-['Outfit'] text-[#1A2E26] tracking-tight mb-2 uppercase">LACAK PESANAN</h1>
-            <p class="text-[#1A2E26]/70 font-['Poppins']">Informasi real-time perjalanan koleksi fashion ramah lingkungan Anda.</p>
+            <h1 class="text-4xl md:text-5xl font-bold font-['Outfit'] text-[#0A1612] tracking-tight mb-2 uppercase">LACAK PESANAN</h1>
+            <p class="text-[#0A1612]/70 font-['Poppins']">Informasi real-time perjalanan koleksi fashion ramah lingkungan Anda.</p>
         </header>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -167,8 +167,8 @@
                             </div>
                             <div>
                                 <h3 class="text-sm font-bold font-['Outfit'] text-primary mb-1 uppercase tracking-wider">Pesanan Dibuat</h3>
-                                <p class="text-[#1A2E26]/70 text-[11px] font-medium">{{ isset($pesanan->created_at) ? $pesanan->created_at->format('d M Y • H:i') : date('d M Y • H:i') }}</p>
-                                <p class="text-[#1A2E26]/60 mt-2 text-xs leading-relaxed max-w-md">Pesanan Anda telah masuk ke sistem kami dan menunggu verifikasi pembayaran.</p>
+                                <p class="text-[#0A1612]/70 text-[11px] font-medium">{{ isset($pesanan->created_at) ? $pesanan->created_at->format('d M Y • H:i') : date('d M Y • H:i') }}</p>
+                                <p class="text-[#0A1612]/60 mt-2 text-xs leading-relaxed max-w-md">Pesanan Anda telah masuk ke sistem kami dan menunggu verifikasi pembayaran.</p>
                             </div>
                         </div>
 
@@ -184,11 +184,11 @@
                                 </div>
                             @endif
                             <div>
-                                <h3 class="text-sm font-bold font-['Outfit'] {{ $step2_active ? 'text-primary' : 'text-[#1A2E26]/50' }} mb-1 uppercase tracking-wider">Pembayaran Dikonfirmasi</h3>
-                                <p class="text-[#1A2E26]/70 text-[11px] font-medium">
+                                <h3 class="text-sm font-bold font-['Outfit'] {{ $step2_active ? 'text-primary' : 'text-[#0A1612]/50' }} mb-1 uppercase tracking-wider">Pembayaran Dikonfirmasi</h3>
+                                <p class="text-[#0A1612]/70 text-[11px] font-medium">
                                     {{ $step2_active ? ($pesanan->pembayaran && $pesanan->pembayaran->updated_at ? $pesanan->pembayaran->updated_at->format('d M Y • H:i') : $pesanan->updated_at->format('d M Y • H:i')) : 'Menunggu Pembayaran' }}
                                 </p>
-                                <p class="text-[#1A2E26]/60 mt-2 text-xs leading-relaxed max-w-md">Dana telah kami terima. Tim kami mulai mempersiapkan paket busana berkelanjutan Anda.</p>
+                                <p class="text-[#0A1612]/60 mt-2 text-xs leading-relaxed max-w-md">Dana telah kami terima. Tim kami mulai mempersiapkan paket busana berkelanjutan Anda.</p>
                             </div>
                         </div>
 
@@ -204,11 +204,11 @@
                                 </div>
                             @endif
                             <div>
-                                <h3 class="text-sm font-bold font-['Outfit'] {{ $step3_active ? 'text-primary' : 'text-[#1A2E26]/50' }} mb-1 uppercase tracking-wider">Sedang Diproses</h3>
-                                <p class="text-[#1A2E26]/70 text-[11px] font-medium">
+                                <h3 class="text-sm font-bold font-['Outfit'] {{ $step3_active ? 'text-primary' : 'text-[#0A1612]/50' }} mb-1 uppercase tracking-wider">Sedang Diproses</h3>
+                                <p class="text-[#0A1612]/70 text-[11px] font-medium">
                                     {{ $step3_active ? $pesanan->updated_at->format('d M Y • H:i') : 'Menunggu' }}
                                 </p>
-                                <p class="text-[#1A2E26]/60 mt-2 text-xs leading-relaxed max-w-md">Item Anda dikemas dengan hati-hati menggunakan box daur ulang ramah lingkungan.</p>
+                                <p class="text-[#0A1612]/60 mt-2 text-xs leading-relaxed max-w-md">Item Anda dikemas dengan hati-hati menggunakan box daur ulang ramah lingkungan.</p>
                             </div>
                         </div>
 
@@ -224,11 +224,11 @@
                                 </div>
                             @endif
                             <div>
-                                <h3 class="text-sm font-bold font-['Outfit'] {{ $step4_active ? 'text-primary' : 'text-[#1A2E26]/50' }} mb-1 uppercase tracking-wider">Dikirim</h3>
-                                <p class="text-[#1A2E26]/70 text-[11px] font-medium">
+                                <h3 class="text-sm font-bold font-['Outfit'] {{ $step4_active ? 'text-primary' : 'text-[#0A1612]/50' }} mb-1 uppercase tracking-wider">Dikirim</h3>
+                                <p class="text-[#0A1612]/70 text-[11px] font-medium">
                                     {{ $step4_active ? ($pesanan->pengiriman && $pesanan->pengiriman->updated_at ? $pesanan->pengiriman->updated_at->format('d M Y • H:i') : $pesanan->updated_at->format('d M Y • H:i')) : 'Menunggu Kurir' }}
                                 </p>
-                                <p class="text-[#1A2E26]/60 mt-2 text-xs leading-relaxed max-w-md">Paket diserahkan ke kurir pengiriman. Anda bisa melacak nomor resi di sebelah kanan.</p>
+                                <p class="text-[#0A1612]/60 mt-2 text-xs leading-relaxed max-w-md">Paket diserahkan ke kurir pengiriman. Anda bisa melacak nomor resi di sebelah kanan.</p>
                             </div>
                         </div>
 
@@ -244,11 +244,11 @@
                                 </div>
                             @endif
                             <div>
-                                <h3 class="text-sm font-bold font-['Outfit'] {{ $step5_active ? 'text-primary' : 'text-[#1A2E26]/50' }} mb-1 uppercase tracking-wider">Sampai di Tujuan</h3>
-                                <p class="text-[#1A2E26]/70 text-[11px] font-medium">
+                                <h3 class="text-sm font-bold font-['Outfit'] {{ $step5_active ? 'text-primary' : 'text-[#0A1612]/50' }} mb-1 uppercase tracking-wider">Sampai di Tujuan</h3>
+                                <p class="text-[#0A1612]/70 text-[11px] font-medium">
                                     {{ $step5_active ? ($pesanan->pengiriman && $pesanan->pengiriman->updated_at ? $pesanan->pengiriman->updated_at->format('d M Y • H:i') : $pesanan->updated_at->format('d M Y • H:i')) : 'Menunggu Kedatangan' }}
                                 </p>
-                                <p class="text-[#1A2E26]/60 mt-2 text-xs leading-relaxed max-w-md">Koleksi fashion Anda telah sampai di depan pintu rumah dengan selamat.</p>
+                                <p class="text-[#0A1612]/60 mt-2 text-xs leading-relaxed max-w-md">Koleksi fashion Anda telah sampai di depan pintu rumah dengan selamat.</p>
                             </div>
                         </div>
                     </div>
@@ -262,16 +262,16 @@
                     <h2 class="text-xs font-bold text-primary uppercase tracking-widest mb-4">Informasi Faktur</h2>
                     <div class="space-y-4">
                         <div class="flex justify-between items-center py-2 border-b border-black/5">
-                            <span class="text-[#1A2E26]/70 text-xs font-medium">ID Pesanan</span>
-                            <span class="font-bold text-sm tracking-wide text-[#1A2E26]">#XD-{{ $pesanan->id ?? $pesanan->ID }}</span>
+                            <span class="text-[#0A1612]/70 text-xs font-medium">ID Pesanan</span>
+                            <span class="font-bold text-sm tracking-wide text-[#0A1612]">#XD-{{ $pesanan->id ?? $pesanan->ID }}</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-black/5">
-                            <span class="text-[#1A2E26]/70 text-xs font-medium">Tanggal Pembelian</span>
-                            <span class="text-[#1A2E26] text-xs font-semibold">{{ isset($pesanan->tanggal_pesanan) ? \Carbon\Carbon::parse($pesanan->tanggal_pesanan)->format('d M Y') : ($pesanan->created_at ? $pesanan->created_at->format('d M Y') : date('d M Y')) }}</span>
+                            <span class="text-[#0A1612]/70 text-xs font-medium">Tanggal Pembelian</span>
+                            <span class="text-[#0A1612] text-xs font-semibold">{{ isset($pesanan->tanggal_pesanan) ? \Carbon\Carbon::parse($pesanan->tanggal_pesanan)->format('d M Y') : ($pesanan->created_at ? $pesanan->created_at->format('d M Y') : date('d M Y')) }}</span>
                         </div>
                         <div class="py-2">
-                            <span class="text-[#1A2E26]/70 text-xs font-medium block mb-2">Alamat Penerima</span>
-                            <p class="text-[#1A2E26] text-xs leading-relaxed whitespace-pre-line font-medium">
+                            <span class="text-[#0A1612]/70 text-xs font-medium block mb-2">Alamat Penerima</span>
+                            <p class="text-[#0A1612] text-xs leading-relaxed whitespace-pre-line font-medium">
                                 {{ $pesanan->pengiriman->alamat_tujuan ?? $pesanan->pengiriman->ALAMAT_TUJUAN ?? 'Alamat pengiriman belum ditentukan.' }}
                             </p>
                         </div>
@@ -280,7 +280,7 @@
 
                 <!-- Product Preview Card -->
                 <div class="glass-panel p-6 md:p-8 rounded-2xl">
-                    <h2 class="text-xs font-bold text-[#1A2E26]/70 uppercase tracking-widest mb-4">Item Pengiriman</h2>
+                    <h2 class="text-xs font-bold text-[#0A1612]/70 uppercase tracking-widest mb-4">Item Pengiriman</h2>
                     <div class="space-y-4 max-h-[220px] overflow-y-auto pr-2">
                         @if(isset($pesanan->detailPesanan) && $pesanan->detailPesanan->count() > 0)
                             @foreach($pesanan->detailPesanan as $detail)
@@ -289,8 +289,8 @@
                                         <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0" src="{{ asset('images/' . ($detail->produk->foto ?? $detail->produk->FOTO ?? 'default.jpg')) }}" alt="Foto Produk"/>
                                     </div>
                                     <div class="flex-grow min-w-0">
-                                        <h4 class="text-[#1A2E26] font-bold text-xs truncate uppercase tracking-wider">{{ $detail->produk->nama_produk ?? $detail->produk->NAMA_PRODUK ?? 'Produk XDrew' }}</h4>
-                                        <p class="text-[#1A2E26]/70 text-[11px] mt-0.5">Ukuran: {{ $detail->ukuran ?? $detail->UKURAN ?? 'Semua Ukuran' }} | {{ $detail->kuantitas ?? $detail->KUANTITAS ?? 1 }}x</p>
+                                        <h4 class="text-[#0A1612] font-bold text-xs truncate uppercase tracking-wider">{{ $detail->produk->nama_produk ?? $detail->produk->NAMA_PRODUK ?? 'Produk XDrew' }}</h4>
+                                        <p class="text-[#0A1612]/70 text-[11px] mt-0.5">Ukuran: {{ $detail->ukuran ?? $detail->UKURAN ?? 'Semua Ukuran' }} | {{ $detail->kuantitas ?? $detail->KUANTITAS ?? 1 }}x</p>
                                         <p class="text-primary font-bold text-xs mt-1 drop-shadow-sm">Rp {{ number_format(($detail->harga_satuan ?? $detail->HARGA_SATUAN ?? 0) * ($detail->kuantitas ?? $detail->KUANTITAS ?? 1), 0, ',', '.') }}</p>
                                     </div>
                                 </div>
@@ -306,7 +306,7 @@
                     <div class="absolute bottom-4 left-4 right-4">
                         <div class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-primary text-[20px] animate-pulse">location_on</span>
-                            <span class="text-[10px] font-bold text-[#1A2E26] uppercase tracking-widest truncate">
+                            <span class="text-[10px] font-bold text-[#0A1612] uppercase tracking-widest truncate">
                                 @if($status === 'selesai')
                                     Tiba: Paket telah sampai di alamat tujuan
                                 @elseif($status === 'dikirim')
@@ -329,7 +329,7 @@
                         <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
                         Kembali Belanja
                     </a>
-                    <a href="https://wa.me/6281234567890?text=Halo%20XDrew%20Fashion,%20saya%20butuh%20bantuan%20dengan%20pesanan%20saya%20%23XD-{{ $pesanan->id ?? $pesanan->ID }}" target="_blank" class="w-full block text-center bg-transparent border border-[#1A2E26]/20 text-[#1A2E26] py-4 rounded-xl font-bold text-[11px] uppercase tracking-widest hover:bg-[#1A2E26]/5 transition-colors">
+                    <a href="https://wa.me/6281234567890?text=Halo%20XDrew%20Fashion,%20saya%20butuh%20bantuan%20dengan%20pesanan%20saya%20%23XD-{{ $pesanan->id ?? $pesanan->ID }}" target="_blank" class="w-full block text-center bg-transparent border border-[#1A2E26]/20 text-[#0A1612] py-4 rounded-xl font-bold text-[11px] uppercase tracking-widest hover:bg-[#1A2E26]/5 transition-colors">
                         Butuh Bantuan? Hubungi Dukungan
                     </a>
                 </div>

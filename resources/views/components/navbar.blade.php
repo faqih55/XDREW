@@ -63,7 +63,7 @@
                 <span class="material-symbols-outlined text-3xl animate-pulse">logout</span>
             </div>
 
-            <h3 class="text-2xl font-black text-[#1A2E26] tracking-tight uppercase mb-2 font-['Outfit']">Keluar Akun?</h3>
+            <h3 class="text-2xl font-black text-[#0A1612] tracking-tight uppercase mb-2 font-['Outfit']">Keluar Akun?</h3>
             <p class="text-slate-500 text-sm leading-relaxed mb-6 font-['Poppins']">
                 Apakah Anda yakin ingin keluar dari akun Anda? Keranjang belanja Anda tetap aman tersimpan.
             </p>
@@ -74,7 +74,7 @@
 
             <div class="flex items-center gap-3 w-full">
                 <button type="button" @click="showLogoutModal = false" 
-                        class="flex-1 py-3.5 rounded-2xl border border-black/10 text-[#1A2E26] text-xs font-bold uppercase tracking-wider hover:bg-black/5 transition-all font-['Outfit']">
+                        class="flex-1 py-3.5 rounded-2xl border border-black/10 text-[#0A1612] text-xs font-bold uppercase tracking-wider hover:bg-black/5 transition-all font-['Outfit']">
                     Batal
                 </button>
                 

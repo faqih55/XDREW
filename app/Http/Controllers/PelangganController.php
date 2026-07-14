@@ -114,13 +114,68 @@ class PelangganController extends Controller
             'nama_lengkap' => ['required', 'string', 'max:255'],
             'email'        => ['required', 'string', 'email', 'max:255', 'unique:PELANGGAN,EMAIL'],
             'password'     => ['required', 'string', 'min:8', 'confirmed'],
+            'no_telepon'   => ['nullable', 'string', 'max:20'],
+            'provinsi'     => ['nullable', 'string', 'max:255'],
+            'kota'         => ['nullable', 'string', 'max:255'],
+            'kabupaten'    => ['nullable', 'string', 'max:255'],
+            'alamat'       => ['nullable', 'string'],
+            'foto'         => ['nullable', 'image', 'max:10240'],
         ]);
+
+        // Handle profile photo upload with compression
+        $fotoPath = null;
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            $path = 'profile_photos/' . $filename;
+            
+            $destinationPath = storage_path('app/public/' . $path);
+            
+            if (!file_exists(storage_path('app/public/profile_photos'))) {
+                mkdir(storage_path('app/public/profile_photos'), 0755, true);
+            }
+            
+            $mime = $file->getMimeType();
+            $quality = 60; // Compression quality
+            
+            try {
+                if ($mime == 'image/jpeg') {
+                    $image = imagecreatefromjpeg($file->getRealPath());
+                    imagejpeg($image, $destinationPath, $quality);
+                } elseif ($mime == 'image/png') {
+                    $image = imagecreatefrompng($file->getRealPath());
+                    imagealphablending($image, false);
+                    imagesavealpha($image, true);
+                    imagepng($image, $destinationPath, 8);
+                } elseif ($mime == 'image/webp') {
+                    $image = imagecreatefromwebp($file->getRealPath());
+                    imagewebp($image, $destinationPath, $quality);
+                } else {
+                    $path = $file->store('profile_photos', 'public');
+                }
+                
+                if (isset($image)) {
+                    imagedestroy($image);
+                }
+                
+                $fotoPath = $path;
+            } catch (\Exception $e) {
+                // Fallback if compression fails
+                $fotoPath = $file->store('profile_photos', 'public');
+            }
+        }
 
         // Simpan ke Database
         $pelanggan = Pelanggan::create([
-            'NAMA_LENGKAP' => $validated['nama_lengkap'],
-            'EMAIL'        => strtolower($validated['email']),
-            'KATA_SANDI'   => Hash::make($validated['password']),
+            'NAMA_LENGKAP'  => $validated['nama_lengkap'],
+            'EMAIL'         => strtolower($validated['email']),
+            'KATA_SANDI'    => Hash::make($validated['password']),
+            'NOMOR_TELEPON' => $validated['no_telepon'] ?? null,
+            'PROVINSI'      => $validated['provinsi'] ?? null,
+            'KOTA'          => $validated['kota'] ?? null,
+            'KABUPATEN'     => $validated['kabupaten'] ?? null,
+            'ALAMAT'        => $validated['alamat'] ?? null,
+            'FOTO'          => $fotoPath,
         ]);
 
         // Kirim notifikasi ke admin

@@ -14,6 +14,7 @@
         {{-- Mobile Nav Links --}}
         @php
             $mobileLinks = [
+                ['label' => 'Beranda',       'route' => 'home',           'icon' => 'home'],
                 ['label' => 'Koleksi Baru',  'route' => 'produk.index',   'icon' => 'checkroom'],
                 ['label' => 'Berkelanjutan', 'route' => 'sustainability', 'icon' => 'eco'],
                 ['label' => 'Jurnal',        'route' => 'jurnal',         'icon' => 'menu_book'],

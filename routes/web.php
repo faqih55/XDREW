@@ -29,6 +29,11 @@ Route::get('/search', [ProductController::class, 'search'])->name('search');
 Route::get('/sustainability', function () { return view('sustainability'); })->name('sustainability');
 Route::get('/jurnal', function () { return view('jurnal'); })->name('jurnal');
 
+// Rute Dukungan
+Route::get('/kebijakan-privasi', function () { return view('privasi'); })->name('dukungan.privasi');
+Route::get('/syarat-ketentuan', function () { return view('syarat-ketentuan'); })->name('dukungan.syarat');
+Route::get('/hubungi-kami', function () { return view('hubungi-kami'); })->name('dukungan.kontak');
+
 // RUTE API (PENTING: Pastikan ini ada agar fitur 'Beli Sekarang' via JS berhasil)
 Route::get('/api/produk/{id}', function($id) {
     $produk = Produk::find($id); 

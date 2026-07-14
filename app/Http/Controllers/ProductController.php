@@ -39,7 +39,7 @@ class ProductController extends Controller
         }
 
         // Gunakan paginate dan pertahankan query string
-        $produk = $query->paginate(8)->withQueryString();
+        $produk = $query->paginate(25)->withQueryString();
 
         $selectedKategori = $request->input('kategori', '');
         $selectedUkuran = $request->input('ukuran', '');

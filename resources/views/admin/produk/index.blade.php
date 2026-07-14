@@ -5,7 +5,7 @@
 <div class="p-4 md:p-8" x-data="{ showDeleteModal: false, deleteActionUrl: '', deleteProductName: '' }">
     <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 border-b border-black/5 pb-6">
         <div>
-            <h2 class="text-3xl font-extrabold text-[#1A2E26] tracking-tight uppercase">Manajemen <span class="text-[#10b981]">Inventaris.</span></h2>
+            <h2 class="text-3xl font-extrabold text-[#0A1612] tracking-tight uppercase">Manajemen <span class="text-[#10b981]">Inventaris.</span></h2>
             <p class="text-slate-500 text-sm mt-1">Kelola stok, harga, dan katalog koleksi produk Anda.</p>
         </div>
         <a href="{{ route('admin.produk.create') }}" class="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#10b981] text-white font-bold uppercase tracking-widest text-xs hover:bg-[#059669] transition-all hover:shadow-lg hover:shadow-[#10b981]/30">
@@ -46,12 +46,12 @@
                                 <img src="{{ asset('images/' . ($produk->FOTO ?? $produk->foto)) }}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/50'">
                             </div>
                             <div>
-                                <p class="font-bold text-[#1A2E26]">{{ $produk->NAMA_PRODUK ?? $produk->nama_produk }}</p>
+                                <p class="font-bold text-[#0A1612]">{{ $produk->NAMA_PRODUK ?? $produk->nama_produk }}</p>
                                 <p class="text-[10px] text-[#10b981] font-mono">ID: {{ $produk->ID ?? $produk->id }}</p>
                             </div>
                         </td>
                         <td class="px-6 py-4 text-slate-600">{{ $produk->KATEGORI ?? $produk->kategori }}</td>
-                        <td class="px-6 py-4 font-bold text-[#1A2E26]">Rp {{ number_format($produk->HARGA ?? $produk->harga, 0, ',', '.') }}</td>
+                        <td class="px-6 py-4 font-bold text-[#0A1612]">Rp {{ number_format($produk->HARGA ?? $produk->harga, 0, ',', '.') }}</td>
                         <td class="px-6 py-4">
                             <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider {{ ($produk->STOK ?? $produk->stok) > 5 ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20' }}">
                                 {{ $produk->STOK ?? $produk->stok }} Pcs
@@ -115,7 +115,7 @@
                 <span class="material-symbols-outlined text-3xl animate-pulse">warning</span>
             </div>
 
-            <h3 class="text-2xl font-black text-[#1A2E26] tracking-tight uppercase mb-2">Hapus Koleksi?</h3>
+            <h3 class="text-2xl font-black text-[#0A1612] tracking-tight uppercase mb-2">Hapus Koleksi?</h3>
             <p class="text-slate-500 text-sm leading-relaxed mb-6">
                 Apakah Anda yakin ingin menghapus produk <strong class="text-red-500" x-text="deleteProductName"></strong> dari inventaris? Tindakan ini tidak dapat dibatalkan.
             </p>
@@ -123,7 +123,7 @@
             <!-- Action Buttons -->
             <div class="flex items-center gap-3 w-full">
                 <button type="button" @click="showDeleteModal = false" 
-                        class="flex-1 py-3.5 rounded-xl border border-black/10 text-[#1A2E26] text-xs font-bold uppercase tracking-wider hover:bg-black/5 transition-all">
+                        class="flex-1 py-3.5 rounded-xl border border-black/10 text-[#0A1612] text-xs font-bold uppercase tracking-wider hover:bg-black/5 transition-all">
                     Batal
                 </button>
                 

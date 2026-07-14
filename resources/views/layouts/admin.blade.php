@@ -8,6 +8,12 @@
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Optimasi Prioritas Koneksi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet"/>
 
@@ -15,7 +21,7 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: #EAF3EF;
+            background-color: #F9FAFB;
             background-image: 
                 linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
@@ -72,6 +78,8 @@
             border: 1px solid rgba(255, 255, 255, 0.6);
             border-radius: var(--sb-r);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            transform: translateZ(0);
+            will-change: width, transform, backdrop-filter;
         }
         .sidebar:hover { width:var(--sb-w1); }
 
@@ -178,6 +186,8 @@
             box-shadow: 0 4px 30px rgba(0,0,0,.05);
             position: relative;
             z-index: 100;              /* tertinggi, selalu di atas sidebar */
+            transform: translateZ(0);
+            will-change: backdrop-filter, transform;
         }
         .topbar-search {
             position: absolute;
@@ -200,13 +210,15 @@
         .topbar-search .si { position:absolute; left:11px; top:50%; transform:translateY(-50%); color:#94a3b8; font-size:17px; }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.4) !important;
-            backdrop-filter: blur(28px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.6) !important;
+            background: #ffffff !important;
+            backdrop-filter: blur(24px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
             box-shadow: 
-                0 16px 40px -10px rgba(98, 124, 112, 0.15), 
-                inset 0 1px 3px rgba(255, 255, 255, 0.8) !important;
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
         }
 
         .topbar-right { display:flex; align-items:center; gap:10px; margin-left:auto; }
@@ -241,6 +253,8 @@
             box-shadow:0 24px 56px rgba(0,0,0,.15);
             z-index:999;
             overflow:hidden;
+            transform: translateZ(0);
+            will-change: opacity, transform, backdrop-filter;
 
             /* hidden by default */
             opacity:0; transform:translateY(-8px) scale(.97);
@@ -339,10 +353,15 @@
 
         /* glass-card utility */
         .glass-card {
-            background:rgba(255,255,255,.6) !important;
-            backdrop-filter:blur(20px) saturate(1.5); -webkit-backdrop-filter:blur(20px) saturate(1.5);
-            border:1px solid rgba(0,0,0,.06); border-top-color:rgba(255,255,255,.8);
-            box-shadow: 0 4px 20px rgba(0,0,0,.03);
+            background: #ffffff !important;
+            backdrop-filter: blur(24px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
         }
 
         /* ── Mobile ── */
@@ -356,6 +375,8 @@
             align-items: center; justify-content: space-between;
             padding: 0 16px;
             box-shadow: 0 2px 10px rgba(0,0,0,.05);
+            transform: translateZ(0);
+            will-change: transform, backdrop-filter;
         }
         @media (max-width:1023px) {
             body { flex-direction: column; }
@@ -380,6 +401,14 @@
     </style>
 </head>
 <body x-data="{ mobileOpen: false }">
+
+    <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
+    </div>
 
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
@@ -517,9 +546,9 @@
         <div class="sb-logo" style="padding-left: 16px;">
             <a href="{{ route('admin.dashboard') }}" class="relative flex items-center gap-1 group/logo" style="text-decoration: none;">
                 <!-- Collapsed State: Shows 'XD' -->
-                <span class="font-['Outfit'] text-2xl font-black tracking-tight text-[#1A2E26] sidebar-collapsed-only">XD</span>
+                <span class="font-['Outfit'] text-2xl font-black tracking-tight text-[#0A1612] sidebar-collapsed-only">XD</span>
                 <!-- Expanded State: Shows 'XDREW' -->
-                <span class="font-['Outfit'] text-2xl font-black tracking-tight text-[#1A2E26] sidebar-expanded-only">XDREW</span>
+                <span class="font-['Outfit'] text-2xl font-black tracking-tight text-[#0A1612] sidebar-expanded-only">XDREW</span>
                 <!-- Pulse Dot -->
                 <span class="relative inline-flex items-end mb-[10px] ml-0.5">
                     <span class="block w-[6px] h-[6px] rounded-full bg-[#10b981] shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
@@ -604,7 +633,7 @@
                     <span class="material-symbols-outlined text-3xl animate-pulse">logout</span>
                 </div>
 
-                <h3 class="text-2xl font-black text-[#1A2E26] tracking-tight uppercase mb-2">Keluar Sesi Admin?</h3>
+                <h3 class="text-2xl font-black text-[#0A1612] tracking-tight uppercase mb-2">Keluar Sesi Admin?</h3>
                 <p class="text-slate-500 text-sm leading-relaxed mb-6 font-['Poppins']">
                     Apakah Anda yakin ingin keluar dari panel admin XDrew Fashion? Semua perubahan yang belum disimpan mungkin akan hilang.
                 </p>
@@ -612,7 +641,7 @@
                 <!-- Action Buttons -->
                 <div class="flex items-center gap-3 w-full">
                     <button type="button" @click="showLogoutModal = false" 
-                            class="flex-1 py-3.5 rounded-xl border border-black/10 text-[#1A2E26] text-xs font-bold uppercase tracking-wider hover:bg-black/5 transition-all font-['Outfit']">
+                            class="flex-1 py-3.5 rounded-xl border border-black/10 text-[#0A1612] text-xs font-bold uppercase tracking-wider hover:bg-black/5 transition-all font-['Outfit']">
                         Batal
                     </button>
                     

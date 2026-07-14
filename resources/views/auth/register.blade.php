@@ -20,6 +20,7 @@
                         "outline-variant": "#3c4a42",
                         "on-surface-variant": "#bbcabf",
                         "error": "#ffb4ab",
+                      "accent-purple": "#a855f7",
                         "on-primary-container": "#00422b"
                     },
                     fontFamily: {
@@ -147,11 +148,19 @@
 </head>
 
 <body class="min-h-screen flex items-center justify-center font-body-md relative overflow-hidden select-none">
+
+    <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
+    </div>
     <!-- Full-screen dark overlay to enhance readability -->
     <div class="absolute inset-0 overlay z-0"></div>
 
     <!-- Centered Glass Card -->
-    <main class="w-full max-w-[460px] p-6 z-10">
+    <main class="w-full max-w-[460px] p-6 z-10 relative z-10">
         <div class="liquid-glass-card p-10 md:p-12">
             <!-- Header Row -->
             <div class="flex justify-between items-center mb-10 relative z-10">

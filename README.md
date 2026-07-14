@@ -1,70 +1,190 @@
-<img width="1918" height="971" alt="Screenshot 2026-06-29 205950" src="https://github.com/user-attachments/assets/9ac2c11f-017c-4c13-aa75-306d62a494f6" />
-<img width="1918" height="972" alt="Screenshot 2026-06-29 210029" src="https://github.com/user-attachments/assets/6b78fc22-b761-4159-9e62-5e87555be2d0" />
-<img width="1918" height="977" alt="Screenshot 2026-06-29 210140" src="https://github.com/user-attachments/assets/0688a67a-3fc3-44b6-8638-c749005dec63" />
+# XDREW Fashion — CMS & E-Commerce Platform
 
+Platform e-commerce fashion berkelanjutan (sustainable streetwear) berbasis **Laravel**, didesain dengan estetika modern dan performa tinggi.
 
+---
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## ✨ Fitur Utama
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+| Fitur | Keterangan |
+|---|---|
+| 🏠 **Beranda** | Hero section, koleksi unggulan, brand story |
+| 👕 **Koleksi Produk** | Grid 5 kolom, filter & sort, paginasi 25 item |
+| 📄 **Detail Produk** | Galeri gambar, ulasan, produk terkait |
+| 🛒 **Keranjang Belanja** | Update kuantitas, hapus item, ringkasan total |
+| 💳 **Checkout & Pembayaran** | Alamat pengiriman, metode pembayaran |
+| 📦 **Lacak Pesanan** | Riwayat & status pengiriman real-time |
+| 🌱 **Keberlanjutan** | Halaman misi & dampak lingkungan |
+| 📰 **Jurnal** | Blog / artikel brand |
+| 👤 **Profil Pelanggan** | Edit profil, alamat, keamanan, pesanan |
+| 🛡️ **Panel Admin** | Dashboard, inventaris, pesanan, pelanggan, analitik |
+| 📋 **Dukungan** | Kebijakan Privasi, Syarat & Ketentuan, Hubungi Kami |
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🗂️ Struktur Proyek
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```
+XDREW/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── AdminController.php          # Panel admin
+│   │   ├── AdminNotificationController.php
+│   │   ├── CartController.php           # Keranjang belanja
+│   │   ├── CheckoutController.php       # Checkout & pembayaran
+│   │   ├── NotificationController.php   # Notifikasi pelanggan
+│   │   ├── PelangganController.php      # Auth pelanggan
+│   │   ├── ProductController.php        # Koleksi produk
+│   │   └── ProfileController.php        # Profil pelanggan
+│   ├── Models/                          # Eloquent models
+│   ├── Notifications/                   # Laravel Notifications
+│   └── Providers/                       # Service Providers
+│
+├── resources/
+│   ├── views/
+│   │   ├── admin/                       # Tampilan panel admin
+│   │   ├── auth/                        # Login & register
+│   │   ├── components/                  # Komponen reusable (navbar, footer, dll)
+│   │   │   └── navbar/                  # Pill-style navbar
+│   │   ├── lacak/                       # Halaman lacak pesanan
+│   │   ├── layouts/                     # Layout utama
+│   │   │   ├── Front.blade.php          # Layout halaman publik (dengan navbar custom)
+│   │   │   ├── admin.blade.php          # Layout panel admin
+│   │   │   ├── app.blade.php            # Layout dasar
+│   │   │   ├── guest.blade.php          # Layout halaman tamu
+│   │   │   └── profile.blade.php        # Layout halaman profil
+│   │   ├── pelanggan/                   # View khusus pelanggan
+│   │   ├── profile/                     # Halaman profil (tab-based)
+│   │   ├── dashboard.blade.php          # Dashboard pelanggan
+│   │   ├── detail.blade.php             # Detail produk
+│   │   ├── detail-pesanan.blade.php     # Detail pesanan
+│   │   ├── hubungi-kami.blade.php       # Halaman Hubungi Kami
+│   │   ├── jurnal.blade.php             # Blog / Jurnal
+│   │   ├── keranjang.blade.php          # Keranjang belanja
+│   │   ├── pembayaran.blade.php         # Halaman pembayaran
+│   │   ├── privasi.blade.php            # Kebijakan Privasi
+│   │   ├── produk.blade.php             # Koleksi produk (5 kolom)
+│   │   ├── sustainability.blade.php     # Halaman keberlanjutan
+│   │   ├── syarat-ketentuan.blade.php   # Syarat & Ketentuan
+│   │   └── welcome.blade.php            # Beranda utama
+│   ├── css/
+│   │   └── app.css                      # Stylesheet utama
+│   └── js/
+│       └── app.js                       # JavaScript utama
+│
+├── routes/
+│   ├── web.php                          # Semua rute web
+│   └── api.php                          # Rute API (user auth)
+│
+├── public/
+│   ├── images/                          # Gambar produk & aset
+│   ├── js/app.js                        # JS terkompilasi
+│   └── css/app.css                      # CSS terkompilasi
+│
+├── database/
+│   ├── migrations/                      # Skema database
+│   ├── factories/                       # Data factory
+│   └── seeders/                         # Data seeder
+│
+├── config/                              # Konfigurasi Laravel
+├── .env                                 # Environment variables (jangan di-commit)
+├── composer.json                        # Dependensi PHP
+├── package.json                         # Dependensi Node.js
+└── webpack.mix.js                       # Konfigurasi build aset
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🚀 Cara Menjalankan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Prasyarat
+- PHP >= 8.1
+- Composer
+- Node.js >= 16
+- Database (MySQL / Oracle)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Langkah Instalasi
 
-## Laravel Sponsors
+```bash
+# 1. Clone repository
+git clone <url-repo> xdrew
+cd xdrew
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# 2. Install dependensi PHP
+composer install
 
-### Premium Partners
+# 3. Install dependensi Node.js
+npm install
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+# 4. Salin file environment
+cp .env.example .env
 
-## Contributing
+# 5. Generate app key
+php artisan key:generate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# 6. Konfigurasi database di file .env
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=xdrew
+# DB_USERNAME=root
+# DB_PASSWORD=
 
-## Code of Conduct
+# 7. Jalankan migrasi & seeder
+php artisan migrate --seed
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# 8. Build aset frontend
+npm run dev
 
-## Security Vulnerabilities
+# 9. Jalankan server development
+php artisan serve
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Buka browser dan akses `http://127.0.0.1:8000`
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🛤️ Daftar Rute Utama
+
+| Method | URL | Nama Rute | Keterangan |
+|---|---|---|---|
+| GET | `/` | `home` | Beranda |
+| GET | `/produk` | `produk.index` | Koleksi produk |
+| GET | `/produk/{id}` | `produk.show` | Detail produk |
+| GET | `/sustainability` | `sustainability` | Halaman keberlanjutan |
+| GET | `/jurnal` | `jurnal` | Blog & artikel |
+| GET | `/kebijakan-privasi` | `dukungan.privasi` | Kebijakan Privasi |
+| GET | `/syarat-ketentuan` | `dukungan.syarat` | Syarat & Ketentuan |
+| GET | `/hubungi-kami` | `dukungan.kontak` | Hubungi Kami |
+| GET | `/keranjang` | `cart.index` | Keranjang belanja |
+| POST | `/keranjang/tambah` | `cart.add` | Tambah ke keranjang |
+| GET | `/checkout/pembayaran` | `checkout.pembayaran` | Halaman checkout |
+| GET | `/admin/dashboard` | `admin.dashboard` | Panel admin |
+| GET | `/login` | `pelanggan.login` | Login pelanggan |
+| GET | `/register` | `pelanggan.register` | Registrasi pelanggan |
+
+---
+
+## 🎨 Stack Teknologi
+
+| Layer | Teknologi |
+|---|---|
+| Backend | Laravel 10, PHP 8.1+ |
+| Database | MySQL / Oracle |
+| Frontend | Blade, Alpine.js, Tailwind CSS (CDN) |
+| Build Tool | Laravel Mix (Webpack) |
+| Typography | Google Fonts — Outfit & Poppins |
+| Icons | Material Symbols Outlined |
+| Auth | Laravel Multi-Guard (Admin & Pelanggan) |
+
+---
+
+## 🔐 Akses Panel Admin
+
+Akses panel admin melalui `/admin/login`. Buat akun admin melalui `/admin/register` (pastikan rute ini dilindungi atau dinonaktifkan di production).
+
+---
+
+## 📝 Lisensi
+
+© 2025 XDrew Fashion. Hak cipta dilindungi.

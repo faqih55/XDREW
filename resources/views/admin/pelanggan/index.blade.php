@@ -5,7 +5,7 @@
 <div class="p-4 md:p-8">
     <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 border-b border-black/5 pb-6">
         <div>
-            <h2 class="text-3xl font-extrabold text-[#1A2E26] tracking-tight uppercase">Data <span class="text-[#10b981]">Pelanggan.</span></h2>
+            <h2 class="text-3xl font-extrabold text-[#0A1612] tracking-tight uppercase">Data <span class="text-[#10b981]">Pelanggan.</span></h2>
             <p class="text-slate-500 text-sm mt-1">Basis data pelanggan terdaftar di XDrew Fashion.</p>
         </div>
     </header>
@@ -23,12 +23,30 @@
                 </thead>
                 <tbody class="divide-y divide-black/5">
                     @forelse($data_pelanggan ?? [] as $pelanggan)
-                    <tr class="hover:bg-black/5 transition-colors group">
+                    <tr class="hover:bg-black/5 transition-colors group cursor-pointer" onclick="window.location='{{ route('admin.pelanggan.show', $pelanggan->ID ?? $pelanggan->id) }}'">
                         <td class="px-6 py-4 flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-white/60 border border-[#10b981]/30 flex items-center justify-center text-[#10b981] font-bold">
-                                {{ substr($pelanggan->NAMA_LENGKAP ?? $pelanggan->nama_lengkap ?? 'U', 0, 1) }}
+                            @php
+                                $foto = $pelanggan->FOTO ?? $pelanggan->foto;
+                                $fotoUrl = null;
+                                if ($foto) {
+                                    if (str_starts_with($foto, 'http')) {
+                                        $fotoUrl = $foto;
+                                    } elseif (file_exists(public_path('images/' . $foto))) {
+                                        $fotoUrl = asset('images/' . $foto);
+                                    } else {
+                                        $fotoUrl = asset('storage/' . str_replace('public/', '', $foto)); 
+                                    }
+                                }
+                                $defaultAvatar = 'https://ui-avatars.com/api/?name=' . urlencode($pelanggan->NAMA_LENGKAP ?? $pelanggan->nama_lengkap ?? 'U') . '&background=10b981&color=fff&bold=true';
+                            @endphp
+                            <div class="w-10 h-10 rounded-full border border-[#10b981]/30 overflow-hidden bg-white/60 flex items-center justify-center shrink-0">
+                                @if($fotoUrl)
+                                    <img src="{{ $fotoUrl }}" alt="Profile" class="w-full h-full object-cover" onerror="this.src='{{ $defaultAvatar }}'">
+                                @else
+                                    <img src="{{ $defaultAvatar }}" alt="Profile" class="w-full h-full object-cover">
+                                @endif
                             </div>
-                            <span class="font-bold text-[#1A2E26]">{{ $pelanggan->NAMA_LENGKAP ?? $pelanggan->nama_lengkap }}</span>
+                            <span class="font-bold text-[#0A1612]">{{ $pelanggan->NAMA_LENGKAP ?? $pelanggan->nama_lengkap }}</span>
                         </td>
                         <td class="px-6 py-4 text-slate-600">{{ $pelanggan->EMAIL ?? $pelanggan->email }}</td>
                         <td class="px-6 py-4 text-slate-600">{{ $pelanggan->NOMOR_TELEPON ?? $pelanggan->nomor_telepon ?? '-' }}</td>

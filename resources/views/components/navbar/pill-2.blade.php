@@ -6,7 +6,7 @@
                 id="navbar-search-btn"
                 class="group/btn flex-shrink-0 relative flex items-center justify-start rounded-full transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)]
                        w-12 h-12 px-[13px] hover:w-[110px]
-                       text-[#1A2E26]/70 hover:text-[#10b981] hover:bg-white/50 active:scale-95 border border-transparent hover:border-white/60 overflow-hidden whitespace-nowrap"
+                       text-[#0A1612]/70 hover:text-[#10b981] hover:bg-white/50 active:scale-95 border border-transparent hover:border-white/60 overflow-hidden whitespace-nowrap"
                 :class="searchOpen ? 'w-[110px] bg-[#4edea3]/20 text-[#10b981] border-[#4edea3]/30 shadow-[inset_0_1px_2px_rgba(78,222,163,0.4)]' : ''"
                 aria-label="Cari">
             <span class="material-symbols-outlined text-[22px] transition-transform duration-300 flex-shrink-0" 
@@ -21,7 +21,7 @@
            id="navbar-cart-btn"
            class="group/btn flex-shrink-0 relative flex items-center justify-start rounded-full transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)]
                   w-12 h-12 px-[13px] hover:w-[160px]
-                  text-[#1A2E26]/70 hover:text-[#10b981] hover:bg-white/50 active:scale-95 border border-transparent hover:border-white/60 overflow-hidden whitespace-nowrap"
+                  text-[#0A1612]/70 hover:text-[#10b981] hover:bg-white/50 active:scale-95 border border-transparent hover:border-white/60 overflow-hidden whitespace-nowrap"
            aria-label="Keranjang">
             <span class="relative flex items-center justify-center flex-shrink-0">
                 <span class="material-symbols-outlined text-[22px]">shopping_bag</span>

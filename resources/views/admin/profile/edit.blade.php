@@ -7,7 +7,7 @@
     <div class="max-w-4xl mx-auto space-y-6">
         <div class="flex items-center justify-between mb-8 border-b border-black/5 pb-6">
             <div>
-                <h2 class="text-3xl font-extrabold text-[#1A2E26] font-['Outfit'] tracking-tight uppercase">Profil <span class="text-[#10b981]">Admin.</span></h2>
+                <h2 class="text-3xl font-extrabold text-[#0A1612] font-['Outfit'] tracking-tight uppercase">Profil <span class="text-[#10b981]">Admin.</span></h2>
                 <p class="text-slate-500 text-sm mt-1">Kelola informasi pribadi dan keamanan akun Anda.</p>
             </div>
         </div>
@@ -29,7 +29,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 relative z-10">
                 <!-- Informasi Dasar -->
                 <div class="space-y-6">
-                    <h3 class="text-lg font-bold text-[#1A2E26] border-b border-black/5 pb-3 flex items-center gap-2">
+                    <h3 class="text-lg font-bold text-[#0A1612] border-b border-black/5 pb-3 flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#10b981]">person</span>
                         Informasi Dasar
                     </h3>
@@ -42,7 +42,7 @@
                     <div class="space-y-2">
                         <label for="nama_admin" class="text-xs font-bold uppercase tracking-wider text-slate-500">Nama Lengkap</label>
                         <input type="text" name="nama_admin" id="nama_admin" value="{{ old('nama_admin', $nama) }}" required
-                               class="w-full bg-white/60 border border-black/10 rounded-xl px-4 py-3.5 text-[#1A2E26] placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all">
+                               class="w-full bg-white/60 border border-black/10 rounded-xl px-4 py-3.5 text-[#0A1612] placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all">
                         @error('nama_admin')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
@@ -51,7 +51,7 @@
                     <div class="space-y-2">
                         <label for="email" class="text-xs font-bold uppercase tracking-wider text-slate-500">Alamat Email</label>
                         <input type="email" name="email" id="email" value="{{ old('email', $email) }}" required
-                               class="w-full bg-white/60 border border-black/10 rounded-xl px-4 py-3.5 text-[#1A2E26] placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all">
+                               class="w-full bg-white/60 border border-black/10 rounded-xl px-4 py-3.5 text-[#0A1612] placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all">
                         @error('email')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
@@ -60,7 +60,7 @@
 
                 <!-- Keamanan -->
                 <div class="space-y-6">
-                    <h3 class="text-lg font-bold text-[#1A2E26] border-b border-black/5 pb-3 flex items-center gap-2">
+                    <h3 class="text-lg font-bold text-[#0A1612] border-b border-black/5 pb-3 flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#10b981]">lock</span>
                         Keamanan
                     </h3>
@@ -69,7 +69,7 @@
                     <div class="space-y-2">
                         <label for="password" class="text-xs font-bold uppercase tracking-wider text-slate-500">Kata Sandi Baru</label>
                         <input type="password" name="password" id="password" placeholder="Minimal 8 karakter"
-                               class="w-full bg-white/60 border border-black/10 rounded-xl px-4 py-3.5 text-[#1A2E26] placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all">
+                               class="w-full bg-white/60 border border-black/10 rounded-xl px-4 py-3.5 text-[#0A1612] placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all">
                         @error('password')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
@@ -78,13 +78,13 @@
                     <div class="space-y-2">
                         <label for="password_confirmation" class="text-xs font-bold uppercase tracking-wider text-slate-500">Konfirmasi Kata Sandi</label>
                         <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Ulangi kata sandi baru"
-                               class="w-full bg-white/60 border border-black/10 rounded-xl px-4 py-3.5 text-[#1A2E26] placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all">
+                               class="w-full bg-white/60 border border-black/10 rounded-xl px-4 py-3.5 text-[#0A1612] placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all">
                     </div>
                 </div>
             </div>
 
             <div class="mt-10 flex items-center justify-end gap-4 border-t border-black/5 pt-6">
-                <a href="{{ route('admin.dashboard') }}" class="px-6 py-3 rounded-xl font-bold text-slate-500 hover:text-[#1A2E26] hover:bg-black/5 transition-colors" style="text-decoration: none;">
+                <a href="{{ route('admin.dashboard') }}" class="px-6 py-3 rounded-xl font-bold text-slate-500 hover:text-[#0A1612] hover:bg-black/5 transition-colors" style="text-decoration: none;">
                     Batal
                 </a>
                 <button type="submit" class="px-8 py-3 rounded-xl font-bold bg-[#10b981] text-white hover:bg-[#059669] shadow-lg shadow-[#10b981]/20 hover:shadow-xl hover:shadow-[#10b981]/30 transition-all transform hover:-translate-y-0.5">

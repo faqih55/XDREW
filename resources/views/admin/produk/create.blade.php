@@ -12,7 +12,7 @@
                 <span class="material-symbols-outlined text-slate-400 text-[16px]">chevron_right</span>
                 <span class="text-[#10b981] text-sm font-bold uppercase tracking-widest">Koleksi Baru</span>
             </div>
-            <h2 class="text-3xl font-extrabold text-[#1A2E26] tracking-tight uppercase">Tambah Koleksi <span class="text-[#10b981]">Baru.</span></h2>
+            <h2 class="text-3xl font-extrabold text-[#0A1612] tracking-tight uppercase">Tambah Koleksi <span class="text-[#10b981]">Baru.</span></h2>
         </div>
     </header>
 
@@ -28,33 +28,33 @@
         @csrf
         <div class="xl:col-span-2 space-y-6">
             <div class="glass-card rounded-3xl p-6 md:p-8 border-t-2 border-t-black/5 hover:border-t-[#10b981] transition-colors shadow-sm">
-                <h3 class="text-lg font-bold text-[#1A2E26] mb-6 flex items-center gap-2">Informasi Dasar</h3>
+                <h3 class="text-lg font-bold text-[#0A1612] mb-6 flex items-center gap-2">Informasi Dasar</h3>
 
                 <div class="space-y-6">
                     <div>
                         <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 block">Nama Koleksi / Produk <span class="text-red-500">*</span></label>
-                        <input type="text" name="nama_produk" required value="{{ old('nama_produk') }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] focus:border-[#10b981] outline-none">
+                        <input type="text" name="nama_produk" required value="{{ old('nama_produk') }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] focus:border-[#10b981] outline-none">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 block">Ukuran <span class="text-red-500">*</span></label>
-                            <input type="text" name="ukuran" required placeholder="Contoh: M, L, XL" value="{{ old('ukuran') }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] focus:border-[#10b981] outline-none">
+                            <input type="text" name="ukuran" required placeholder="Contoh: M, L, XL" value="{{ old('ukuran') }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] focus:border-[#10b981] outline-none">
                         </div>
                         <div>
                             <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 block">Warna <span class="text-red-500">*</span></label>
-                            <input type="text" name="warna" required placeholder="Contoh: Emerald Green" value="{{ old('warna') }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] focus:border-[#10b981] outline-none">
+                            <input type="text" name="warna" required placeholder="Contoh: Emerald Green" value="{{ old('warna') }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] focus:border-[#10b981] outline-none">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 block">Harga (Rp) <span class="text-red-500">*</span></label>
-                            <input type="number" name="harga" required min="0" value="{{ old('harga') }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] focus:border-[#10b981] outline-none">
+                            <input type="number" name="harga" required min="0" value="{{ old('harga') }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] focus:border-[#10b981] outline-none">
                         </div>
                         <div>
                             <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 block">Stok Awal <span class="text-red-500">*</span></label>
-                            <input type="number" name="stok" required min="0" value="{{ old('stok') }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] focus:border-[#10b981] outline-none">
+                            <input type="number" name="stok" required min="0" value="{{ old('stok') }}" class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] focus:border-[#10b981] outline-none">
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
 
             <div class="glass-card rounded-3xl p-6 shadow-sm">
                 <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 block">Kategori <span class="text-red-500">*</span></label>
-                <select name="kategori" required class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#1A2E26] outline-none focus:border-[#10b981]">
+                <select name="kategori" required class="w-full bg-white border border-black/10 rounded-xl px-5 py-4 text-[#0A1612] outline-none focus:border-[#10b981]">
                     <option value="T-Shirt">T-Shirt</option>
                     <option value="Kemeja">Kemeja</option>
                     <option value="Hoodie">Hoodie</option>

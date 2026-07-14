@@ -19,36 +19,36 @@
           theme: {
             extend: {
               "colors": {
-                      "on-tertiary": "#650911",
+                      "on-tertiary": "#3b0764",
                       "on-secondary": "#213145",
-                      "on-surface-variant": "#1A2E26",
-                      "inverse-surface": "#1A2E26",
-                      "surface-container": "#EAF3EF",
+                      "on-surface-variant": "#0A1612",
+                      "inverse-surface": "#0A1612",
+                      "surface-container": "#F9FAFB",
                       "surface-container-highest": "#DDF0E6",
-                      "surface-variant": "#EAF3EF",
+                      "surface-variant": "#F9FAFB",
                       "surface-bright": "#F4FAF7",
-                      "on-surface": "#1A2E26",
+                      "on-surface": "#0A1612",
                       "secondary": "#4edea3",
                       "background": "#DDF0E6",
-                      "surface-dim": "#EAF3EF",
+                      "surface-dim": "#F9FAFB",
                       "error-container": "#93000a",
                       "primary-container": "#4edea3",
-                      "on-secondary-container": "#1A2E26",
+                      "on-secondary-container": "#0A1612",
                       "outline": "#86948a",
                       "surface-container-high": "#DDF0E6",
-                      "on-background": "#1A2E26",
+                      "on-background": "#0A1612",
                       "on-primary-fixed-variant": "#4edea3",
-                      "on-tertiary-fixed-variant": "#842225",
-                      "on-tertiary-fixed": "#410005",
+                      "on-tertiary-fixed-variant": "#581c87",
+                      "on-tertiary-fixed": "#2e1065",
                       "surface-tint": "#4edea3",
-                      "tertiary-fixed-dim": "#ffb3af",
-                      "secondary-container": "#EAF3EF",
+                      "tertiary-fixed-dim": "#d8b4fe",
+                      "secondary-container": "#F9FAFB",
                       "primary-fixed-dim": "#4edea3",
-                      "on-tertiary-container": "#711419",
+                      "on-tertiary-container": "#f3e8ff",
                       "surface-container-low": "#F4FAF7",
-                      "tertiary-fixed": "#ffdad7",
+                      "tertiary-fixed": "#e9d5ff",
                       "on-error": "#690005",
-                      "tertiary": "#ffb3af",
+                      "tertiary": "#d8b4fe",
                       "secondary-fixed": "#d3e4fe",
                       "on-secondary-fixed": "#0b1c30",
                       "surface-container-lowest": "#F4FAF7",
@@ -61,11 +61,12 @@
                       "primary-fixed": "#6ffbbe",
                       "inverse-primary": "#4edea3",
                       "on-primary": "#003824",
-                      "tertiary-container": "#fc7c78",
+                      "tertiary-container": "#a855f7",
                       "outline-variant": "#3c4a42",
                       "on-primary-container": "#ffffff",
                       "secondary-fixed-dim": "#b7c8e1",
-                      "error": "#ffb4ab"
+                      "error": "#ffb4ab",
+                      "accent-purple": "#a855f7"
               },
               "borderRadius": {
                       "DEFAULT": "0.25rem",
@@ -126,22 +127,20 @@
         }
         
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #EAF3EF; }
+        ::-webkit-scrollbar-track { background: #F9FAFB; }
         ::-webkit-scrollbar-thumb { background: #CBE3D9; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #4edea3; }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.45) !important;
+            background: #ffffff !important;
             backdrop-filter: blur(24px) saturate(180%) !important;
             -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.6) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.85) !important;
-            border-left: 1px solid rgba(255, 255, 255, 0.75) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
             box-shadow: 
-                0 15px 35px rgba(98, 124, 112, 0.05),
-                inset 0 1px 3px rgba(255, 255, 255, 0.95),
-                inset 0 -1px 2px rgba(255, 255, 255, 0.2) !important;
-            color: #1A2E26 !important;
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
         }
 
         .emerald-glow { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -194,17 +193,17 @@
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(8px) rotate(-1deg); }
         }
-        [data-anime="float"] { animation: float-slow 6s ease-in-out infinite; }
-        [data-anime="float-reverse"] { animation: float-reverse-slow 7s ease-in-out infinite; }
+        [] { animation: float-slow 6s ease-in-out infinite; }
+        [] { animation: float-reverse-slow 7s ease-in-out infinite; }
     </style>
 </head>
-<body class="bg-[#EAF3EF] text-[#1A2E26] font-body-md selection:bg-emerald-100 antialiased relative overflow-x-hidden" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
+<body class="bg-[#F9FAFB] text-[#0A1612] font-body-md selection:bg-emerald-100 antialiased relative overflow-x-hidden" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
 
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" style="will-change: transform;">
         <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-40 animate-pulse-slow" data-anime="float"></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-25" data-anime="float-reverse"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#3bd58f] blur-[130px] opacity-35 animate-pulse-slow" data-anime="float" style="animation-delay: 1.5s;"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-30"></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-20"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#3bd58f] blur-[130px] opacity-25"></div>
     </div>
 
     <!-- Navbar -->
@@ -217,9 +216,9 @@
         
         <!-- Hero Section -->
         <section class="relative min-h-[85vh] flex items-center mb-24 overflow-hidden">
-            <div class="absolute inset-0 z-0 bg-[#EAF3EF]">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#EAF3EF] via-[#EAF3EF]/80 to-transparent z-10"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#EAF3EF] via-transparent to-transparent z-10"></div>
+            <div class="absolute inset-0 z-0 bg-[#F9FAFB]">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#F9FAFB] via-[#F9FAFB]/80 to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#F9FAFB] via-transparent to-transparent z-10"></div>
                 <img class="w-full h-full object-cover grayscale opacity-20 hero-bg-anim" alt="Sustainable fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCedLh2MLsokGIUzVgcPPxoMpFtqsTn5eP7urKm3ZjlSRBBOjuzPCAELbeI_qqCzFnXIIv6pzPGmN4G_T_MmIamcPkdSwR8CpWN4lykHku48UeN85aH12PF7x7uow_gY3J_EM4kKhXFhv82orqr6MAK4hOsNQtDL18T5mn8Piyaxsk_UWE9DHwKAysQ0v_ewUbm8dI0jf7_srz-S3fH2faAK8n96VmcIWPljrAjiLngZ9pgZYMDvOJG5GVaUwbz0p-nIXdbF-bTXomi"/>
             </div>
             
@@ -229,15 +228,15 @@
                         <span class="w-2.5 h-2.5 bg-primary rounded-full animate-pulse shadow-[0_0_10px_#4edea3]"></span>
                         <span class="text-[11px] font-semibold text-primary tracking-[0.2em] uppercase">Ethical Streetwear</span>
                     </div>
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 leading-[1.1] font-extrabold tracking-tight text-[#1A2E26] page-enter delay-100 uppercase">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 leading-[1.1] font-extrabold tracking-tight text-[#0A1612] page-enter delay-100 uppercase">
                         Misi <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#2a855f]">Keberlanjutan</span> Kami
                     </h1>
-                    <p class="text-base md:text-lg text-[#1A2E26]/70 mb-10 leading-relaxed font-light page-enter delay-200">
+                    <p class="text-base md:text-lg text-[#0A1612]/70 mb-10 leading-relaxed font-light page-enter delay-200">
                         Di XDrew Fashion, kami percaya gaya urban sejati tidak mengorbankan bumi. Kami mendefinisikan ulang batas kemewahan melalui transparansi radikal dan inovasi material yang bertanggung jawab untuk masa depan.
                     </p>
                     <div class="flex flex-wrap gap-4 page-enter delay-300">
                         <button class="px-8 py-3.5 bg-primary text-white font-bold text-xs uppercase tracking-widest rounded-none hover:bg-[#1A2E26] transition-colors duration-300">Laporan {{ date('Y') }}</button>
-                        <button class="px-8 py-3.5 border border-[#1A2E26]/20 text-[#1A2E26] font-semibold text-xs uppercase tracking-widest rounded-none hover:border-primary hover:text-primary transition-colors duration-300">Visi Kami</button>
+                        <button class="px-8 py-3.5 border border-[#1A2E26]/20 text-[#0A1612] font-semibold text-xs uppercase tracking-widest rounded-none hover:border-primary hover:text-primary transition-colors duration-300">Visi Kami</button>
                     </div>
                 </div>
             </div>
@@ -246,7 +245,7 @@
         <!-- Pilar Section -->
         <section class="mb-32 w-full max-w-[1440px] mx-auto px-6 md:px-16">
             <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-3xl md:text-4xl text-[#1A2E26] font-bold tracking-tight uppercase mb-4">Tiga Pilar Fundamental</h2>
+                <h2 class="text-3xl md:text-4xl text-[#0A1612] font-bold tracking-tight uppercase mb-4">Tiga Pilar Fundamental</h2>
                 <div class="h-1 w-16 bg-primary mx-auto rounded-full"></div>
             </div>
             
@@ -255,22 +254,22 @@
                     <div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-primary text-[32px]">eco</span>
                     </div>
-                    <h3 class="text-xl font-bold text-[#1A2E26] uppercase tracking-wide mb-4">Bahan Organik</h3>
-                    <p class="text-[#1A2E26]/70 text-sm leading-relaxed font-light">Serat alami bersertifikat eksklusif dan poliester daur ulang dari limbah laut, memastikan setiap benang bermakna.</p>
+                    <h3 class="text-xl font-bold text-[#0A1612] uppercase tracking-wide mb-4">Bahan Organik</h3>
+                    <p class="text-[#0A1612]/70 text-sm leading-relaxed font-light">Serat alami bersertifikat eksklusif dan poliester daur ulang dari limbah laut, memastikan setiap benang bermakna.</p>
                 </div>
                 <div class="glass-card p-10 flex flex-col items-center text-center rounded-2xl emerald-glow scroll-reveal delay-[100ms]">
                     <div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-primary text-[32px]">factory</span>
                     </div>
-                    <h3 class="text-xl font-bold text-[#1A2E26] uppercase tracking-wide mb-4">Produksi Etis</h3>
-                    <p class="text-[#1A2E26]/70 text-sm leading-relaxed font-light">Menjamin upah yang sangat layak dan lingkungan kerja transparan di seluruh rantai pasok manufaktur kami.</p>
+                    <h3 class="text-xl font-bold text-[#0A1612] uppercase tracking-wide mb-4">Produksi Etis</h3>
+                    <p class="text-[#0A1612]/70 text-sm leading-relaxed font-light">Menjamin upah yang sangat layak dan lingkungan kerja transparan di seluruh rantai pasok manufaktur kami.</p>
                 </div>
                 <div class="glass-card p-10 flex flex-col items-center text-center rounded-2xl emerald-glow scroll-reveal delay-[200ms]">
                     <div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-primary text-[32px]">co2</span>
                     </div>
-                    <h3 class="text-xl font-bold text-[#1A2E26] uppercase tracking-wide mb-4">Jejak Karbon Rendah</h3>
-                    <p class="text-[#1A2E26]/70 text-sm leading-relaxed font-light">Optimalisasi rute logistik cerdas dan dominasi energi terbarukan meminimalkan jejak ekologis kami secara drastis.</p>
+                    <h3 class="text-xl font-bold text-[#0A1612] uppercase tracking-wide mb-4">Jejak Karbon Rendah</h3>
+                    <p class="text-[#0A1612]/70 text-sm leading-relaxed font-light">Optimalisasi rute logistik cerdas dan dominasi energi terbarukan meminimalkan jejak ekologis kami secara drastis.</p>
                 </div>
             </div>
         </section>
@@ -278,7 +277,7 @@
         <!-- Supply Chain Grid -->
         <section class="mb-32 w-full max-w-[1440px] mx-auto px-6 md:px-16">
             <div class="mb-12 scroll-reveal">
-                <h2 class="text-3xl md:text-4xl text-[#1A2E26] font-bold tracking-tight uppercase">Transparansi Rantai Pasok</h2>
+                <h2 class="text-3xl md:text-4xl text-[#0A1612] font-bold tracking-tight uppercase">Transparansi Rantai Pasok</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 md:gap-6 h-auto md:h-[650px]">
@@ -328,24 +327,24 @@
 
             <div class="w-full max-w-[1440px] mx-auto px-6 md:px-16 relative z-10">
                 <div class="text-center mb-16 scroll-reveal">
-                    <h2 class="text-3xl md:text-4xl text-[#1A2E26] font-bold tracking-tight uppercase mb-3">Dampak Nyata Kami</h2>
-                    <p class="text-[#1A2E26]/70 font-light">Angka yang mendefinisikan komitmen berkelanjutan kami sejak 2022.</p>
+                    <h2 class="text-3xl md:text-4xl text-[#0A1612] font-bold tracking-tight uppercase mb-3">Dampak Nyata Kami</h2>
+                    <p class="text-[#0A1612]/70 font-light">Angka yang mendefinisikan komitmen berkelanjutan kami sejak 2022.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-[#1A2E26]/10">
                     <div class="text-center pt-8 md:pt-0 scroll-reveal">
                         <div class="text-5xl md:text-6xl text-primary mb-4 font-bold font-heading" id="stat-water">0</div>
-                        <p class="font-bold text-xs uppercase tracking-[0.15em] text-[#1A2E26]">Ltr Air Dihemat</p>
-                        <p class="text-xs text-[#1A2E26]/60 mt-2 font-light">Melalui pewarnaan eco-friendly</p>
+                        <p class="font-bold text-xs uppercase tracking-[0.15em] text-[#0A1612]">Ltr Air Dihemat</p>
+                        <p class="text-xs text-[#0A1612]/60 mt-2 font-light">Melalui pewarnaan eco-friendly</p>
                     </div>
                     <div class="text-center pt-8 md:pt-0 scroll-reveal delay-[100ms]">
                         <div class="text-5xl md:text-6xl text-primary mb-4 font-bold font-heading" id="stat-bottles">0</div>
-                        <p class="font-bold text-xs uppercase tracking-[0.15em] text-[#1A2E26]">Botol Didaur Ulang</p>
-                        <p class="text-xs text-[#1A2E26]/60 mt-2 font-light">Menjadi serat kain teknis premium</p>
+                        <p class="font-bold text-xs uppercase tracking-[0.15em] text-[#0A1612]">Botol Didaur Ulang</p>
+                        <p class="text-xs text-[#0A1612]/60 mt-2 font-light">Menjadi serat kain teknis premium</p>
                     </div>
                     <div class="text-center pt-8 md:pt-0 scroll-reveal delay-[200ms]">
                         <div class="text-5xl md:text-6xl text-primary mb-4 font-bold font-heading" id="stat-carbon">0</div>
-                        <p class="font-bold text-xs uppercase tracking-[0.15em] text-[#1A2E26]">Kg Reduksi CO2</p>
-                        <p class="text-xs text-[#1A2E26]/60 mt-2 font-light">Melalui efisiensi rantai pasok</p>
+                        <p class="font-bold text-xs uppercase tracking-[0.15em] text-[#0A1612]">Kg Reduksi CO2</p>
+                        <p class="text-xs text-[#0A1612]/60 mt-2 font-light">Melalui efisiensi rantai pasok</p>
                     </div>
                 </div>
             </div>
@@ -358,13 +357,13 @@
                 <div class="absolute -top-32 -right-32 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
                 
                 <div class="relative z-10 max-w-xl text-center lg:text-left">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[#1A2E26] uppercase tracking-tight">Bergabung dalam Revolusi <span class="text-primary">Mode Lambat</span></h2>
-                    <p class="text-[#1A2E26]/70 text-sm leading-relaxed font-light">Dapatkan pembaruan eksklusif tentang riset material baru, rilis kapsul berkelanjutan, dan inisiatif ekologi langsung di kotak masuk Anda.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[#0A1612] uppercase tracking-tight">Bergabung dalam Revolusi <span class="text-primary">Mode Lambat</span></h2>
+                    <p class="text-[#0A1612]/70 text-sm leading-relaxed font-light">Dapatkan pembaruan eksklusif tentang riset material baru, rilis kapsul berkelanjutan, dan inisiatif ekologi langsung di kotak masuk Anda.</p>
                 </div>
                 
                 <div class="relative z-10 w-full lg:w-auto">
                     <form class="flex flex-col sm:flex-row gap-3 sm:gap-0">
-                        <input class="w-full sm:w-80 bg-white/60 border border-white/60 rounded-xl sm:rounded-l-xl sm:rounded-r-none px-6 py-4 focus:border-primary outline-none text-[#1A2E26] placeholder:text-[#1A2E26]/50 text-sm font-light transition-colors" placeholder="Alamat Email Anda..." type="email" required/>
+                        <input class="w-full sm:w-80 bg-white/60 border border-white/60 rounded-xl sm:rounded-l-xl sm:rounded-r-none px-6 py-4 focus:border-primary outline-none text-[#0A1612] placeholder:text-[#0A1612]/50 text-sm font-light transition-colors" placeholder="Alamat Email Anda..." type="email" required/>
                         <button class="w-full sm:w-auto bg-primary text-white rounded-xl sm:rounded-r-xl sm:rounded-l-none px-8 py-4 font-bold text-xs uppercase tracking-widest hover:bg-[#1A2E26] transition-colors duration-300 shadow-[0_0_15px_rgba(78,222,163,0.3)]">Berlangganan</button>
                     </form>
                 </div>

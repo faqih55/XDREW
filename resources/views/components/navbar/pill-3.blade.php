@@ -30,7 +30,7 @@
         <button @click.prevent="notifOpen = !notifOpen" 
                 class="group/btn flex-shrink-0 relative flex items-center justify-start rounded-full transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)]
                        w-12 h-12 px-[13px] hover:w-[130px] overflow-hidden whitespace-nowrap focus:outline-none active:scale-95
-                       {{ $hasNotif ? 'bg-[#ffeaea] text-[#ff5a5a] hover:bg-[#ffd1d1]' : 'text-[#1A2E26]/70 hover:text-[#10b981] hover:bg-white/50 border border-transparent hover:border-white/60' }}"
+                       {{ $hasNotif ? 'bg-[#ffeaea] text-[#ff5a5a] hover:bg-[#ffd1d1]' : 'text-[#0A1612]/70 hover:text-[#10b981] hover:bg-white/50 border border-transparent hover:border-white/60' }}"
                 :class="notifOpen ? ({{ $hasNotif ? 'true' : 'false' }} ? 'w-[130px] bg-[#ffd1d1] text-[#ff5a5a]' : 'w-[130px] bg-white/50 text-[#10b981] shadow-inner') : ''"
                 aria-label="Notifikasi">
             

@@ -108,11 +108,19 @@
 </head>
 <body class="selection:bg-primary/30 selection:text-primary antialiased flex flex-col min-h-screen">
 
+    <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
+    </div>
+
     <header class="fixed top-0 w-full z-50 bg-[#0e1511]/80 backdrop-blur-xl border-b border-white/10 shadow-sm">
         @include('components.navbar')
     </header>
 
-    <main class="flex-grow pt-32 pb-20 px-4 md:px-8 max-w-[1440px] mx-auto w-full">
+    <main class="flex-grow pt-32 pb-20 px-4 md:px-8 max-w-[1440px] mx-auto w-full relative z-10">
         <!-- Breadcrumb & Header -->
         <header class="mb-10 text-center md:text-left">
             <div class="flex items-center gap-2 text-on-surface-variant text-xs font-semibold tracking-wider uppercase mb-3 justify-center md:justify-start">

@@ -26,22 +26,20 @@
         }
         
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #EAF3EF; }
+        ::-webkit-scrollbar-track { background: #F9FAFB; }
         ::-webkit-scrollbar-thumb { background: #CBE3D9; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #4edea3; }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.45) !important;
+            background: #ffffff !important;
             backdrop-filter: blur(24px) saturate(180%) !important;
             -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.6) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.85) !important;
-            border-left: 1px solid rgba(255, 255, 255, 0.75) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
             box-shadow: 
-                0 15px 35px rgba(98, 124, 112, 0.05),
-                inset 0 1px 3px rgba(255, 255, 255, 0.95),
-                inset 0 -1px 2px rgba(255, 255, 255, 0.2) !important;
-            color: #1A2E26 !important;
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
         }
 
         .glass-panel {
@@ -61,7 +59,7 @@
             50% { opacity: 0.7; }
         }
         
-        .animate-pulse-slow { animation: pulse-emerald 3s infinite; }
+        . { animation: pulse-emerald 3s infinite; }
         
         @keyframes slideInUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -100,8 +98,8 @@
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(8px) rotate(-1deg); }
         }
-        [data-anime="float"] { animation: float-slow 6s ease-in-out infinite; }
-        [data-anime="float-reverse"] { animation: float-reverse-slow 7s ease-in-out infinite; }
+        [] { animation: float-slow 6s ease-in-out infinite; }
+        [] { animation: float-reverse-slow 7s ease-in-out infinite; }
     </style>
     <script id="tailwind-config">
         tailwind.config = {
@@ -109,36 +107,36 @@
           theme: {
             extend: {
               "colors": {
-                      "on-tertiary": "#650911",
+                      "on-tertiary": "#3b0764",
                       "on-secondary": "#213145",
-                      "on-surface-variant": "#1A2E26",
-                      "inverse-surface": "#1A2E26",
-                      "surface-container": "#EAF3EF",
+                      "on-surface-variant": "#0A1612",
+                      "inverse-surface": "#0A1612",
+                      "surface-container": "#F9FAFB",
                       "surface-container-highest": "#DDF0E6",
-                      "surface-variant": "#EAF3EF",
+                      "surface-variant": "#F9FAFB",
                       "surface-bright": "#F4FAF7",
-                      "on-surface": "#1A2E26",
+                      "on-surface": "#0A1612",
                       "secondary": "#4edea3",
                       "background": "#DDF0E6",
-                      "surface-dim": "#EAF3EF",
+                      "surface-dim": "#F9FAFB",
                       "error-container": "#93000a",
                       "primary-container": "#4edea3",
-                      "on-secondary-container": "#1A2E26",
+                      "on-secondary-container": "#0A1612",
                       "outline": "#86948a",
                       "surface-container-high": "#DDF0E6",
-                      "on-background": "#1A2E26",
+                      "on-background": "#0A1612",
                       "on-primary-fixed-variant": "#4edea3",
-                      "on-tertiary-fixed-variant": "#842225",
-                      "on-tertiary-fixed": "#410005",
+                      "on-tertiary-fixed-variant": "#581c87",
+                      "on-tertiary-fixed": "#2e1065",
                       "surface-tint": "#4edea3",
-                      "tertiary-fixed-dim": "#ffb3af",
-                      "secondary-container": "#EAF3EF",
+                      "tertiary-fixed-dim": "#d8b4fe",
+                      "secondary-container": "#F9FAFB",
                       "primary-fixed-dim": "#4edea3",
-                      "on-tertiary-container": "#711419",
+                      "on-tertiary-container": "#f3e8ff",
                       "surface-container-low": "#F4FAF7",
-                      "tertiary-fixed": "#ffdad7",
+                      "tertiary-fixed": "#e9d5ff",
                       "on-error": "#690005",
-                      "tertiary": "#ffb3af",
+                      "tertiary": "#d8b4fe",
                       "secondary-fixed": "#d3e4fe",
                       "on-secondary-fixed": "#0b1c30",
                       "surface-container-lowest": "#F4FAF7",
@@ -151,11 +149,12 @@
                       "primary-fixed": "#6ffbbe",
                       "inverse-primary": "#4edea3",
                       "on-primary": "#003824",
-                      "tertiary-container": "#fc7c78",
+                      "tertiary-container": "#a855f7",
                       "outline-variant": "#3c4a42",
                       "on-primary-container": "#ffffff",
                       "secondary-fixed-dim": "#b7c8e1",
-                      "error": "#ffb4ab"
+                      "error": "#ffb4ab",
+                      "accent-purple": "#a855f7"
               },
               "borderRadius": {
                       "DEFAULT": "0.25rem",
@@ -199,14 +198,14 @@
         }
     </script>
 </head>
-<body class="bg-[#EAF3EF] text-[#1A2E26] font-body-md selection:bg-emerald-100 scroll-smooth relative overflow-x-hidden">
+<body class="bg-[#F9FAFB] text-[#0A1612] font-body-md selection:bg-emerald-100 scroll-smooth relative overflow-x-hidden">
 
-    <!-- Background and Glows (Emerald & Soft Blue Theme) -->
+        <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-40 animate-pulse-slow" data-anime="float"></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-25" data-anime="float-reverse"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#3bd58f] blur-[130px] opacity-35 animate-pulse-slow" data-anime="float" style="animation-delay: 1.5s;"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
     </div>
 
 @include('components.navbar')
@@ -224,9 +223,14 @@
             <div class="glass-card rounded-xl p-lg space-y-lg">
                 <!-- DIPERBAIKI: Menggunakan produk.index -->
                 <form id="filter-form" action="{{ route('produk.index') }}" method="GET" class="space-y-lg">
-                    <div>
-                        <h3 class="font-headline-sm text-label-md uppercase tracking-widest text-primary mb-md">Kategori</h3>
-                        <div class="space-y-sm">
+                    <div x-data="{ open: {{ request('kategori') ? 'true' : 'false' }} }">
+                        <button type="button" @click="open = !open" class="flex justify-between items-center w-full mb-md group">
+                            <h3 class="font-headline-sm text-label-md uppercase tracking-widest text-primary">Kategori</h3>
+                            <svg :class="{'rotate-180': open}" class="w-5 h-5 text-primary transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse class="space-y-sm">
                             <label class="flex items-center gap-sm cursor-pointer group hover:text-primary transition-colors">
                                 <!-- DIPERBAIKI: Menggunakan request('kategori') untuk mengecek status centang -->
                                 <input type="checkbox" id="all-kategori" class="w-5 h-5 rounded border-outline-variant bg-surface-container text-primary focus:ring-primary/20" {{ empty(request('kategori')) ? 'checked' : '' }} onchange="document.querySelectorAll('input[name=kategori]').forEach(cb => cb.checked = false); this.form.submit();" />
@@ -259,14 +263,19 @@
                         </div>
                     </div>
                     <div class="h-[1px] bg-[#1A2E26]/10"></div>
-                    <div>
-                        <div class="flex justify-between items-center mb-md">
-                            <h3 class="font-headline-sm text-label-md uppercase tracking-widest text-primary">Ukuran</h3>
-                            @if(request('ukuran'))
-                                <a href="{{ route('produk.index', request()->except('ukuran')) }}" class="text-[10px] text-gray-500 hover:text-primary uppercase tracking-widest">Reset</a>
-                            @endif
-                        </div>
-                        <div class="grid grid-cols-2 gap-xs">
+                    <div x-data="{ open: {{ request('ukuran') ? 'true' : 'false' }} }">
+                        <button type="button" @click="open = !open" class="flex justify-between items-center w-full mb-md group">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-headline-sm text-label-md uppercase tracking-widest text-primary">Ukuran</h3>
+                                @if(request('ukuran'))
+                                    <a href="{{ route('produk.index', request()->except('ukuran')) }}" class="text-[10px] text-gray-500 hover:text-primary uppercase tracking-widest z-10 relative" @click.stop>Reset</a>
+                                @endif
+                            </div>
+                            <svg :class="{'rotate-180': open}" class="w-5 h-5 text-primary transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse class="grid grid-cols-2 gap-xs">
                             <label class="cursor-pointer">
                                 <input type="radio" name="ukuran" value="S" class="peer hidden" onchange="this.form.submit()" {{ request('ukuran') === 'S' ? 'checked' : '' }}>
                                 <div class="py-xs border border-outline-variant peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary rounded-lg transition-all text-label-md text-center hover:border-primary hover:text-primary hover:scale-105">S</div>
@@ -286,14 +295,19 @@
                         </div>
                     </div>
                     <div class="h-[1px] bg-[#1A2E26]/10"></div>
-                    <div>
-                        <div class="flex justify-between items-center mb-md">
-                            <h3 class="font-headline-sm text-label-md uppercase tracking-widest text-primary">Warna</h3>
-                            @if(request('warna'))
-                                <a href="{{ route('produk.index', request()->except('warna')) }}" class="text-[10px] text-gray-500 hover:text-primary uppercase tracking-widest">Reset</a>
-                            @endif
-                        </div>
-                        <div class="flex flex-wrap gap-sm">
+                    <div x-data="{ open: {{ request('warna') ? 'true' : 'false' }} }">
+                        <button type="button" @click="open = !open" class="flex justify-between items-center w-full mb-md group">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-headline-sm text-label-md uppercase tracking-widest text-primary">Warna</h3>
+                                @if(request('warna'))
+                                    <a href="{{ route('produk.index', request()->except('warna')) }}" class="text-[10px] text-gray-500 hover:text-primary uppercase tracking-widest z-10 relative" @click.stop>Reset</a>
+                                @endif
+                            </div>
+                            <svg :class="{'rotate-180': open}" class="w-5 h-5 text-primary transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse class="flex flex-wrap gap-sm">
                             <label class="cursor-pointer">
                                 <input type="radio" name="warna" value="Hitam" class="peer hidden" onchange="this.form.submit()" {{ request('warna') === 'Hitam' ? 'checked' : '' }}>
                                 <div class="w-8 h-8 rounded-full bg-black ring-offset-2 ring-offset-background hover:scale-110 transition-transform ring-1 ring-white/20 peer-checked:ring-2 peer-checked:ring-primary"></div>
@@ -313,9 +327,14 @@
                         </div>
                     </div>
                     <div class="h-[1px] bg-[#1A2E26]/10"></div>
-                    <div>
-                        <h3 class="font-headline-sm text-label-md uppercase tracking-widest text-primary mb-md">Rentang Harga</h3>
-                        <div class="space-y-sm">
+                    <div x-data="{ open: {{ (request('harga_maksimal') && request('harga_maksimal') != 7000000) ? 'true' : 'false' }} }">
+                        <button type="button" @click="open = !open" class="flex justify-between items-center w-full mb-md group">
+                            <h3 class="font-headline-sm text-label-md uppercase tracking-widest text-primary">Rentang Harga</h3>
+                            <svg :class="{'rotate-180': open}" class="w-5 h-5 text-primary transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse class="space-y-sm pb-2">
                             <input name="harga_maksimal" id="harga_maksimal" class="w-full accent-primary bg-surface-variant h-1 rounded-full cursor-pointer hover:accent-primary/80 transition-all" type="range" min="600000" max="7000000" step="100000" value="{{ request('harga_maksimal', 7000000) }}" onchange="this.form.submit()" oninput="document.getElementById('harga-label').innerText = 'Rp ' + (this.value / 1000000).toFixed(1) + 'jt'"/>
                             <div class="flex justify-between text-caption text-on-surface-variant">
                                 <span>Rp 600rb</span>
@@ -340,7 +359,7 @@
                 </div>
             </div>
             
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 gap-y-10 sm:gap-y-12">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 gap-y-10 sm:gap-y-12">
                 @foreach($produk as $p)
                 <div onclick="if(!event.target.closest('.card-action-btn')) window.location.href = '{{ route('produk.show', $p->id ?? $p->ID) }}'" class="group flex flex-col glass-card rounded-[1.2rem] sm:rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(78,222,163,0.3)] hover:border-[#4edea3]/40 opacity-0 translate-y-10 animate-slide-in stagger-{{ ($loop->index % 6) + 1 }} cursor-pointer">
                     <div class="aspect-[4/5] relative overflow-hidden bg-black/50">
@@ -355,12 +374,12 @@
                         <!-- Wishlist Button -->
                         <button type="button" 
                                 onclick="event.preventDefault(); event.stopPropagation(); toggleWishlist({{ $p->id ?? $p->ID }}, this);" 
-                                class="absolute top-2 right-2 sm:top-3 sm:right-3 z-20 w-8 h-8 rounded-full bg-white/60 backdrop-blur-md flex items-center justify-center text-[#1A2E26]/50 hover:text-red-500 hover:scale-110 transition-all duration-300 shadow-sm border border-white/80 card-action-btn wishlist-btn"
+                                class="absolute top-2 right-2 sm:top-3 sm:right-3 z-20 w-8 h-8 rounded-full bg-white/60 backdrop-blur-md flex items-center justify-center text-[#0A1612]/50 hover:text-red-500 hover:scale-110 transition-all duration-300 shadow-sm border border-white/80 card-action-btn wishlist-btn"
                                 data-id="{{ $p->id ?? $p->ID }}">
                             <span class="material-symbols-outlined text-[16px] sm:text-[18px] select-none transition-colors">favorite</span>
                         </button>
-                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" data-alt="{{ $p->deskripsi ?? $p->DESKRIPSI ?? '' }}" src="{{ asset('images/' . ($p->foto ?? $p->FOTO)) }}"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#EAF3EF] via-transparent to-transparent opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+                        <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" data-alt="{{ $p->deskripsi ?? $p->DESKRIPSI ?? '' }}" src="{{ asset('images/' . ($p->foto ?? $p->FOTO)) }}" loading="lazy" decoding="async"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#F9FAFB] via-transparent to-transparent opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
                     </div>
                     <div class="flex flex-col p-3 sm:p-5 bg-white/40 text-center border-t border-white/40 relative">
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-[#4edea3]/50 shadow-[0_0_10px_rgba(78,222,163,0.8)]"></div>
@@ -368,9 +387,9 @@
                             @for($i = 0; $i < 5; $i++)
                                 <span class="material-symbols-outlined text-[10px] sm:text-[14px] text-yellow-400 drop-shadow-[0_0_6px_rgba(250,204,21,0.6)]" style="font-variation-settings: 'FILL' 1;">star</span>
                             @endfor
-                            <span class="text-[9px] sm:text-xs text-[#1A2E26]/60 ml-1 font-body-md">(5.0)</span>
+                            <span class="text-[9px] sm:text-xs text-[#0A1612]/60 ml-1 font-body-md">(5.0)</span>
                         </div>
-                        <h3 class="font-bold uppercase text-[9px] sm:text-[13px] tracking-[0.12em] sm:tracking-[0.15em] text-[#1A2E26]/90 group-hover:text-[#1A2E26] transition-colors truncate drop-shadow-sm px-1">{{ $p->nama_produk ?? $p->NAMA_PRODUK }}</h3>
+                        <h3 class="font-bold uppercase text-[9px] sm:text-[13px] tracking-[0.12em] sm:tracking-[0.15em] text-[#0A1612]/90 group-hover:text-[#0A1612] transition-colors truncate drop-shadow-sm px-1">{{ $p->nama_produk ?? $p->NAMA_PRODUK }}</h3>
                         <p class="text-[#4edea3] font-black text-[11px] sm:text-[14px] tracking-wider sm:tracking-widest mt-1.5 sm:mt-2 drop-shadow-[0_0_12px_rgba(78,222,163,0.4)] group-hover:drop-shadow-[0_0_15px_rgba(78,222,163,0.8)] transition-all">Rp {{ number_format($p->harga ?? $p->HARGA, 0, ',', '.') }}</p>
 
                         <!-- Action Buttons -->
@@ -384,7 +403,7 @@
                                 <input type="hidden" name="produk_id" value="{{ $p->id ?? $p->ID }}">
                                 <input type="hidden" name="jumlah" value="1">
                                 <input type="hidden" name="ukuran_terpilih" value="{{ $defSize }}">
-                                <button type="submit" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/60 border border-black/10 flex items-center justify-center text-[#1A2E26] hover:bg-[#10b981] hover:text-white hover:border-[#10b981] transition-all cursor-pointer shadow-sm active:scale-95" title="Tambah ke Keranjang">
+                                <button type="submit" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/60 border border-black/10 flex items-center justify-center text-[#0A1612] hover:bg-[#10b981] hover:text-white hover:border-[#10b981] transition-all cursor-pointer shadow-sm active:scale-95" title="Tambah ke Keranjang">
                                     <span class="material-symbols-outlined text-[18px] sm:text-[20px]">shopping_cart</span>
                                 </button>
                             </form>
@@ -407,30 +426,30 @@
                     @if (str_contains($link['label'], 'Previous'))
                         @if ($link['url'])
                             <a href="{{ $link['url'] }}" class="w-10 h-10 flex items-center justify-center rounded-full glass-panel hover:border-[#4edea3]/50 hover:shadow-[0_0_15px_rgba(78,222,163,0.3)] transition-all group">
-                                <span class="material-symbols-outlined text-[#1A2E26]/70 group-hover:text-[#10b981]">chevron_left</span>
+                                <span class="material-symbols-outlined text-[#0A1612]/70 group-hover:text-[#10b981]">chevron_left</span>
                             </a>
                         @else
                             <button disabled class="w-10 h-10 flex items-center justify-center rounded-full glass-panel opacity-50 cursor-not-allowed">
-                                <span class="material-symbols-outlined text-[#1A2E26]/30">chevron_left</span>
+                                <span class="material-symbols-outlined text-[#0A1612]/30">chevron_left</span>
                             </button>
                         @endif
                     @elseif (str_contains($link['label'], 'Next'))
                         @if ($link['url'])
                             <a href="{{ $link['url'] }}" class="w-10 h-10 flex items-center justify-center rounded-full glass-panel hover:border-[#4edea3]/50 hover:shadow-[0_0_15px_rgba(78,222,163,0.3)] transition-all group">
-                                <span class="material-symbols-outlined text-[#1A2E26]/70 group-hover:text-[#10b981]">chevron_right</span>
+                                <span class="material-symbols-outlined text-[#0A1612]/70 group-hover:text-[#10b981]">chevron_right</span>
                             </a>
                         @else
                             <button disabled class="w-10 h-10 flex items-center justify-center rounded-full glass-panel opacity-50 cursor-not-allowed">
-                                <span class="material-symbols-outlined text-[#1A2E26]/30">chevron_right</span>
+                                <span class="material-symbols-outlined text-[#0A1612]/30">chevron_right</span>
                             </button>
                         @endif
                     @elseif ($link['label'] === '...')
-                        <span class="text-[#1A2E26]/50 px-2">...</span>
+                        <span class="text-[#0A1612]/50 px-2">...</span>
                     @else
                         @if ($link['active'])
                             <button class="w-10 h-10 flex items-center justify-center rounded-full bg-[#10b981] text-white font-black shadow-[0_4px_15px_rgba(78,222,163,0.3)] hover:scale-105 transition-transform">{{ $link['label'] }}</button>
                         @else
-                            <a href="{{ $link['url'] }}" class="w-10 h-10 flex items-center justify-center rounded-full glass-panel hover:border-[#10b981]/50 hover:text-[#10b981] hover:shadow-[0_4px_15px_rgba(78,222,163,0.15)] transition-all hover:scale-105 text-[#1A2E26]/80">{{ $link['label'] }}</a>
+                            <a href="{{ $link['url'] }}" class="w-10 h-10 flex items-center justify-center rounded-full glass-panel hover:border-[#10b981]/50 hover:text-[#10b981] hover:shadow-[0_4px_15px_rgba(78,222,163,0.15)] transition-all hover:scale-105 text-[#0A1612]/80">{{ $link['label'] }}</a>
                         @endif
                     @endif
                 @endforeach
@@ -511,12 +530,12 @@
             wishlist.splice(index, 1);
             icon.style.fontVariationSettings = "'FILL' 0";
             button.classList.remove('text-red-500');
-            button.classList.add('text-[#1A2E26]/50');
+            button.classList.add('text-[#0A1612]/50');
         } else {
             // Add to wishlist
             wishlist.push(productId);
             icon.style.fontVariationSettings = "'FILL' 1";
-            button.classList.remove('text-[#1A2E26]/50');
+            button.classList.remove('text-[#0A1612]/50');
             button.classList.add('text-red-500');
         }
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
@@ -529,7 +548,7 @@
             if (wishlist.includes(productId)) {
                 const icon = button.querySelector('span');
                 icon.style.fontVariationSettings = "'FILL' 1";
-                button.classList.remove('text-[#1A2E26]/50');
+                button.classList.remove('text-[#0A1612]/50');
                 button.classList.add('text-red-500');
             }
         });
@@ -537,8 +556,7 @@
 </script>
 
 {{-- XDrew AI Chat (React) --}}
-<div id="xdrew-ai-chat"></div>
-<script src="{{ asset('js/ai-chat.js') }}" defer></script>
+
 
 </body>
 </html>

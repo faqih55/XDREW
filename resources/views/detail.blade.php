@@ -32,12 +32,12 @@
     </script>
 
     <style>
-        body { background-color: #EAF3EF; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        body { background-color: #F9FAFB; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
         
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #EAF3EF; }
+        ::-webkit-scrollbar-track { background: #F9FAFB; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #10b981; }
         [x-cloak] { display: none !important; }
@@ -46,7 +46,7 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
-        .animate-pulse-slow {
+        . {
             animation: pulse-emerald 3s infinite;
         }
 
@@ -60,14 +60,15 @@
 
         /* Premium Liquid Glass Cards */
         .glass-card {
-            background: rgba(255, 255, 255, 0.4) !important;
-            backdrop-filter: blur(28px) saturate(220%) !important;
-            -webkit-backdrop-filter: blur(28px) saturate(220%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.6) !important;
+            background: #ffffff !important;
+            backdrop-filter: blur(24px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
             box-shadow: 
-                0 16px 40px -10px rgba(98, 124, 112, 0.15), 
-                inset 0 1px 3px rgba(255, 255, 255, 0.8) !important;
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
         }
         .glass-card:hover {
             border-color: rgba(16, 185, 129, 0.4) !important;
@@ -195,12 +196,12 @@
 </head>
 <body class="selection:bg-primary/30 selection:text-primary antialiased flex flex-col min-h-screen relative overflow-x-hidden">
 
-    <!-- Background and Glows (Emerald & Soft Blue Theme) -->
+        <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-40 animate-pulse-slow"></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-25"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#3bd58f] blur-[130px] opacity-35 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
     </div>
 
     <header class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/60 shadow-sm transition-all duration-300">
@@ -215,16 +216,16 @@
                     <span class="material-symbols-outlined">check_circle</span>
                     <span class="font-medium text-sm">{{ session('success') }}</span>
                 </div>
-                <a href="{{ route('cart.index') }}" class="font-bold text-sm hover:text-[#1A2E26] transition-colors">Lihat Keranjang</a>
+                <a href="{{ route('cart.index') }}" class="font-bold text-sm hover:text-[#0A1612] transition-colors">Lihat Keranjang</a>
             </div>
         @endif
 
-        <nav class="mb-10 flex items-center gap-2 text-[#1A2E26]/60 text-xs font-semibold uppercase tracking-widest page-enter" style="animation-delay: 0.1s;">
+        <nav class="mb-10 flex items-center gap-2 text-[#0A1612]/60 text-xs font-semibold uppercase tracking-widest page-enter" style="animation-delay: 0.1s;">
             <a class="hover:text-primary transition-colors" href="{{ route('home') }}">Beranda</a>
             <span class="material-symbols-outlined text-[16px]">chevron_right</span>
             <a class="hover:text-primary transition-colors" href="{{ route('produk.index') }}">Koleksi</a>
             <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-            <span class="text-[#1A2E26]">{{ $produk->nama_produk ?? $produk->NAMA_PRODUK ?? 'Detail' }}</span>
+            <span class="text-[#0A1612]">{{ $produk->nama_produk ?? $produk->NAMA_PRODUK ?? 'Detail' }}</span>
         </nav>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
@@ -232,21 +233,21 @@
             <section class="space-y-5 page-enter" style="animation-delay: 0.2s;">
                 <div class="aspect-[4/5] overflow-hidden glass-image-container rounded-[2rem] relative group">
                     <img id="mainImage" alt="{{ $produk->nama_produk ?? $produk->NAMA_PRODUK }}" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105" 
-                         src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
+                         src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}" fetchpriority="high"/>
                 </div>
                 
                 <div class="grid grid-cols-4 gap-4">
                     <button class="aspect-square rounded-xl glass-thumb product-thumb overflow-hidden active cursor-pointer">
-                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
+                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}" loading="lazy" decoding="async"/>
                     </button>
                     <button class="aspect-square rounded-xl glass-thumb product-thumb overflow-hidden opacity-60 hover:opacity-100 cursor-pointer">
-                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
+                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}" loading="lazy" decoding="async"/>
                     </button>
                     <button class="aspect-square rounded-xl glass-thumb product-thumb overflow-hidden opacity-60 hover:opacity-100 cursor-pointer">
-                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
+                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}" loading="lazy" decoding="async"/>
                     </button>
                     <button class="aspect-square rounded-xl glass-thumb product-thumb overflow-hidden opacity-60 hover:opacity-100 cursor-pointer">
-                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}"/>
+                        <img class="w-full h-full object-cover" src="{{ asset('images/' . ($produk->foto ?? $produk->FOTO)) }}" loading="lazy" decoding="async"/>
                     </button>
                 </div>
             </section>
@@ -258,17 +259,17 @@
                         {{ $produk->kategori ?? $produk->KATEGORI ?? 'Koleksi Terbaru' }}
                     </span>
                     @if(($produk->status_produk ?? $produk->STATUS_PRODUK))
-                    <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-black/5 text-[#1A2E26] border border-black/10 text-xs uppercase tracking-widest font-bold shadow-sm">
+                    <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-black/5 text-[#0A1612] border border-black/10 text-xs uppercase tracking-widest font-bold shadow-sm">
                         {{ $produk->status_produk ?? $produk->STATUS_PRODUK }}
                     </span>
                     @endif
                 </div>
                 
-                <h1 class="text-4xl md:text-5xl mb-3 text-[#1A2E26] font-extrabold uppercase tracking-tight">{{ $produk->nama_produk ?? $produk->NAMA_PRODUK }}</h1>
+                <h1 class="text-4xl md:text-5xl mb-3 text-[#0A1612] font-extrabold uppercase tracking-tight">{{ $produk->nama_produk ?? $produk->NAMA_PRODUK }}</h1>
                 <p class="text-3xl text-primary mb-8 font-extrabold tracking-wide drop-shadow-sm">Rp {{ number_format($produk->harga ?? $produk->HARGA, 0, ',', '.') }}</p>
                 
                 <div class="mb-10">
-                    <p class="text-[#1A2E26]/70 font-light leading-relaxed text-sm">
+                    <p class="text-[#0A1612]/70 font-light leading-relaxed text-sm">
                         {{ $produk->keterangan ?? $produk->deskripsi ?? 'Pakaian premium ini dibuat dengan teknologi ramah lingkungan yang memadukan estetika modern dan kenyamanan optimal. Potongan terstruktur untuk gaya urban yang tak lekang oleh waktu.' }}
                     </p>
                 </div>
@@ -279,8 +280,8 @@
 
                     <div class="mb-10">
                         <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-bold uppercase tracking-widest text-[#1A2E26]/60">Pilih Ukuran</span>
-                            <button type="button" class="text-primary text-xs font-bold uppercase tracking-widest hover:text-[#1A2E26] transition-colors">Panduan Ukuran</button>
+                            <span class="text-xs font-bold uppercase tracking-widest text-[#0A1612]/60">Pilih Ukuran</span>
+                            <button type="button" class="text-primary text-xs font-bold uppercase tracking-widest hover:text-[#0A1612] transition-colors">Panduan Ukuran</button>
                         </div>
                         
                         @php
@@ -302,7 +303,7 @@
                             </div>
                             <input type="hidden" name="ukuran_terpilih" id="ukuran_terpilih" value="{{ trim($arrayUkuran[0]) }}">
                         @else
-                            <div class="w-full py-4 border border-black/10 bg-white/60 rounded-xl text-center text-[#1A2E26]/70 font-medium">All Size (Satu Ukuran)</div>
+                            <div class="w-full py-4 border border-black/10 bg-white/60 rounded-xl text-center text-[#0A1612]/70 font-medium">All Size (Satu Ukuran)</div>
                             <input type="hidden" name="ukuran_terpilih" id="ukuran_terpilih" value="All Size">
                         @endif
                     </div>
@@ -310,11 +311,11 @@
                     <div class="flex flex-col sm:flex-row gap-4">
                         
                         <div class="flex items-center glass-qty-container rounded-xl h-14 overflow-hidden">
-                            <button type="button" class="w-14 h-full hover:bg-black/5 transition-colors text-[#1A2E26]/70 flex items-center justify-center cursor-pointer active:bg-black/10" onclick="this.nextElementSibling.stepDown()">
+                            <button type="button" class="w-14 h-full hover:bg-black/5 transition-colors text-[#0A1612]/70 flex items-center justify-center cursor-pointer active:bg-black/10" onclick="this.nextElementSibling.stepDown()">
                                 <span class="material-symbols-outlined text-[18px]">remove</span>
                             </button>
-                            <input name="jumlah" class="w-12 bg-transparent text-center border-none focus:ring-0 font-bold text-[#1A2E26] text-lg p-0" max="{{ $produk->stok ?? $produk->STOK ?? 10 }}" min="1" type="number" value="1"/>
-                            <button type="button" class="w-14 h-full hover:bg-black/5 transition-colors text-[#1A2E26]/70 flex items-center justify-center cursor-pointer active:bg-black/10" onclick="this.previousElementSibling.stepUp()">
+                            <input name="jumlah" class="w-12 bg-transparent text-center border-none focus:ring-0 font-bold text-[#0A1612] text-lg p-0" max="{{ $produk->stok ?? $produk->STOK ?? 10 }}" min="1" type="number" value="1"/>
+                            <button type="button" class="w-14 h-full hover:bg-black/5 transition-colors text-[#0A1612]/70 flex items-center justify-center cursor-pointer active:bg-black/10" onclick="this.previousElementSibling.stepUp()">
                                 <span class="material-symbols-outlined text-[18px]">add</span>
                             </button>
                         </div>
@@ -335,24 +336,24 @@
 
                 <div class="space-y-3">
                     <div x-data="{ open: true }" class="glass-accordion rounded-2xl overflow-hidden">
-                        <button @click="open = !open" type="button" class="w-full flex justify-between items-center p-5 outline-none text-[#1A2E26] hover:bg-black/5 transition-colors cursor-pointer">
+                        <button @click="open = !open" type="button" class="w-full flex justify-between items-center p-5 outline-none text-[#0A1612] hover:bg-black/5 transition-colors cursor-pointer">
                             <span class="font-bold uppercase tracking-widest text-xs">Material & Perawatan</span>
-                            <span class="material-symbols-outlined transition-transform duration-300" :class="open ? 'rotate-180 text-primary' : 'text-[#1A2E26]/60'">expand_more</span>
+                            <span class="material-symbols-outlined transition-transform duration-300" :class="open ? 'rotate-180 text-primary' : 'text-[#0A1612]/60'">expand_more</span>
                         </button>
                         <div x-show="open" x-collapse>
-                            <div class="p-5 pt-0 text-sm text-[#1A2E26]/70 font-light leading-relaxed">
+                            <div class="p-5 pt-0 text-sm text-[#0A1612]/70 font-light leading-relaxed">
                                 Ditenun dari kapas organik bersertifikat 100%. Cuci mesin dengan suhu dingin bersama warna senada. Jangan gunakan pemutih. Keringkan di tempat teduh untuk menjaga kualitas pigmen warna eco-friendly.
                             </div>
                         </div>
                     </div>
 
                     <div x-data="{ open: false }" class="glass-accordion rounded-2xl overflow-hidden">
-                        <button @click="open = !open" type="button" class="w-full flex justify-between items-center p-5 outline-none text-[#1A2E26] hover:bg-black/5 transition-colors cursor-pointer">
+                        <button @click="open = !open" type="button" class="w-full flex justify-between items-center p-5 outline-none text-[#0A1612] hover:bg-black/5 transition-colors cursor-pointer">
                             <span class="font-bold uppercase tracking-widest text-xs">Pengiriman & Pengembalian</span>
-                            <span class="material-symbols-outlined transition-transform duration-300" :class="open ? 'rotate-180 text-primary' : 'text-[#1A2E26]/60'">expand_more</span>
+                            <span class="material-symbols-outlined transition-transform duration-300" :class="open ? 'rotate-180 text-primary' : 'text-[#0A1612]/60'">expand_more</span>
                         </button>
                         <div x-show="open" x-collapse x-cloak>
-                            <div class="p-5 pt-0 text-sm text-[#1A2E26]/70 font-light leading-relaxed">
+                            <div class="p-5 pt-0 text-sm text-[#0A1612]/70 font-light leading-relaxed">
                                 Pengiriman standar gratis untuk pesanan di atas Rp 1.000.000. Pengembalian gratis dalam waktu 14 hari setelah barang diterima, syarat dan ketentuan berlaku.
                             </div>
                         </div>
@@ -364,7 +365,7 @@
 
         <section class="mt-32 pt-16 border-t border-black/5">
             <div class="text-center mb-12 scroll-reveal">
-                <h2 class="text-3xl text-[#1A2E26] font-extrabold uppercase tracking-tight">Lengkapi Gaya Anda</h2>
+                <h2 class="text-3xl text-[#0A1612] font-extrabold uppercase tracking-tight">Lengkapi Gaya Anda</h2>
                 <div class="h-1 w-16 bg-primary mx-auto rounded-full mt-4 shadow-sm"></div>
             </div>
             
@@ -373,17 +374,17 @@
                 <a href="{{ route('produk.show', $related->id ?? $related->ID) }}" class="group block glass-card p-2.5 sm:p-4 rounded-[1.2rem] sm:rounded-3xl emerald-glow scroll-reveal" style="transition-delay: {{ $index * 100 }}ms;">
                     <div class="aspect-[3/4] rounded-[0.8rem] sm:rounded-2xl overflow-hidden bg-white/60 relative mb-3 sm:mb-5 border border-white/60">
                         <img alt="{{ $related->nama_produk ?? $related->NAMA_PRODUK }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
-                             src="{{ asset('images/' . ($related->foto ?? $related->FOTO)) }}"/>
+                             src="{{ asset('images/' . ($related->foto ?? $related->FOTO)) }}" loading="lazy" decoding="async"/>
                         
                         <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                         <button class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-md border border-white/60 shadow-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:border-primary group/btn translate-y-4 group-hover:translate-y-0 cursor-pointer" 
                                 onclick="event.preventDefault(); window.location.href='{{ route('produk.show', $related->id ?? $related->ID) }}'">
-                            <span class="material-symbols-outlined text-[#1A2E26] text-[18px] sm:text-[20px] group-hover/btn:text-white">arrow_forward</span>
+                            <span class="material-symbols-outlined text-[#0A1612] text-[18px] sm:text-[20px] group-hover/btn:text-white">arrow_forward</span>
                         </button>
                     </div>
                     <div class="px-1 pb-1">
-                        <h3 class="font-bold text-[#1A2E26] text-[10px] sm:text-base tracking-wide truncate">{{ $related->nama_produk ?? $related->NAMA_PRODUK }}</h3>
+                        <h3 class="font-bold text-[#0A1612] text-[10px] sm:text-base tracking-wide truncate">{{ $related->nama_produk ?? $related->NAMA_PRODUK }}</h3>
                         <p class="font-extrabold text-primary mt-1 text-[11px] sm:text-sm drop-shadow-sm">Rp {{ number_format($related->harga ?? $related->HARGA, 0, ',', '.') }}</p>
                     </div>
                 </a>

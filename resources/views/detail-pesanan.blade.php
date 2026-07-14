@@ -21,8 +21,8 @@
                 background: "#F7F9F8",
                 surface: "#F7F9F8",
                 "surface-container": "#ffffff",
-                "on-surface": "#1A2E26",
-                "on-surface-variant": "#1A2E26",
+                "on-surface": "#0A1612",
+                "on-surface-variant": "#0A1612",
                 "surface-container-highest": "#e2e8f0",
             },
           },
@@ -31,7 +31,7 @@
     </script>
 
     <style>
-        body { background-color: #EAF3EF; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        body { background-color: #F9FAFB; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
         
@@ -39,7 +39,7 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
-        .animate-pulse-slow {
+        . {
             animation: pulse-emerald 3s infinite;
         }
 
@@ -88,19 +88,19 @@
         }
         .animate-success { animation: success-pop 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #EAF3EF; }
+        ::-webkit-scrollbar-track { background: #F9FAFB; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #10b981; }
     </style>
 </head>
 <body class="selection:bg-primary/30 selection:text-primary antialiased flex flex-col min-h-screen relative overflow-x-hidden">
 
-    <!-- Background and Glows (Emerald & Soft Blue Theme) -->
+        <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-40 animate-pulse-slow"></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-25"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#3bd58f] blur-[130px] opacity-35 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
     </div>
 
     <header class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/60 shadow-sm transition-all duration-300">
@@ -113,8 +113,8 @@
             <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-primary/20 border-4 border-primary text-primary mb-6 animate-pulse emerald-glow">
                 <span class="material-symbols-outlined text-[48px] font-bold">task_alt</span>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold font-['Outfit'] text-[#1A2E26] tracking-tight mb-3 uppercase drop-shadow-sm">PESANAN BERHASIL</h1>
-            <p class="text-[#1A2E26]/70 text-lg max-w-2xl mx-auto">Terima kasih telah memilih XDrew Fashion. Langkah kecil Anda hari ini mendukung ekosistem mode yang lebih baik.</p>
+            <h1 class="text-4xl md:text-5xl font-bold font-['Outfit'] text-[#0A1612] tracking-tight mb-3 uppercase drop-shadow-sm">PESANAN BERHASIL</h1>
+            <p class="text-[#0A1612]/70 text-lg max-w-2xl mx-auto">Terima kasih telah memilih XDrew Fashion. Langkah kecil Anda hari ini mendukung ekosistem mode yang lebih baik.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-6xl animate-success" style="animation-delay: 0.2s; opacity: 0;">
@@ -127,25 +127,25 @@
                     <div class="space-y-5 relative z-10">
                         <div class="flex justify-between items-end pb-4 border-b border-black/5">
                             <div>
-                                <p class="text-[10px] text-[#1A2E26]/60 uppercase tracking-widest mb-1">ID Pesanan</p>
-                                <p class="text-lg font-bold font-['Outfit'] text-[#1A2E26]">#XD-{{ $pesanan->id ?? 'XXXXXX' }}</p>
+                                <p class="text-[10px] text-[#0A1612]/60 uppercase tracking-widest mb-1">ID Pesanan</p>
+                                <p class="text-lg font-bold font-['Outfit'] text-[#0A1612]">#XD-{{ $pesanan->id ?? 'XXXXXX' }}</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-[10px] text-[#1A2E26]/60 uppercase tracking-widest mb-1">Tanggal</p>
-                                <p class="text-sm font-semibold text-[#1A2E26]">{{ isset($pesanan->tanggal_pesanan) ? \Carbon\Carbon::parse($pesanan->tanggal_pesanan)->format('d M Y') : date('d M Y') }}</p>
+                                <p class="text-[10px] text-[#0A1612]/60 uppercase tracking-widest mb-1">Tanggal</p>
+                                <p class="text-sm font-semibold text-[#0A1612]">{{ isset($pesanan->tanggal_pesanan) ? \Carbon\Carbon::parse($pesanan->tanggal_pesanan)->format('d M Y') : date('d M Y') }}</p>
                             </div>
                         </div>
 
                         <div class="pb-4 border-b border-black/5">
-                            <p class="text-[10px] text-[#1A2E26]/60 uppercase tracking-widest mb-2">Metode Pembayaran</p>
+                            <p class="text-[10px] text-[#0A1612]/60 uppercase tracking-widest mb-2">Metode Pembayaran</p>
                             <div class="flex items-center gap-3">
                                 <span class="material-symbols-outlined text-primary">credit_card</span>
-                                <span class="text-sm font-bold text-[#1A2E26] uppercase tracking-wider">{{ $pesanan->pembayaran->metode_bayar ?? $pesanan->pembayaran->METODE_BAYAR ?? 'Transfer Bank' }}</span>
+                                <span class="text-sm font-bold text-[#0A1612] uppercase tracking-wider">{{ $pesanan->pembayaran->metode_bayar ?? $pesanan->pembayaran->METODE_BAYAR ?? 'Transfer Bank' }}</span>
                             </div>
                         </div>
 
                         <div class="mt-6">
-                            <p class="text-[10px] text-[#1A2E26]/60 uppercase tracking-widest mb-4">Item yang Dipesan</p>
+                            <p class="text-[10px] text-[#0A1612]/60 uppercase tracking-widest mb-4">Item yang Dipesan</p>
                             <div class="space-y-4">
                                 @if(isset($pesanan) && $pesanan->detailPesanan)
                                     @foreach($pesanan->detailPesanan as $detail)
@@ -154,8 +154,8 @@
                                                 <img src="{{ asset('images/' . ($detail->produk->foto ?? 'default.jpg')) }}" alt="Produk" class="w-full h-full object-cover">
                                             </div>
                                             <div class="flex-1">
-                                                <h4 class="text-[#1A2E26] text-sm font-bold">{{ $detail->produk->nama_produk ?? 'Produk XDrew' }}</h4>
-                                                <p class="text-xs text-[#1A2E26]/60 mt-1">{{ $detail->kuantitas ?? 1 }}x @ Rp {{ number_format($detail->harga_satuan ?? 0, 0, ',', '.') }}</p>
+                                                <h4 class="text-[#0A1612] text-sm font-bold">{{ $detail->produk->nama_produk ?? 'Produk XDrew' }}</h4>
+                                                <p class="text-xs text-[#0A1612]/60 mt-1">{{ $detail->kuantitas ?? 1 }}x @ Rp {{ number_format($detail->harga_satuan ?? 0, 0, ',', '.') }}</p>
                                             </div>
                                             <div class="text-primary text-sm font-bold">
                                                 Rp {{ number_format(($detail->kuantitas ?? 1) * ($detail->harga_satuan ?? 0), 0, ',', '.') }}
@@ -167,7 +167,7 @@
                         </div>
 
                         <div class="flex justify-between items-center pt-6 border-t border-black/5">
-                            <span class="text-[#1A2E26] font-bold uppercase tracking-widest">Total Akhir</span>
+                            <span class="text-[#0A1612] font-bold uppercase tracking-widest">Total Akhir</span>
                             <span class="text-primary text-2xl font-black">Rp {{ number_format($pesanan->total_harga ?? 0, 0, ',', '.') }}</span>
                         </div>
                     </div>
@@ -175,9 +175,9 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                        <p class="text-[10px] text-[#1A2E26]/60 uppercase tracking-widest mb-2">Alamat Pengiriman</p>
+                        <p class="text-[10px] text-[#0A1612]/60 uppercase tracking-widest mb-2">Alamat Pengiriman</p>
                         <div class="bg-white/60 p-4 rounded-xl border border-white/60">
-                            <p class="text-sm text-[#1A2E26] leading-relaxed">
+                            <p class="text-sm text-[#0A1612] leading-relaxed">
                                 {{ $pesanan->pengiriman->alamat_tujuan ?? $pesanan->pengiriman->ALAMAT_TUJUAN ?? 'Alamat pengiriman belum ditentukan.' }}
                             </p>
                         </div>
@@ -190,16 +190,16 @@
                                 <span class="material-symbols-outlined text-[24px]">eco</span>
                             </div>
                             <div>
-                                <h2 class="text-xs font-bold text-[#1A2E26]/70 uppercase tracking-widest mb-2">Dampak Positif Anda</h2>
-                                <p class="text-[#1A2E26] text-sm leading-relaxed mb-4">Melalui pesanan ini, Anda telah berkontribusi pada pengurangan limbah tekstil dan mendukung kemasan 100% biodegradable.</p>
+                                <h2 class="text-xs font-bold text-[#0A1612]/70 uppercase tracking-widest mb-2">Dampak Positif Anda</h2>
+                                <p class="text-[#0A1612] text-sm leading-relaxed mb-4">Melalui pesanan ini, Anda telah berkontribusi pada pengurangan limbah tekstil dan mendukung kemasan 100% biodegradable.</p>
                                 <div class="flex gap-4">
                                     <div class="text-center bg-white/60 px-4 py-2 rounded-lg border border-white/60 shadow-sm">
                                         <p class="text-primary font-black text-lg">1.2kg</p>
-                                        <p class="text-[#1A2E26]/60 text-[9px] uppercase tracking-wider">Karbon Dihemat</p>
+                                        <p class="text-[#0A1612]/60 text-[9px] uppercase tracking-wider">Karbon Dihemat</p>
                                     </div>
                                     <div class="text-center bg-white/60 px-4 py-2 rounded-lg border border-white/60 shadow-sm">
                                         <p class="text-primary font-black text-lg">1</p>
-                                        <p class="text-[#1A2E26]/60 text-[9px] uppercase tracking-wider">Pohon Ditanam</p>
+                                        <p class="text-[#0A1612]/60 text-[9px] uppercase tracking-wider">Pohon Ditanam</p>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +212,7 @@
                         <span class="material-symbols-outlined text-[20px]">local_shipping</span>
                         Lacak Pesanan Saya
                     </a>
-                    <a href="{{ route('produk.index') }}" class="w-full glass-btn-secondary text-[#1A2E26] hover:text-primary py-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest shadow-sm">
+                    <a href="{{ route('produk.index') }}" class="w-full glass-btn-secondary text-[#0A1612] hover:text-primary py-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm uppercase tracking-widest shadow-sm">
                         <span class="material-symbols-outlined text-[20px]">storefront</span>
                         Kembali Belanja
                     </a>

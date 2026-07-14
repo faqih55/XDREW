@@ -5,6 +5,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Daftar Pelanggan | XDrew Fashion</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     
     <script id="tailwind-config">
@@ -20,6 +22,7 @@
                         "outline-variant": "#3c4a42",
                         "on-surface-variant": "#bbcabf",
                         "error": "#ffb4ab",
+                      "accent-purple": "#a855f7",
                         "on-primary-container": "#00422b"
                     },
                     fontFamily: {
@@ -229,7 +232,7 @@
             width: 350px;
             height: 350px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(78, 222, 163, 0.22) 0%, rgba(78, 222, 163, 0) 70%);
+            background: radial-gradient(circle, rgba(78, 222, 163, 0.15) 0%, rgba(78, 222, 163, 0) 70%);
             filter: blur(60px);
             z-index: 2;
             pointer-events: none;
@@ -243,7 +246,7 @@
             width: 380px;
             height: 380px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, rgba(234, 179, 8, 0) 70%);
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(168, 85, 247, 0) 70%);
             filter: blur(70px);
             z-index: 2;
             pointer-events: none;
@@ -269,8 +272,8 @@
     <!-- Centered Wrapper -->
     <div class="min-h-screen w-full flex items-center justify-center py-6 md:py-10 relative z-10">
         <!-- Centered Glass Card -->
-        <main class="w-full max-w-[420px] p-4">
-            <div class="liquid-glass-card p-6 md:p-8">
+        <main class="w-full max-w-[500px] p-4 relative z-10">
+            <div class="liquid-glass-card p-6 md:p-8 max-h-[90vh] overflow-y-auto" style="scrollbar-width: none;">
                 <!-- Header Row -->
                 <div class="flex justify-between items-center mb-5 relative z-10">
                     <!-- Logo XDREW (perbesar dan samakan seperti dashboard) -->
@@ -301,8 +304,37 @@
                 @endif
 
                 <!-- Form -->
-                <form action="{{ route('pelanggan.register.submit') }}" method="POST" class="space-y-4 relative z-10">
+                <form action="{{ route('pelanggan.register.submit') }}" method="POST" enctype="multipart/form-data" class="space-y-4 relative z-10">
                     @csrf
+                    
+                    <!-- Foto Profile Upload (AlpineJS) -->
+                    <div class="flex flex-col justify-center items-center gap-3 mb-6"
+                         x-data="{ 
+                             photoPreview: null,
+                             triggerUpload() { this.$refs.photoInput.click(); },
+                             previewPhoto(event) {
+                                 const file = event.target.files[0];
+                                 if (file) {
+                                     const reader = new FileReader();
+                                     reader.onload = (e) => { this.photoPreview = e.target.result; };
+                                     reader.readAsDataURL(file);
+                                 }
+                             }
+                         }">
+                        <div @click="triggerUpload()" class="relative group cursor-pointer w-24 h-24 rounded-full overflow-hidden border-2 border-[#4edea3]/50 shadow-[0_4px_15px_rgba(78,222,163,0.15)] flex items-center justify-center bg-white/5 backdrop-blur-sm">
+                            <template x-if="photoPreview">
+                                <img :src="photoPreview" alt="Profile Preview" class="w-full h-full object-cover">
+                            </template>
+                            <template x-if="!photoPreview">
+                                <span class="material-symbols-outlined text-white/50 text-3xl">person</span>
+                            </template>
+                            <div class="absolute inset-0 bg-[#0e1511]/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                                <span class="material-symbols-outlined text-white text-xl">add_a_photo</span>
+                            </div>
+                        </div>
+                        <input type="file" name="foto" x-ref="photoInput" @change="previewPhoto($event)" class="hidden" accept="image/*">
+                        <span class="text-xs text-white/50 font-light">Pilih Foto Profil (Opsional)</span>
+                    </div>
                     
                     <!-- Name Input -->
                     <div class="relative">
@@ -317,20 +349,58 @@
                                placeholder="Alamat Email"
                                class="glass-input w-full h-[46px] px-4 py-2 outline-none" />
                     </div>
-
-                    <!-- Password Input -->
+                    
+                    <!-- Nomor Telepon -->
                     <div class="relative">
-                        <input type="password" name="password" id="password" required 
-                               placeholder="Kata Sandi"
+                        <input type="text" name="no_telepon" id="no_telepon" value="{{ old('no_telepon') }}" 
+                               placeholder="Nomor Telepon (Contoh: 081234567890)"
                                class="glass-input w-full h-[46px] px-4 py-2 outline-none" />
                     </div>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Password Input -->
+                        <div class="relative">
+                            <input type="password" name="password" id="password" required 
+                                   placeholder="Kata Sandi"
+                                   class="glass-input w-full h-[46px] px-4 py-2 outline-none" />
+                        </div>
 
-                    <!-- Confirm Password Input -->
-                    <div class="relative">
-                        <input type="password" name="password_confirmation" id="password_confirmation" required 
-                               placeholder="Konfirmasi Kata Sandi"
-                               class="glass-input w-full h-[46px] px-4 py-2 outline-none" />
+                        <!-- Confirm Password Input -->
+                        <div class="relative">
+                            <input type="password" name="password_confirmation" id="password_confirmation" required 
+                                   placeholder="Ulangi Sandi"
+                                   class="glass-input w-full h-[46px] px-4 py-2 outline-none" />
+                        </div>
                     </div>
+                    
+                    <div class="grid grid-cols-3 gap-3">
+                        <!-- Provinsi -->
+                        <div class="relative">
+                            <input type="text" name="provinsi" value="{{ old('provinsi') }}" 
+                                   placeholder="Provinsi"
+                                   class="glass-input w-full h-[46px] px-4 py-2 outline-none" />
+                        </div>
+
+                        <!-- Kota -->
+                        <div class="relative">
+                            <input type="text" name="kota" value="{{ old('kota') }}" 
+                                   placeholder="Kota"
+                                   class="glass-input w-full h-[46px] px-4 py-2 outline-none" />
+                        </div>
+                        
+                        <!-- Kabupaten -->
+                        <div class="relative">
+                            <input type="text" name="kabupaten" value="{{ old('kabupaten') }}" 
+                                   placeholder="Kabupaten"
+                                   class="glass-input w-full h-[46px] px-4 py-2 outline-none" />
+                        </div>
+                    </div>
+
+                    <!-- Alamat -->
+                    <div class="relative">
+                        <textarea name="alamat" rows="2" placeholder="Alamat Lengkap" class="glass-input w-full px-4 py-3 outline-none resize-none">{{ old('alamat') }}</textarea>
+                    </div>
+
 
                     <!-- Sign Up Button -->
                     <button type="submit" class="glass-btn h-[46px] mt-4 text-sm font-medium">

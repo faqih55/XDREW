@@ -21,7 +21,7 @@
                       "surface-container": "#f1f5f9",
                       "surface-container-highest": "#e2e8f0",
                       "outline-variant": "#cbd5e1",
-                      "on-surface-variant": "#1A2E26"
+                      "on-surface-variant": "#0A1612"
               },
               "fontFamily": {
                       "headline-md": ["Outfit", "sans-serif"],
@@ -93,6 +93,14 @@
 </head>
 <body class="bg-background text-on-surface font-body-md selection:bg-primary/30 min-h-screen flex flex-col relative overflow-x-hidden">
 
+    <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
+    </div>
+
     <!-- Ambient Glowing Orbs -->
     <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#10b981]/20 blur-[120px] pointer-events-none mix-blend-multiply animate-float-slow z-0"></div>
     <div class="fixed bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-emerald-300/20 blur-[100px] pointer-events-none mix-blend-multiply animate-float-delayed z-0"></div>
@@ -113,8 +121,8 @@
         @endif
 
         <header class="mb-12 text-center md:text-left">
-            <h1 class="font-display-lg text-4xl md:text-5xl mb-2 text-[#1A2E26] font-bold tracking-tight uppercase drop-shadow-sm">Keranjang Belanja</h1>
-            <p class="font-body-md text-[#1A2E26]/70 flex items-center justify-center md:justify-start gap-2">
+            <h1 class="font-display-lg text-4xl md:text-5xl mb-2 text-[#0A1612] font-bold tracking-tight uppercase drop-shadow-sm">Keranjang Belanja</h1>
+            <p class="font-body-md text-[#0A1612]/70 flex items-center justify-center md:justify-start gap-2">
                 <span class="text-primary font-bold">{{ count($cart ?? []) }} Produk</span> pilihan terbaik untuk koleksi Anda
             </p>
         </header>
@@ -144,9 +152,9 @@
                             <div class="flex-grow flex flex-col justify-between py-1">
                                 <div class="flex flex-col md:flex-row md:justify-between items-start gap-3 md:gap-0">
                                     <div>
-                                        <h3 class="font-headline-sm text-xl text-[#1A2E26] font-bold mb-2 tracking-wide">{{ $nama_produk }}</h3>
+                                        <h3 class="font-headline-sm text-xl text-[#0A1612] font-bold mb-2 tracking-wide">{{ $nama_produk }}</h3>
                                         <div class="flex flex-wrap gap-2 mb-2">
-                                            <span class="px-3 py-1.5 rounded-full bg-white/60 text-[#1A2E26]/80 text-[10px] font-bold uppercase tracking-widest border border-white/60 shadow-sm backdrop-blur-md">Ukuran: {{ $ukuran }}</span>
+                                            <span class="px-3 py-1.5 rounded-full bg-white/60 text-[#0A1612]/80 text-[10px] font-bold uppercase tracking-widest border border-white/60 shadow-sm backdrop-blur-md">Ukuran: {{ $ukuran }}</span>
                                         </div>
                                     </div>
                                     <span class="font-headline-sm text-xl text-primary font-bold whitespace-nowrap drop-shadow-sm">Rp {{ number_format($harga, 0, ',', '.') }}</span>
@@ -158,13 +166,13 @@
                                         @method('PATCH')
                                         <input type="hidden" name="id" value="{{ $id_unik }}">
                                         
-                                        <button type="button" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors text-[#1A2E26]/70 hover:text-primary active:scale-90" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); this.form.submit();">
+                                        <button type="button" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors text-[#0A1612]/70 hover:text-primary active:scale-90" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); this.form.submit();">
                                             <span class="material-symbols-outlined text-[18px]">remove</span>
                                         </button>
                                         
-                                        <input name="jumlah" class="w-10 bg-transparent border-none text-center font-bold text-[#1A2E26] focus:ring-0 p-0" min="1" max="10" type="number" value="{{ $jumlah }}" onchange="this.form.submit()"/>
+                                        <input name="jumlah" class="w-10 bg-transparent border-none text-center font-bold text-[#0A1612] focus:ring-0 p-0" min="1" max="10" type="number" value="{{ $jumlah }}" onchange="this.form.submit()"/>
                                         
-                                        <button type="button" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors text-[#1A2E26]/70 hover:text-primary active:scale-90" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); this.form.submit();">
+                                        <button type="button" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors text-[#0A1612]/70 hover:text-primary active:scale-90" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); this.form.submit();">
                                             <span class="material-symbols-outlined text-[18px]">add</span>
                                         </button>
                                     </form>
@@ -173,7 +181,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <input type="hidden" name="id" value="{{ $id_unik }}">
-                                        <button type="submit" class="flex items-center gap-1.5 text-[#1A2E26]/50 hover:text-[#ff7676] transition-all duration-300 font-bold text-xs uppercase tracking-widest px-3 py-2 rounded-full hover:bg-[#ff7676]/10">
+                                        <button type="submit" class="flex items-center gap-1.5 text-[#0A1612]/50 hover:text-[#ff7676] transition-all duration-300 font-bold text-xs uppercase tracking-widest px-3 py-2 rounded-full hover:bg-[#ff7676]/10">
                                             <span class="material-symbols-outlined text-[18px]">delete</span> Hapus
                                         </button>
                                     </form>
@@ -184,10 +192,10 @@
                 @else
                     <div class="text-center py-24 glass-panel rounded-[2rem]">
                         <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-white/60 border border-white/60 mb-6 shadow-[0_4px_15px_rgba(98,124,112,0.1)]">
-                            <span class="material-symbols-outlined text-5xl text-[#1A2E26]/30">production_quantity_limits</span>
+                            <span class="material-symbols-outlined text-5xl text-[#0A1612]/30">production_quantity_limits</span>
                         </div>
-                        <h2 class="text-2xl text-[#1A2E26] font-bold mb-3 tracking-wide">Keranjang Anda Kosong</h2>
-                        <p class="text-[#1A2E26]/60 mb-8 max-w-md mx-auto">Tampaknya Anda belum menambahkan karya apapun. Mulai eksplorasi koleksi pakaian terbaik kami.</p>
+                        <h2 class="text-2xl text-[#0A1612] font-bold mb-3 tracking-wide">Keranjang Anda Kosong</h2>
+                        <p class="text-[#0A1612]/60 mb-8 max-w-md mx-auto">Tampaknya Anda belum menambahkan karya apapun. Mulai eksplorasi koleksi pakaian terbaik kami.</p>
                         
                         <a href="{{ route('produk.index') }}" class="inline-block px-10 py-4 bg-primary text-white font-black uppercase tracking-[0.15em] text-sm rounded-full hover:bg-[#059669] hover:scale-105 transition-all duration-300 shadow-[0_4px_15px_rgba(16,185,129,0.3)]">Belanja Sekarang</a>
                     </div>
@@ -196,19 +204,19 @@
 
             <aside class="lg:col-span-4">
                 <div class="glass-panel p-8 sticky top-32 rounded-[2rem] border-t border-t-white/60">
-                    <h2 class="font-headline-md text-xl mb-6 text-[#1A2E26] font-black uppercase tracking-[0.1em] drop-shadow-sm">Ringkasan Pesanan</h2>
+                    <h2 class="font-headline-md text-xl mb-6 text-[#0A1612] font-black uppercase tracking-[0.1em] drop-shadow-sm">Ringkasan Pesanan</h2>
                     
                     <div class="space-y-4 mb-8">
-                        <div class="flex justify-between text-[#1A2E26]/70 font-medium">
+                        <div class="flex justify-between text-[#0A1612]/70 font-medium">
                             <span>Subtotal Produk</span>
-                            <span class="text-[#1A2E26] font-bold">Rp {{ number_format($subtotal, 0, ',', '.') }}</span>
+                            <span class="text-[#0A1612] font-bold">Rp {{ number_format($subtotal, 0, ',', '.') }}</span>
                         </div>
-                        <div class="flex justify-between text-[#1A2E26]/70 font-medium">
+                        <div class="flex justify-between text-[#0A1612]/70 font-medium">
                             <span>Biaya Admin</span>
-                            <span class="text-[#1A2E26] font-bold">Rp 2.000</span>
+                            <span class="text-[#0A1612] font-bold">Rp 2.000</span>
                         </div>
                         
-                        <div class="pt-6 mt-6 border-t border-black/5 flex justify-between items-center text-[#1A2E26] text-lg font-bold uppercase tracking-wider">
+                        <div class="pt-6 mt-6 border-t border-black/5 flex justify-between items-center text-[#0A1612] text-lg font-bold uppercase tracking-wider">
                             <span>Total Akhir</span>
                             <span class="text-primary text-2xl font-black drop-shadow-sm">Rp {{ number_format($subtotal + 2000, 0, ',', '.') }}</span>
                         </div>
@@ -220,26 +228,26 @@
                                 Lanjut Pembayaran <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
                             </a>
                         @else
-                            <button disabled class="w-full block text-center py-4 px-6 bg-white/40 border border-white/60 text-[#1A2E26]/40 font-bold uppercase tracking-widest text-sm rounded-full cursor-not-allowed backdrop-blur-sm shadow-sm">
+                            <button disabled class="w-full block text-center py-4 px-6 bg-white/40 border border-white/60 text-[#0A1612]/40 font-bold uppercase tracking-widest text-sm rounded-full cursor-not-allowed backdrop-blur-sm shadow-sm">
                                 Lanjut Pembayaran
                             </button>
                         @endif
-                        <p class="text-center text-[11px] text-[#1A2E26]/50 font-medium tracking-wide mt-4 uppercase">Biaya admin & ongkir dihitung saat checkout.</p>
+                        <p class="text-center text-[11px] text-[#0A1612]/50 font-medium tracking-wide mt-4 uppercase">Biaya admin & ongkir dihitung saat checkout.</p>
                     </div>
 
                     <div class="mt-10 space-y-5 pt-8 border-t border-black/5">
                         <div class="flex items-center gap-4 bg-white/40 p-4 rounded-2xl border border-white/60 shadow-sm">
                             <span class="material-symbols-outlined text-primary text-3xl drop-shadow-sm">eco</span>
                             <div>
-                                <p class="text-[11px] font-black text-[#1A2E26] uppercase tracking-[0.1em]">Kemasan Ramah</p>
-                                <p class="text-[10px] text-[#1A2E26]/60 mt-1 leading-relaxed">Material 100% dapat terurai.</p>
+                                <p class="text-[11px] font-black text-[#0A1612] uppercase tracking-[0.1em]">Kemasan Ramah</p>
+                                <p class="text-[10px] text-[#0A1612]/60 mt-1 leading-relaxed">Material 100% dapat terurai.</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-4 bg-white/40 p-4 rounded-2xl border border-white/60 shadow-sm">
                             <span class="material-symbols-outlined text-primary text-3xl drop-shadow-sm">verified</span>
                             <div>
-                                <p class="text-[11px] font-black text-[#1A2E26] uppercase tracking-[0.1em]">Manufaktur Etis</p>
-                                <p class="text-[10px] text-[#1A2E26]/60 mt-1 leading-relaxed">Upah adil di seluruh rantai pasokan.</p>
+                                <p class="text-[11px] font-black text-[#0A1612] uppercase tracking-[0.1em]">Manufaktur Etis</p>
+                                <p class="text-[10px] text-[#0A1612]/60 mt-1 leading-relaxed">Upah adil di seluruh rantai pasokan.</p>
                             </div>
                         </div>
                     </div>
@@ -251,7 +259,7 @@
         <section class="mt-32 pt-16 border-t border-black/5 relative">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
             
-            <h2 class="font-display-lg text-3xl mb-10 text-[#1A2E26] font-bold uppercase tracking-tight text-center drop-shadow-sm">Lengkapi Gaya Anda</h2>
+            <h2 class="font-display-lg text-3xl mb-10 text-[#0A1612] font-bold uppercase tracking-tight text-center drop-shadow-sm">Lengkapi Gaya Anda</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                 
                 @foreach($related_products as $related)
@@ -262,13 +270,13 @@
                         
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                        <button class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary border border-white shadow-md translate-y-4 group-hover:translate-y-0 text-[#1A2E26] hover:text-white" 
+                        <button class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary border border-white shadow-md translate-y-4 group-hover:translate-y-0 text-[#0A1612] hover:text-white" 
                                 onclick="event.preventDefault(); window.location.href='{{ route('produk.show', $related->id ?? $related->ID) }}'">
                             <span class="material-symbols-outlined text-[18px] sm:text-[20px]">visibility</span>
                         </button>
                     </div>
                     <div class="px-1 pb-1 text-center">
-                        <p class="font-bold text-[#1A2E26] text-[10px] sm:text-sm truncate tracking-wide">{{ $related->nama_produk ?? $related->NAMA_PRODUK }}</p>
+                        <p class="font-bold text-[#0A1612] text-[10px] sm:text-sm truncate tracking-wide">{{ $related->nama_produk ?? $related->NAMA_PRODUK }}</p>
                         <p class="font-black text-primary mt-1.5 text-[11px] sm:text-sm drop-shadow-sm">Rp {{ number_format($related->harga ?? $related->HARGA, 0, ',', '.') }}</p>
                     </div>
                 </a>

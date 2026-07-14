@@ -23,26 +23,27 @@
                         "surface-container": "#f1f5f9",
                         "error-container": "#93000a",
                         "surface-container-highest": "#e2e8f0",
-                        "tertiary-container": "#fc7c78",
+                        "tertiary-container": "#a855f7",
                         "surface-dim": "#F7F9F8",
                         "on-error": "#690005",
-                        "inverse-surface": "#1A2E26",
-                        "on-surface": "#1A2E26",
+                        "inverse-surface": "#0A1612",
+                        "on-surface": "#0A1612",
                         "on-primary": "#ffffff",
                         "background": "#F7F9F8",
                         "surface-tint": "#10b981",
                         "on-secondary-fixed-variant": "#00513b",
                         "on-secondary-container": "#87d2b2",
-                        "on-tertiary": "#650911",
-                        "tertiary-fixed": "#ffdad7",
+                        "on-tertiary": "#3b0764",
+                        "tertiary-fixed": "#e9d5ff",
                         "outline-variant": "#cbd5e1",
-                        "on-tertiary-fixed": "#410005",
+                        "on-tertiary-fixed": "#2e1065",
                         "on-primary-container": "#00422b",
                         "error": "#ffb4ab",
+                      "accent-purple": "#a855f7",
                         "on-primary-fixed-variant": "#005236",
                         "secondary": "#8bd6b6",
                         "primary-fixed": "#6ffbbe",
-                        "tertiary": "#ffb3af",
+                        "tertiary": "#d8b4fe",
                         "surface-bright": "#ffffff",
                         "surface-container-low": "#ffffff",
                         "surface": "#F7F9F8",
@@ -50,20 +51,20 @@
                         "on-secondary-fixed": "#002116",
                         "inverse-primary": "#006c49",
                         "surface-container-high": "#e2e8f0",
-                        "on-surface-variant": "#1A2E26",
+                        "on-surface-variant": "#0A1612",
                         "surface-container-lowest": "#ffffff",
-                        "on-tertiary-container": "#711419",
+                        "on-tertiary-container": "#f3e8ff",
                         "inverse-on-surface": "#F7F9F8",
                         "primary-container": "#10b981",
                         "primary": "#10b981",
                         "on-secondary": "#003828",
                         "secondary-fixed-dim": "#8bd6b6",
                         "on-primary-fixed": "#002113",
-                        "on-tertiary-fixed-variant": "#842225",
+                        "on-tertiary-fixed-variant": "#581c87",
                         "secondary-container": "#005c43",
-                        "tertiary-fixed-dim": "#ffb3af",
+                        "tertiary-fixed-dim": "#d8b4fe",
                         "on-error-container": "#ffdad6",
-                        "on-background": "#1A2E26",
+                        "on-background": "#0A1612",
                         "outline": "#94a3b8",
                         "primary-fixed-dim": "#10b981",
                         "surface-variant": "#f1f5f9"
@@ -81,7 +82,7 @@
 
     <style>
         body {
-            background-color: #EAF3EF;
+            background-color: #F9FAFB;
             color: #1A2E26;
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
@@ -107,7 +108,7 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #EAF3EF;
+            background: #F9FAFB;
         }
 
         ::-webkit-scrollbar-thumb {
@@ -131,7 +132,7 @@
             }
         }
 
-        .animate-pulse-slow {
+        . {
             animation: pulse-emerald 3s infinite;
         }
 
@@ -144,14 +145,15 @@
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.4) !important;
-            backdrop-filter: blur(28px) saturate(220%) !important;
-            -webkit-backdrop-filter: blur(28px) saturate(220%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.6) !important;
-            box-shadow:
-                0 16px 40px -10px rgba(98, 124, 112, 0.15),
-                inset 0 1px 3px rgba(255, 255, 255, 0.8) !important;
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            background: #ffffff !important;
+            backdrop-filter: blur(24px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
         }
 
         .glass-card:hover {
@@ -182,12 +184,12 @@
 
 <body class="selection:bg-primary/30 selection:text-primary antialiased flex flex-col min-h-screen relative overflow-x-hidden">
 
-    <!-- Background and Glows (Emerald & Soft Blue Theme) -->
+        <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-40 animate-pulse-slow"></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-25"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#3bd58f] blur-[130px] opacity-35 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
     </div>
 
     <header class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/60 transition-all duration-300 shadow-sm">
@@ -215,24 +217,24 @@
                     <div x-show="open" x-collapse class="mt-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="flex flex-col gap-1">
-                                <label class="font-semibold text-[12px] text-[#1A2E26]/70 tracking-widest uppercase">Nama Lengkap</label>
-                                <input id="nama" value="{{ Auth::guard('pelanggan')->user()->NAMA_LENGKAP ?? Auth::guard('pelanggan')->user()->nama_lengkap ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#1A2E26] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="misal: Alex Drew" type="text" required />
+                                <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Nama Lengkap</label>
+                                <input id="nama" value="{{ Auth::guard('pelanggan')->user()->NAMA_LENGKAP ?? Auth::guard('pelanggan')->user()->nama_lengkap ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="misal: Alex Drew" type="text" required />
                             </div>
                             <div class="flex flex-col gap-1">
-                                <label class="font-semibold text-[12px] text-[#1A2E26]/70 tracking-widest uppercase">Nomor Telepon</label>
-                                <input id="telepon" value="{{ Auth::guard('pelanggan')->user()->NOMOR_TELEPON ?? Auth::guard('pelanggan')->user()->nomor_telepon ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#1A2E26] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="+62 8xx-xxxx-xxxx" type="tel" required />
+                                <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Nomor Telepon</label>
+                                <input id="telepon" value="{{ Auth::guard('pelanggan')->user()->NOMOR_TELEPON ?? Auth::guard('pelanggan')->user()->nomor_telepon ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="+62 8xx-xxxx-xxxx" type="tel" required />
                             </div>
                             <div class="flex flex-col gap-1">
-                                <label class="font-semibold text-[12px] text-[#1A2E26]/70 tracking-widest uppercase">Provinsi</label>
-                                <input id="provinsi" value="{{ Auth::guard('pelanggan')->user()->PROVINSI ?? Auth::guard('pelanggan')->user()->provinsi ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#1A2E26] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="Contoh: DI Yogyakarta" type="text" required />
+                                <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Provinsi</label>
+                                <input id="provinsi" value="{{ Auth::guard('pelanggan')->user()->PROVINSI ?? Auth::guard('pelanggan')->user()->provinsi ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="Contoh: DI Yogyakarta" type="text" required />
                             </div>
                             <div class="flex flex-col gap-1">
-                                <label class="font-semibold text-[12px] text-[#1A2E26]/70 tracking-widest uppercase">Kota / Kabupaten</label>
-                                <input id="kota" value="{{ Auth::guard('pelanggan')->user()->KOTA ?? Auth::guard('pelanggan')->user()->kota ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#1A2E26] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="Contoh: Sleman" type="text" required />
+                                <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Kota / Kabupaten</label>
+                                <input id="kota" value="{{ Auth::guard('pelanggan')->user()->KOTA ?? Auth::guard('pelanggan')->user()->kota ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="Contoh: Sleman" type="text" required />
                             </div>
                             <div class="flex flex-col gap-1 md:col-span-2">
-                                <label class="font-semibold text-[12px] text-[#1A2E26]/70 tracking-widest uppercase">Alamat Lengkap</label>
-                                <textarea id="alamat" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#1A2E26] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all resize-none text-sm" placeholder="Nama jalan, RT/RW, nomor rumah, detail patokan..." rows="3" required>{{ Auth::guard('pelanggan')->user()->ALAMAT ?? Auth::guard('pelanggan')->user()->alamat ?? '' }}</textarea>
+                                <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Alamat Lengkap</label>
+                                <textarea id="alamat" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all resize-none text-sm" placeholder="Nama jalan, RT/RW, nomor rumah, detail patokan..." rows="3" required>{{ Auth::guard('pelanggan')->user()->ALAMAT ?? Auth::guard('pelanggan')->user()->alamat ?? '' }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -252,22 +254,25 @@
                             <div class="relative">
                                 <input checked class="hidden peer" id="jne" name="kurir" value="JNE" type="radio" />
                                 <label class="flex flex-col items-center justify-center p-4 border border-black/10 bg-white/60 rounded-lg cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5" for="jne">
-                                    <span class="font-['Outfit'] font-bold text-on-surface text-xl">JNE</span>
-                                    <span class="text-[12px] text-[#1A2E26]/70 mt-1">Express (2-3 Hari)</span>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/New_Logo_JNE.png" alt="JNE" class="h-6 object-contain mb-2">
+                                    <span class="font-['Outfit'] font-bold text-on-surface text-lg">JNE</span>
+                                    <span class="text-[12px] text-[#0A1612]/70 mt-1">Express (2-3 Hari)</span>
                                 </label>
                             </div>
                             <div class="relative">
                                 <input class="hidden peer" id="pos" name="kurir" value="POS" type="radio" />
                                 <label class="flex flex-col items-center justify-center p-4 border border-black/10 bg-white/60 rounded-lg cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5" for="pos">
-                                    <span class="font-['Outfit'] font-bold text-on-surface text-xl">POS</span>
-                                    <span class="text-[12px] text-[#1A2E26]/70 mt-1">Reguler (4-7 Hari)</span>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/POSIND_2023_%28with_wordmark%29.svg" alt="POS Indonesia" class="h-6 object-contain mb-2">
+                                    <span class="font-['Outfit'] font-bold text-on-surface text-lg">POS</span>
+                                    <span class="text-[12px] text-[#0A1612]/70 mt-1">Reguler (4-7 Hari)</span>
                                 </label>
                             </div>
                             <div class="relative">
                                 <input class="hidden peer" id="jnt" name="kurir" value="JNT" type="radio" />
                                 <label class="flex flex-col items-center justify-center p-4 border border-black/10 bg-white/60 rounded-lg cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5" for="jnt">
-                                    <span class="font-['Outfit'] font-bold text-on-surface text-xl">J&T</span>
-                                    <span class="text-[12px] text-[#1A2E26]/70 mt-1">Eco (3-5 Hari)</span>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/J%26T_Express_logo.svg" alt="J&T Express" class="h-6 object-contain mb-2">
+                                    <span class="font-['Outfit'] font-bold text-on-surface text-lg">J&T</span>
+                                    <span class="text-[12px] text-[#0A1612]/70 mt-1">Eco (3-5 Hari)</span>
                                 </label>
                             </div>
                         </div>
@@ -285,46 +290,143 @@
 
                     <div x-show="open" x-collapse class="mt-6">
                         <div class="space-y-4">
-                            <div class="relative">
-                                <input checked class="hidden peer" id="bank" name="metode_pembayaran" value="Transfer Bank" type="radio" />
-                                <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-lg cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5" for="bank">
-                                    <div class="flex items-center gap-4">
-                                        <span class="material-symbols-outlined text-primary">account_balance</span>
-                                        <div>
-                                            <div class="font-bold text-[#1A2E26]">Transfer Bank (VA)</div>
-                                            <div class="text-[12px] text-[#1A2E26]/70">BCA, Mandiri, BNI, BRI</div>
+                            <!-- Bank Transfer Options -->
+                            <div class="text-[11px] font-bold text-[#0A1612]/60 mt-2 mb-3 uppercase tracking-[0.15em]">Transfer Bank (Virtual Account)</div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                                <div class="relative">
+                                    <input checked class="hidden peer" id="bca" name="metode_pembayaran" value="Bank BCA" type="radio" />
+                                    <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-xl cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5 h-full" for="bca">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-12 h-7 flex items-center justify-center bg-white rounded p-1 shrink-0 shadow-sm border border-black/5">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="BCA" class="w-full h-full object-contain">
+                                            </div>
+                                            <div>
+                                                <div class="font-bold text-sm text-[#0A1612]">Bank BCA</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
-                                </label>
+                                        <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity text-[18px]">check_circle</span>
+                                    </label>
+                                </div>
+                                <div class="relative">
+                                    <input class="hidden peer" id="mandiri" name="metode_pembayaran" value="Bank Mandiri" type="radio" />
+                                    <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-xl cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5 h-full" for="mandiri">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-12 h-7 flex items-center justify-center bg-white rounded p-1 shrink-0 shadow-sm border border-black/5">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg" alt="Mandiri" class="w-full h-full object-contain">
+                                            </div>
+                                            <div>
+                                                <div class="font-bold text-sm text-[#0A1612]">Bank Mandiri</div>
+                                            </div>
+                                        </div>
+                                        <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity text-[18px]">check_circle</span>
+                                    </label>
+                                </div>
+                                <div class="relative">
+                                    <input class="hidden peer" id="bni" name="metode_pembayaran" value="Bank BNI" type="radio" />
+                                    <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-xl cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5 h-full" for="bni">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-12 h-7 flex items-center justify-center bg-white rounded p-1 shrink-0 shadow-sm border border-black/5">
+                                                <img src="https://upload.wikimedia.org/wikipedia/id/5/55/BNI_logo.svg" alt="BNI" class="w-full h-full object-contain">
+                                            </div>
+                                            <div>
+                                                <div class="font-bold text-sm text-[#0A1612]">Bank BNI</div>
+                                            </div>
+                                        </div>
+                                        <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity text-[18px]">check_circle</span>
+                                    </label>
+                                </div>
+                                <div class="relative">
+                                    <input class="hidden peer" id="bri" name="metode_pembayaran" value="Bank BRI" type="radio" />
+                                    <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-xl cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5 h-full" for="bri">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-12 h-7 flex items-center justify-center bg-white rounded p-1 shrink-0 shadow-sm border border-black/5">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg" alt="BRI" class="w-full h-full object-contain">
+                                            </div>
+                                            <div>
+                                                <div class="font-bold text-sm text-[#0A1612]">Bank BRI</div>
+                                            </div>
+                                        </div>
+                                        <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity text-[18px]">check_circle</span>
+                                    </label>
+                                </div>
                             </div>
 
-                            <div class="relative">
-                                <input class="hidden peer" id="wallet" name="metode_pembayaran" value="E-Wallet" type="radio" />
-                                <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-lg cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5" for="wallet">
-                                    <div class="flex items-center gap-4">
-                                        <span class="material-symbols-outlined text-primary">account_balance_wallet</span>
-                                        <div>
-                                            <div class="font-bold text-[#1A2E26]">Dompet Digital</div>
-                                            <div class="text-[12px] text-[#1A2E26]/70">GoPay, OVO, ShopeePay</div>
+                            <!-- E-Wallet Options -->
+                            <div class="text-[11px] font-bold text-[#0A1612]/60 mt-2 mb-3 uppercase tracking-[0.15em]">Dompet Digital (E-Wallet)</div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                                <div class="relative">
+                                    <input class="hidden peer" id="gopay" name="metode_pembayaran" value="GoPay" type="radio" />
+                                    <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-xl cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5 h-full" for="gopay">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-12 h-7 flex items-center justify-center bg-white rounded p-1 shrink-0 shadow-sm border border-black/5">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="GoPay" class="w-full h-full object-contain">
+                                            </div>
+                                            <div>
+                                                <div class="font-bold text-sm text-[#0A1612]">GoPay</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
-                                </label>
+                                        <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity text-[18px]">check_circle</span>
+                                    </label>
+                                </div>
+                                <div class="relative">
+                                    <input class="hidden peer" id="ovo" name="metode_pembayaran" value="OVO" type="radio" />
+                                    <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-xl cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5 h-full" for="ovo">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-12 h-7 flex items-center justify-center bg-white rounded p-1 shrink-0 shadow-sm border border-black/5">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" alt="OVO" class="w-full h-full object-contain">
+                                            </div>
+                                            <div>
+                                                <div class="font-bold text-sm text-[#0A1612]">OVO</div>
+                                            </div>
+                                        </div>
+                                        <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity text-[18px]">check_circle</span>
+                                    </label>
+                                </div>
+                                <div class="relative">
+                                    <input class="hidden peer" id="dana" name="metode_pembayaran" value="DANA" type="radio" />
+                                    <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-xl cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5 h-full" for="dana">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-12 h-7 flex items-center justify-center bg-white rounded p-1 shrink-0 shadow-sm border border-black/5">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA" class="w-full h-full object-contain">
+                                            </div>
+                                            <div>
+                                                <div class="font-bold text-sm text-[#0A1612]">DANA</div>
+                                            </div>
+                                        </div>
+                                        <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity text-[18px]">check_circle</span>
+                                    </label>
+                                </div>
+                                <div class="relative">
+                                    <input class="hidden peer" id="shopeepay" name="metode_pembayaran" value="ShopeePay" type="radio" />
+                                    <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-xl cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5 h-full" for="shopeepay">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-12 h-7 flex items-center justify-center bg-white rounded p-1 shrink-0 shadow-sm border border-black/5">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" alt="ShopeePay" class="w-full h-full object-contain">
+                                            </div>
+                                            <div>
+                                                <div class="font-bold text-sm text-[#0A1612]">ShopeePay</div>
+                                            </div>
+                                        </div>
+                                        <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity text-[18px]">check_circle</span>
+                                    </label>
+                                </div>
                             </div>
 
-                            <div class="relative">
-                                <input class="hidden peer" id="cod" name="metode_pembayaran" value="COD" type="radio" />
-                                <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-lg cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5" for="cod">
-                                    <div class="flex items-center gap-4">
-                                        <span class="material-symbols-outlined text-primary">local_shipping</span>
-                                        <div>
-                                            <div class="font-bold text-[#1A2E26]">Bayar di Tempat (COD)</div>
-                                            <div class="text-[12px] text-[#1A2E26]/70">Bayar ke kurir saat barang tiba</div>
+                            <!-- Lainnya -->
+                            <div class="text-[11px] font-bold text-[#0A1612]/60 mt-2 mb-3 uppercase tracking-[0.15em]">Lainnya</div>
+                            <div class="grid grid-cols-1 gap-3">
+                                <div class="relative">
+                                    <input class="hidden peer" id="cod" name="metode_pembayaran" value="COD" type="radio" />
+                                    <label class="flex items-center justify-between p-4 border border-black/10 bg-white/60 rounded-xl cursor-pointer hover:border-black/30 transition-all peer-checked:border-primary peer-checked:bg-primary/5 h-full" for="cod">
+                                        <div class="flex items-center gap-3">
+                                            <span class="material-symbols-outlined text-primary text-[20px]">local_shipping</span>
+                                            <div>
+                                                <div class="font-bold text-sm text-[#0A1612]">Bayar di Tempat (COD)</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
-                                </label>
+                                        <span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity text-[18px]">check_circle</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -364,8 +466,8 @@
                                     <img src="{{ asset('images/' . $foto) }}" alt="Produk" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://via.placeholder.com/150'" />
                                 </div>
                                 <div class="flex-grow flex flex-col justify-center">
-                                    <div class="font-semibold text-[#1A2E26]">{{ $nama_produk }}</div>
-                                    <div class="text-[12px] text-[#1A2E26]/70 mt-1">Ukuran: {{ $details['ukuran'] ?? 'Semua Ukuran' }} | Jumlah: {{ $jumlah }}x</div>
+                                    <div class="font-semibold text-[#0A1612]">{{ $nama_produk }}</div>
+                                    <div class="text-[12px] text-[#0A1612]/70 mt-1">Ukuran: {{ $details['ukuran'] ?? 'Semua Ukuran' }} | Jumlah: {{ $jumlah }}x</div>
                                     <div class="text-primary mt-2 font-bold drop-shadow-sm">Rp {{ number_format($harga * $jumlah, 0, ',', '.') }}</div>
                                 </div>
                             </div>
@@ -385,24 +487,24 @@
 
                         <!-- Voucher & Diskon Section -->
                         <div class="border-t border-black/5 pt-6 mb-6">
-                            <h3 class="text-sm font-bold font-['Outfit'] text-[#1A2E26] mb-3 tracking-wider uppercase">Voucher & Diskon</h3>
+                            <h3 class="text-sm font-bold font-['Outfit'] text-[#0A1612] mb-3 tracking-wider uppercase">Voucher & Diskon</h3>
 
                             <!-- Input Code -->
                             <div class="flex gap-2 mb-4">
-                                <input type="text" id="voucher-code" class="flex-grow bg-white/60 border border-white/60 rounded-lg p-2.5 text-[#1A2E26] placeholder:text-gray-400 focus:outline-none focus:border-primary text-sm uppercase" placeholder="Masukkan kode voucher">
+                                <input type="text" id="voucher-code" class="flex-grow bg-white/60 border border-white/60 rounded-lg p-2.5 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary text-sm uppercase" placeholder="Masukkan kode voucher">
                                 <button type="button" onclick="applyVoucherCode()" class="px-4 py-2.5 bg-primary/20 text-primary border border-primary/30 font-bold rounded-lg hover:bg-primary/30 transition-all text-sm active:scale-95">Terapkan</button>
                             </div>
 
                             <!-- Pilihan Diskon List -->
                             <div class="space-y-2">
-                                <label class="block text-[11px] font-semibold text-[#1A2E26]/70 tracking-wider uppercase mb-1">Pilih Diskon yang Tersedia</label>
+                                <label class="block text-[11px] font-semibold text-[#0A1612]/70 tracking-wider uppercase mb-1">Pilih Diskon yang Tersedia</label>
                                 <div class="grid grid-cols-1 gap-2">
                                     <div onclick="selectVoucher('DISKON10')" id="voucher-opt-DISKON10" class="flex items-center justify-between p-3 border border-black/10 rounded-lg cursor-pointer hover:border-primary/50 bg-white/60 transition-all group">
                                         <div class="flex items-center gap-2">
                                             <span class="material-symbols-outlined text-primary text-[18px]">sell</span>
                                             <div>
-                                                <div class="text-xs font-bold text-[#1A2E26] group-hover:text-primary transition-colors">DISKON10</div>
-                                                <div class="text-[10px] text-[#1A2E26]/70">Diskon 10% untuk semua produk</div>
+                                                <div class="text-xs font-bold text-[#0A1612] group-hover:text-primary transition-colors">DISKON10</div>
+                                                <div class="text-[10px] text-[#0A1612]/70">Diskon 10% untuk semua produk</div>
                                             </div>
                                         </div>
                                         <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">-10%</span>
@@ -411,8 +513,8 @@
                                         <div class="flex items-center gap-2">
                                             <span class="material-symbols-outlined text-primary text-[18px]">sell</span>
                                             <div>
-                                                <div class="text-xs font-bold text-[#1A2E26] group-hover:text-primary transition-colors">HEMAT20</div>
-                                                <div class="text-[10px] text-[#1A2E26]/70">Potongan langsung Rp 20.000</div>
+                                                <div class="text-xs font-bold text-[#0A1612] group-hover:text-primary transition-colors">HEMAT20</div>
+                                                <div class="text-[10px] text-[#0A1612]/70">Potongan langsung Rp 20.000</div>
                                             </div>
                                         </div>
                                         <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">-Rp 20rb</span>
@@ -421,8 +523,8 @@
                                         <div class="flex items-center gap-2">
                                             <span class="material-symbols-outlined text-primary text-[18px]">local_shipping</span>
                                             <div>
-                                                <div class="text-xs font-bold text-[#1A2E26] group-hover:text-primary transition-colors">FREEONGKIR</div>
-                                                <div class="text-[10px] text-[#1A2E26]/70">Gratis biaya pengiriman</div>
+                                                <div class="text-xs font-bold text-[#0A1612] group-hover:text-primary transition-colors">FREEONGKIR</div>
+                                                <div class="text-[10px] text-[#0A1612]/70">Gratis biaya pengiriman</div>
                                             </div>
                                         </div>
                                         <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">Gratis</span>
@@ -436,16 +538,16 @@
 
                         <div class="border-t border-black/5 pt-6 space-y-3">
                             <div class="flex justify-between">
-                                <span class="text-[#1A2E26]/70">Subtotal</span>
-                                <span id="subtotal" class="text-[#1A2E26] font-bold">Rp 0</span>
+                                <span class="text-[#0A1612]/70">Subtotal</span>
+                                <span id="subtotal" class="text-[#0A1612] font-bold">Rp 0</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-[#1A2E26]/70">Pengiriman Ramah Lingkungan</span>
-                                <span id="ongkir" class="text-[#1A2E26] font-bold">Rp 0</span>
+                                <span class="text-[#0A1612]/70">Pengiriman Ramah Lingkungan</span>
+                                <span id="ongkir" class="text-[#0A1612] font-bold">Rp 0</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-[#1A2E26]/70">Biaya Admin</span>
-                                <span id="biaya-admin" class="text-[#1A2E26] font-bold">Rp 2.000</span>
+                                <span class="text-[#0A1612]/70">Biaya Admin</span>
+                                <span id="biaya-admin" class="text-[#0A1612] font-bold">Rp 2.000</span>
                             </div>
 
                             <!-- Diskon Row -->
@@ -455,7 +557,7 @@
                             </div>
 
                             <div class="flex justify-between pt-4 mt-2 border-t border-black/5 font-['Outfit'] font-bold text-xl">
-                                <span class="text-[#1A2E26]">Total</span>
+                                <span class="text-[#0A1612]">Total</span>
                                 <span id="total" class="text-primary drop-shadow-sm">Rp 0</span>
                             </div>
                         </div>
@@ -561,8 +663,8 @@
                         <img src="/images/${foto}" alt="Produk" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://via.placeholder.com/150'"/>
                     </div>
                     <div class="flex-grow flex flex-col justify-center">
-                        <div class="font-semibold text-[#1A2E26]">${namaProduk}</div>
-                        <div class="text-[12px] text-[#1A2E26]/70 mt-1">Ukuran: ${size} | Jumlah: ${qty}x</div>
+                        <div class="font-semibold text-[#0A1612]">${namaProduk}</div>
+                        <div class="text-[12px] text-[#0A1612]/70 mt-1">Ukuran: ${size} | Jumlah: ${qty}x</div>
                         <div class="text-primary mt-2 font-bold drop-shadow-sm">Rp ${formatRupiah(hargaSatuan * qty)}</div>
                     </div>
                 </div>

@@ -4,10 +4,20 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>XDrew Fashion | Streetwear Beretika</title>
+
+    <!-- Optimasi Prioritas Koneksi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://lh3.googleusercontent.com" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         @font-face {
@@ -46,7 +56,10 @@
         .glass-card {
             background: rgba(30, 41, 59, 0.4);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: translateZ(0);
+            will-change: transform, backdrop-filter;
         }
 
         .emerald-glow:hover {
@@ -54,11 +67,13 @@
         }
 
         @keyframes pulse-emerald {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            0%, 100% { opacity: 1; transform: translateZ(0); }
+            50% { opacity: 0.7; transform: translateZ(0); }
         }
-        .animate-pulse-slow {
+        . {
             animation: pulse-emerald 3s infinite;
+            will-change: opacity;
+            transform: translateZ(0);
         }
 
         @keyframes smoothReveal {
@@ -75,7 +90,7 @@
           theme: {
             extend: {
               "colors": {
-                      "on-tertiary": "#650911",
+                      "on-tertiary": "#3b0764",
                       "on-secondary": "#213145",
                       "on-surface-variant": "#bbcabf",
                       "inverse-surface": "#dde4dd",
@@ -94,17 +109,17 @@
                       "surface-container-high": "#242c27",
                       "on-background": "#dde4dd",
                       "on-primary-fixed-variant": "#005236",
-                      "on-tertiary-fixed-variant": "#842225",
-                      "on-tertiary-fixed": "#410005",
+                      "on-tertiary-fixed-variant": "#581c87",
+                      "on-tertiary-fixed": "#2e1065",
                       "surface-tint": "#4edea3",
-                      "tertiary-fixed-dim": "#ffb3af",
+                      "tertiary-fixed-dim": "#d8b4fe",
                       "secondary-container": "#3a4a5f",
                       "primary-fixed-dim": "#4edea3",
-                      "on-tertiary-container": "#711419",
+                      "on-tertiary-container": "#f3e8ff",
                       "surface-container-low": "#161d19",
-                      "tertiary-fixed": "#ffdad7",
+                      "tertiary-fixed": "#e9d5ff",
                       "on-error": "#690005",
-                      "tertiary": "#ffb3af",
+                      "tertiary": "#d8b4fe",
                       "secondary-fixed": "#d3e4fe",
                       "on-secondary-fixed": "#0b1c30",
                       "surface-container-lowest": "#09100c",
@@ -117,11 +132,12 @@
                       "primary-fixed": "#6ffbbe",
                       "inverse-primary": "#006c49",
                       "on-primary": "#003824",
-                      "tertiary-container": "#fc7c78",
+                      "tertiary-container": "#a855f7",
                       "outline-variant": "#3c4a42",
                       "on-primary-container": "#00422b",
                       "secondary-fixed-dim": "#b7c8e1",
-                      "error": "#ffb4ab"
+                      "error": "#ffb4ab",
+                      "accent-purple": "#a855f7"
               },
               "borderRadius": {
                       "DEFAULT": "0.25rem",
@@ -167,13 +183,21 @@
 </head>
 <body class="bg-background text-on-surface font-body-md selection:bg-primary/30 scroll-smooth animate-smooth-reveal">
 
+    <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
+        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
+        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
+    </div>
+
     <!-- Navbar -->
     <header class="fixed top-0 w-full z-50 transition-all duration-500 ease-in-out"
             id="site-header"
             style="background: rgba(14,21,17,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
         @include('components.navbar')
     </header>
-    <main>
+    <main class="relative z-10">
         @yield('content')
     </main>
 

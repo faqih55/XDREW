@@ -6,8 +6,8 @@
 <div class="max-w-5xl mx-auto space-y-8 animate-smooth-reveal">
     <header class="mb-8 flex flex-col md:flex-row justify-between md:items-center gap-4">
         <div>
-            <h1 class="font-['Outfit'] text-3xl font-extrabold text-[#1A2E26] mb-2 tracking-tight">Daftar Keinginan Saya</h1>
-            <p class="text-[#1A2E26]/70 text-sm">Simpan item favorit Anda untuk petualangan urban berikutnya.</p>
+            <h1 class="font-['Outfit'] text-3xl font-extrabold text-[#0A1612] mb-2 tracking-tight">Daftar Keinginan Saya</h1>
+            <p class="text-[#0A1612]/70 text-sm">Simpan item favorit Anda untuk petualangan urban berikutnya.</p>
         </div>
         <a href="{{ route('produk.index') }}" class="flex items-center justify-center gap-2 px-6 py-3 bg-[#10b981] text-white rounded-xl hover:bg-[#0ea5e9] shadow-[0_4px_15px_rgba(16,185,129,0.2)] hover:shadow-[0_6px_25px_rgba(16,185,129,0.3)] transform hover:-translate-y-0.5 transition-all font-bold w-full md:w-auto">
             <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
@@ -23,7 +23,7 @@
             <div class="relative bg-white/40 backdrop-blur-md rounded-[2rem] overflow-hidden flex flex-col transition-all duration-300 border border-white/60 group-hover:border-[#10b981]/40 group-hover:-translate-y-1 h-full shadow-lg z-20">
                 <div class="relative aspect-[4/5] overflow-hidden bg-white/60">
                     <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="{{ asset('images/' . ($p->foto ?? $p->FOTO)) }}" alt="{{ $p->nama_produk ?? $p->NAMA_PRODUK }}"/>
-                    <button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/60 backdrop-blur-md flex items-center justify-center text-[#1A2E26]/50 hover:bg-[#e11d48] hover:text-white hover:scale-110 transition-all duration-300 z-30 shadow-sm border border-white/80 remove-wish-btn" data-id="{{ $p->id ?? $p->ID }}">
+                    <button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/60 backdrop-blur-md flex items-center justify-center text-[#0A1612]/50 hover:bg-[#e11d48] hover:text-white hover:scale-110 transition-all duration-300 z-30 shadow-sm border border-white/80 remove-wish-btn" data-id="{{ $p->id ?? $p->ID }}">
                         <span class="material-symbols-outlined text-[20px]">delete</span>
                     </button>
                     @if($p->status_produk ?? $p->STATUS_PRODUK)
@@ -33,7 +33,7 @@
                     @endif
                 </div>
                 <div class="p-6 flex flex-col flex-grow bg-transparent relative z-20">
-                    <h3 class="font-bold text-[18px] text-[#1A2E26] group-hover:text-[#10b981] transition-colors mb-2 truncate">{{ $p->nama_produk ?? $p->NAMA_PRODUK }}</h3>
+                    <h3 class="font-bold text-[18px] text-[#0A1612] group-hover:text-[#10b981] transition-colors mb-2 truncate">{{ $p->nama_produk ?? $p->NAMA_PRODUK }}</h3>
                     <p class="font-['Outfit'] text-[22px] font-bold text-[#10b981] mb-6">Rp {{ number_format($p->harga ?? $p->HARGA, 0, ',', '.') }}</p>
                     
                     <form action="{{ route('cart.add') }}" method="POST" class="mt-auto">
@@ -45,7 +45,7 @@
                             $defSize = !empty($pUkuran) ? trim(explode(',', $pUkuran)[0]) : 'All Size';
                         @endphp
                         <input type="hidden" name="ukuran_terpilih" value="{{ $defSize }}">
-                        <button type="submit" class="add-to-cart-btn w-full py-3 bg-white/60 border border-white/80 text-[#1A2E26] font-bold rounded-xl shadow-sm hover:bg-[#10b981] hover:text-white hover:border-[#10b981] hover:shadow-[0_4px_20px_rgba(16,185,129,0.2)] hover:-translate-y-1 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group/btn cursor-pointer">
+                        <button type="submit" class="add-to-cart-btn w-full py-3 bg-white/60 border border-white/80 text-[#0A1612] font-bold rounded-xl shadow-sm hover:bg-[#10b981] hover:text-white hover:border-[#10b981] hover:shadow-[0_4px_20px_rgba(16,185,129,0.2)] hover:-translate-y-1 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group/btn cursor-pointer">
                             <span class="material-symbols-outlined text-[20px] group-hover/btn:scale-110 transition-transform">shopping_cart</span>
                             Tambah ke Keranjang
                         </button>
@@ -58,11 +58,11 @@
 
     <!-- Empty State Template -->
     <div class="hidden py-16 flex flex-col items-center text-center max-w-md mx-auto bg-white/40 backdrop-blur-md rounded-[2rem] border border-white/60 shadow-lg" id="wishlist-empty">
-        <div class="w-24 h-24 rounded-full bg-white/60 flex items-center justify-center mb-6 text-[#1A2E26]/40 border border-white/80">
+        <div class="w-24 h-24 rounded-full bg-white/60 flex items-center justify-center mb-6 text-[#0A1612]/40 border border-white/80">
             <span class="material-symbols-outlined text-4xl">heart_broken</span>
         </div>
-        <h2 class="font-['Outfit'] text-2xl font-bold text-[#1A2E26] mb-2">Daftar keinginan Anda masih kosong</h2>
-        <p class="text-[#1A2E26]/70 mb-8 text-sm">Temukan koleksi berkelanjutan kami dan simpan yang terbaik untuk nanti.</p>
+        <h2 class="font-['Outfit'] text-2xl font-bold text-[#0A1612] mb-2">Daftar keinginan Anda masih kosong</h2>
+        <p class="text-[#0A1612]/70 mb-8 text-sm">Temukan koleksi berkelanjutan kami dan simpan yang terbaik untuk nanti.</p>
         <a class="px-8 py-3 bg-[#10b981] text-white font-bold rounded-xl shadow-[0_4px_15px_rgba(16,185,129,0.2)] hover:shadow-[0_6px_25px_rgba(16,185,129,0.3)] transform hover:-translate-y-0.5 transition-all" href="{{ route('produk.index') }}">Mulai Belanja</a>
     </div>
 </div>

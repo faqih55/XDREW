@@ -68,14 +68,16 @@ class ProfileController extends Controller
         }
 
         $validated = $request->validate([
-            'provinsi' => ['nullable', 'string', 'max:255'],
-            'kota'     => ['nullable', 'string', 'max:255'],
-            'alamat'   => ['required', 'string'],
+            'provinsi'  => ['nullable', 'string', 'max:255'],
+            'kota'      => ['nullable', 'string', 'max:255'],
+            'kabupaten' => ['nullable', 'string', 'max:255'],
+            'alamat'    => ['required', 'string'],
         ]);
 
-        $user->PROVINSI = $validated['provinsi'];
-        $user->KOTA     = $validated['kota'];
-        $user->ALAMAT   = $validated['alamat'];
+        $user->PROVINSI  = $validated['provinsi'];
+        $user->KOTA      = $validated['kota'];
+        $user->KABUPATEN = $validated['kabupaten'] ?? null;
+        $user->ALAMAT    = $validated['alamat'];
         $user->save();
 
         return redirect()->route('profile.alamat')->with('success', 'Alamat pengiriman berhasil diperbarui!');
@@ -192,8 +194,11 @@ class ProfileController extends Controller
             'nama_pelanggan' => ['required', 'string', 'max:255'],
             'email'          => ['required', 'string', 'email', 'max:255', 'unique:PELANGGAN,EMAIL,' . ($user->ID ?? $user->id) . ',ID'],
             'no_telepon'     => ['nullable', 'string', 'max:20'],
+            'provinsi'       => ['nullable', 'string', 'max:255'],
+            'kota'           => ['nullable', 'string', 'max:255'],
+            'kabupaten'      => ['nullable', 'string', 'max:255'],
             'alamat'         => ['nullable', 'string'],
-            'foto'           => ['nullable', 'image', 'max:2048'],
+            'foto'           => ['nullable', 'image', 'max:10240'],
         ]);
 
         // Menyelaraskan dengan penamaan atribut kolom di Oracle
@@ -201,15 +206,55 @@ class ProfileController extends Controller
         $user->EMAIL          = strtolower($validated['email']);
         
         if (isset($validated['no_telepon'])) $user->NOMOR_TELEPON = $validated['no_telepon'];
+        if (isset($validated['provinsi'])) $user->PROVINSI = $validated['provinsi'];
+        if (isset($validated['kota'])) $user->KOTA = $validated['kota'];
+        if (isset($validated['kabupaten'])) $user->KABUPATEN = $validated['kabupaten'];
         if (isset($validated['alamat'])) $user->ALAMAT = $validated['alamat'];
 
-        // Handle profile photo upload
+        // Handle profile photo upload with compression
         if ($request->hasFile('foto')) {
             $oldFoto = $user->FOTO ?? $user->foto;
             if ($oldFoto && \Illuminate\Support\Facades\Storage::disk('public')->exists($oldFoto)) {
                 \Illuminate\Support\Facades\Storage::disk('public')->delete($oldFoto);
             }
-            $path = $request->file('foto')->store('profile_photos', 'public');
+            
+            $file = $request->file('foto');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            $path = 'profile_photos/' . $filename;
+            
+            $destinationPath = storage_path('app/public/' . $path);
+            
+            if (!file_exists(storage_path('app/public/profile_photos'))) {
+                mkdir(storage_path('app/public/profile_photos'), 0755, true);
+            }
+            
+            $mime = $file->getMimeType();
+            $quality = 60; // Compression quality
+            
+            try {
+                if ($mime == 'image/jpeg') {
+                    $image = imagecreatefromjpeg($file->getRealPath());
+                    imagejpeg($image, $destinationPath, $quality);
+                } elseif ($mime == 'image/png') {
+                    $image = imagecreatefrompng($file->getRealPath());
+                    imagealphablending($image, false);
+                    imagesavealpha($image, true);
+                    imagepng($image, $destinationPath, 8); // PNG compression 0-9
+                } elseif ($mime == 'image/webp') {
+                    $image = imagecreatefromwebp($file->getRealPath());
+                    imagewebp($image, $destinationPath, $quality);
+                } else {
+                    $path = $file->store('profile_photos', 'public');
+                }
+                
+                if (isset($image)) {
+                    imagedestroy($image);
+                }
+            } catch (\Exception $e) {
+                // Fallback if compression fails
+                $path = $file->store('profile_photos', 'public');
+            }
+
             $user->FOTO = $path;
         }
 
