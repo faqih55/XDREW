@@ -1,5 +1,10 @@
 # XDREW Fashion — CMS & E-Commerce Platform
 
+<img width="1791" height="935" alt="Tangkapan Layar 2026-07-15 pukul 4 26 14 AM" src="https://github.com/user-attachments/assets/9e20baee-9e05-4ce4-867f-cc76992274a3" />
+<img width="1790" height="927" alt="Tangkapan Layar 2026-07-15 pukul 4 29 02 AM" src="https://github.com/user-attachments/assets/c3a874c8-b660-4ca6-9061-45f8bb7d503f" />
+<img width="1791" height="935" alt="Tangkapan Layar 2026-07-15 pukul 4 23 45 AM" src="https://github.com/user-attachments/assets/48d25dbd-a883-4c02-ae41-5f40d12c8bf8" />
+
+
 Platform e-commerce fashion berkelanjutan (sustainable streetwear) berbasis **Laravel**, didesain dengan estetika modern dan performa tinggi.
 
 ---
