@@ -5,7 +5,7 @@
      Built by faqih55 | iOS & Fullstack Developer
 ═══════════════════════════════════════════════ -->
 
-[![XDREW Header](https://raw.githubusercontent.com/faqih55/faqih55/main/header.svg)](https://github.com/faqih55/XDREW)
+[![XDREW Header](https://raw.githubusercontent.com/faqih55/faqih55/main/header.svg?v=2)](https://github.com/faqih55/XDREW)
 
 **◈ XDREW FASHION PROJECT BY Muhamad Fakih ◈**
 
@@ -42,7 +42,7 @@
 
 <br/><br/>
 
-![XDREW Neural Interface](https://raw.githubusercontent.com/faqih55/faqih55/main/profile.svg)
+![XDREW Neural Interface](https://raw.githubusercontent.com/faqih55/faqih55/main/profile.svg?v=2)
 
 </div>
 
