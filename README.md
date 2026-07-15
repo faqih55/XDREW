@@ -60,11 +60,9 @@
 
 <br/>
 
-Platform e-commerce fashion berkelanjutan (**sustainable streetwear**) berbasis **Laravel**,\
+Platform e-commerce fashion berkelanjutan (**XDREW FASHION**) berbasis **Laravel**,\
 didesain dengan estetika modern, arsitektur bersih, dan performa tinggi.\
-Dibangun dari nol oleh **satu developer** — iOS dev yang tak takut backend.
-
---Muhamad Fakih---
+Dibangun dari nol oleh **Muhamad Fakih** — iOS dev yang tak takut backend.
 
 </div>
 
