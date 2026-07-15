@@ -5,20 +5,11 @@
      Built by faqih55 | iOS & Fullstack Developer
 ═══════════════════════════════════════════════ -->
 
-```
-██╗  ██╗██████╗ ██████╗ ███████╗██╗    ██╗
-╚██╗██╔╝██╔══██╗██╔══██╗██╔════╝██║    ██║
- ╚███╔╝ ██║  ██║██████╔╝█████╗  ██║ █╗ ██║
- ██╔██╗ ██║  ██║██╔══██╗██╔══╝  ██║███╗██║
-██╔╝ ██╗██████╔╝██║  ██║███████╗╚███╔███╔╝
-╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝
-```
+[![XDREW Header](https://raw.githubusercontent.com/faqih55/faqih55/main/header.svg)](https://github.com/faqih55/XDREW)
 
 **◈ Fashion CMS & E-Commerce Platform ◈**
 
-<a href="https://github.com/faqih55">
-  <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=16&duration=3000&pause=800&color=00FFFF&center=true&vCenter=true&width=700&lines=⚡+Built+with+Laravel+%7C+PHP+%7C+MySQL;🍎+Crafted+by+faqih55+—+iOS+%26+Fullstack+Dev;🌐+Sustainable+Streetwear+E-Commerce;🛒+Full-stack+CMS+with+Admin+Panel;🚀+Clean+Code+%7C+Bold+Design+%7C+Real+Impact" alt="Typing SVG" />
-</a>
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=16&duration=3000&pause=800&color=00FFFF&center=true&vCenter=true&width=700&lines=Built+with+Laravel+%7C+PHP+%7C+MySQL;Crafted+by+faqih55+%E2%80%94+iOS+%26+Fullstack+Dev;Sustainable+Streetwear+E-Commerce;Full-stack+CMS+with+Admin+Panel;Clean+Code+%7C+Bold+Design+%7C+Real+Impact)
 
 <br/>
 
@@ -48,6 +39,10 @@
 
 <img src="https://github.com/user-attachments/assets/c3a874c8-b660-4ca6-9061-45f8bb7d503f" width="49%" />
 <img src="https://github.com/user-attachments/assets/48d25dbd-a883-4c02-ae41-5f40d12c8bf8" width="49%" />
+
+<br/><br/>
+
+![XDREW Neural Interface](https://raw.githubusercontent.com/faqih55/faqih55/main/profile.svg)
 
 </div>
 
@@ -230,9 +225,7 @@ ADMIN ROUTES  ⚠️  Protected
 
 <br/>
 
-<a href="https://github.com/faqih55">
-  <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=18&duration=3000&pause=800&color=00FFFF&center=true&vCenter=true&width=620&lines=faqih55+—+iOS+%26+Fullstack+Developer;Swift+%7C+Laravel+%7C+Flutter+%7C+PHP+%7C+MySQL;Turning+ideas+into+digital+reality+🚀" alt="Typing SVG" />
-</a>
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=18&duration=3000&pause=800&color=00FFFF&center=true&vCenter=true&width=620&lines=faqih55+%E2%80%94+iOS+%26+Fullstack+Developer;Swift+%7C+Laravel+%7C+Flutter+%7C+PHP+%7C+MySQL;Turning+ideas+into+digital+reality)
 
 <br/>
 
