@@ -14,113 +14,13 @@
     $step2_active = $step2_active || $isPaid;
 @endphp
 
-<!DOCTYPE html>
-<html class="dark" lang="id">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Lacak Pesanan | XDrew Fashion</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#4edea3",
-                        surface: "#0e1511",
-                        "surface-container": "#1a241d",
-                    },
-                    fontFamily: {
-                        heading: ["Outfit", "sans-serif"],
-                        body: ["Poppins", "sans-serif"],
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        body { background-color: #0e1511; color: #dde4dd; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0e1511; }
-        ::-webkit-scrollbar-thumb { background: #1a241d; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #4edea3; }
+@extends('layouts.Front')
 
-        /* Premium Glass Panel */
-        .glass-panel {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%) !important; 
-            backdrop-filter: blur(28px) saturate(220%) !important; 
-            -webkit-backdrop-filter: blur(28px) saturate(220%) !important; 
-            border: 1px solid rgba(255, 255, 255, 0.1) !important; 
-            border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
-            border-left: 1px solid rgba(255, 255, 255, 0.15) !important;
-            box-shadow: 
-                0 16px 40px -10px rgba(0, 0, 0, 0.65), 
-                inset 0 1px 3px rgba(255, 255, 255, 0.3) !important;
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .glass-panel:hover {
-            border-color: rgba(78, 222, 163, 0.25) !important;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), inset 0 1px 3px rgba(255,255,255,0.3) !important;
-        }
+@section('title', 'Lacak Pesanan')
 
-        .emerald-glow {
-            box-shadow: 0 0 20px rgba(78, 222, 163, 0.2);
-        }
-        
-        .timeline-step::before {
-            content: '';
-            position: absolute;
-            left: 11px;
-            top: 24px;
-            bottom: -24px;
-            width: 2px;
-            background: rgba(255, 255, 255, 0.08);
-        }
-        .timeline-step:last-child::before {
-            display: none;
-        }
-        .timeline-step.active::before {
-            background: #4edea3;
-            box-shadow: 0 0 10px rgba(78, 222, 163, 0.3);
-        }
+@section('content')
+<div class="flex-grow pt-32 pb-20 px-4 md:px-8 max-w-[1440px] mx-auto w-full">
 
-        .glass-btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .glass-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(78, 222, 163, 0.3);
-            border-top-color: rgba(78, 222, 163, 0.5);
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 0 0 15px rgba(78, 222, 163, 0.25);
-            color: #4edea3;
-            transform: translateY(-2px);
-        }
-    </style>
-</head>
-<body class="selection:bg-primary/30 selection:text-primary antialiased flex flex-col min-h-screen">
-
-    <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
-    </div>
-
-    <header class="fixed top-0 w-full z-50 bg-[#0e1511]/80 backdrop-blur-xl border-b border-white/10 shadow-sm">
-        @include('components.navbar')
-    </header>
-
-    <main class="flex-grow pt-32 pb-20 px-4 md:px-8 max-w-[1440px] mx-auto w-full relative z-10">
         <!-- Breadcrumb & Header -->
         <header class="mb-10 text-center md:text-left">
             <div class="flex items-center gap-2 text-on-surface-variant text-xs font-semibold tracking-wider uppercase mb-3 justify-center md:justify-start">
@@ -320,11 +220,81 @@
                 </div>
             </div>
         </div>
-    </main>
+    
+</div>
+@endsection
 
-    @include('components.footer')
 
-    <script>
+@push('styles')
+<style>
+        body { background-color: #0e1511; color: #dde4dd; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0e1511; }
+        ::-webkit-scrollbar-thumb { background: #1a241d; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4edea3; }
+
+        /* Premium Glass Panel */
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%) !important; 
+            backdrop-filter: blur(28px) saturate(220%) !important; 
+            -webkit-backdrop-filter: blur(28px) saturate(220%) !important; 
+            border: 1px solid rgba(255, 255, 255, 0.1) !important; 
+            border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
+            border-left: 1px solid rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 
+                0 16px 40px -10px rgba(0, 0, 0, 0.65), 
+                inset 0 1px 3px rgba(255, 255, 255, 0.3) !important;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(78, 222, 163, 0.25) !important;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), inset 0 1px 3px rgba(255,255,255,0.3) !important;
+        }
+
+        .emerald-glow {
+            box-shadow: 0 0 20px rgba(78, 222, 163, 0.2);
+        }
+        
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: -24px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .timeline-step:last-child::before {
+            display: none;
+        }
+        .timeline-step.active::before {
+            background: #4edea3;
+            box-shadow: 0 0 10px rgba(78, 222, 163, 0.3);
+        }
+
+        .glass-btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(78, 222, 163, 0.3);
+            border-top-color: rgba(78, 222, 163, 0.5);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 0 0 15px rgba(78, 222, 163, 0.25);
+            color: #4edea3;
+            transform: translateY(-2px);
+        }
+    </style>
+@endpush
+
+
+@push('scripts')
+<script>
         // Micro-interaction for timeline hover
         document.querySelectorAll('.timeline-step').forEach(step => {
             step.addEventListener('mouseenter', () => {
@@ -339,5 +309,4 @@
             });
         });
     </script>
-</body>
-</html>
+@endpush

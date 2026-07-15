@@ -1,115 +1,10 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Keranjang Belanja | XDrew Fashion</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+@extends('layouts.Front')
 
-    <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "primary": "#10b981",
-                      "background": "#F7F9F8",
-                      "surface-container-low": "#ffffff",
-                      "surface-container": "#f1f5f9",
-                      "surface-container-highest": "#e2e8f0",
-                      "outline-variant": "#cbd5e1",
-                      "on-surface-variant": "#0A1612"
-              },
-              "fontFamily": {
-                      "headline-md": ["Outfit", "sans-serif"],
-                      "headline-sm": ["Outfit", "sans-serif"],
-                      "display-lg": ["Outfit", "sans-serif"],
-                      "body-md": ["Poppins", "sans-serif"],
-                      "label-md": ["Poppins", "sans-serif"],
-                      "caption": ["Poppins", "sans-serif"]
-              }
-            }
-          }
-        }
-    </script>
-    <style>
-        body { background-color: #F7F9F8; color: #1A2E26; overflow-x: hidden; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
-        
-        /* Premium Liquid Glass Panel */
-        .glass-panel { 
-            background: rgba(255, 255, 255, 0.4); 
-            backdrop-filter: blur(28px) saturate(220%); 
-            -webkit-backdrop-filter: blur(28px) saturate(220%); 
-            border: 1px solid rgba(255, 255, 255, 0.6); 
-            box-shadow: 
-                0 16px 40px -10px rgba(98, 124, 112, 0.15), 
-                inset 0 1px 3px rgba(255, 255, 255, 0.8);
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .glass-panel:hover {
-            border-color: rgba(16, 185, 129, 0.4);
-            box-shadow: 
-                0 20px 50px 0 rgba(98, 124, 112, 0.2), 
-                inset 0 1px 3px rgba(255,255,255,0.8), 
-                0 0 25px rgba(16, 185, 129, 0.15);
-            transform: translateY(-2px);
-        }
-        
-        /* Glass Button Hover */
-        .glass-btn {
-            background: rgba(255,255,255,0.4);
-            border: 1px solid rgba(255,255,255,0.6);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .glass-btn:hover {
-            background: rgba(255,255,255,0.8);
-            border-color: rgba(16, 185, 129, 0.4);
-            box-shadow: 
-                inset 0 1px 2px rgba(255,255,255,0.8),
-                0 4px 12px rgba(98, 124, 112, 0.15);
-            transform: translateY(-1px);
-        }
+@section('title', 'Keranjang Belanja')
 
-        .emerald-glow:hover { box-shadow: 0 0 25px rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.4); }
-        
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #F7F9F8; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
-        
-        /* Floating Animation for ambient orbs */
-        @keyframes float-slow {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-30px) scale(1.05); }
-        }
-        .animate-float-slow { animation: float-slow 10s ease-in-out infinite; }
-        .animate-float-delayed { animation: float-slow 12s ease-in-out infinite 2s; }
-    </style>
-</head>
-<body class="bg-background text-on-surface font-body-md selection:bg-primary/30 min-h-screen flex flex-col relative overflow-x-hidden">
+@section('content')
+<div class="flex-grow pt-32 pb-24 px-6 md:px-16 max-w-[1440px] mx-auto w-full">
 
-    <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
-    </div>
-
-    <!-- Ambient Glowing Orbs -->
-    <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#10b981]/20 blur-[120px] pointer-events-none mix-blend-multiply animate-float-slow z-0"></div>
-    <div class="fixed bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-emerald-300/20 blur-[100px] pointer-events-none mix-blend-multiply animate-float-delayed z-0"></div>
-    
-    <header class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/60 transition-all duration-300">
-        @include('components.navbar')
-    </header>
-
-    <main class="flex-grow pt-32 pb-24 px-6 md:px-16 max-w-[1440px] mx-auto w-full relative z-10">
         
         @if(session('success'))
             <div class="mb-6 p-4 bg-primary/10 border border-primary/30 text-primary rounded-2xl flex items-center justify-between shadow-[0_0_20px_rgba(78,222,163,0.1)] backdrop-blur-md">
@@ -286,9 +181,65 @@
         </section>
         @endif
 
-    </main>
+    
+</div>
+@endsection
 
-    @include('components.footer')
 
-</body>
-</html>
+@push('styles')
+<style>
+        body { background-color: #F7F9F8; color: #1A2E26; overflow-x: hidden; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+        
+        /* Premium Liquid Glass Panel */
+        .glass-panel { 
+            background: rgba(255, 255, 255, 0.4); 
+            backdrop-filter: blur(28px) saturate(220%); 
+            -webkit-backdrop-filter: blur(28px) saturate(220%); 
+            border: 1px solid rgba(255, 255, 255, 0.6); 
+            box-shadow: 
+                0 16px 40px -10px rgba(98, 124, 112, 0.15), 
+                inset 0 1px 3px rgba(255, 255, 255, 0.8);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 
+                0 20px 50px 0 rgba(98, 124, 112, 0.2), 
+                inset 0 1px 3px rgba(255,255,255,0.8), 
+                0 0 25px rgba(16, 185, 129, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        /* Glass Button Hover */
+        .glass-btn {
+            background: rgba(255,255,255,0.4);
+            border: 1px solid rgba(255,255,255,0.6);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-btn:hover {
+            background: rgba(255,255,255,0.8);
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 
+                inset 0 1px 2px rgba(255,255,255,0.8),
+                0 4px 12px rgba(98, 124, 112, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .emerald-glow:hover { box-shadow: 0 0 25px rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.4); }
+        
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F7F9F8; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+        
+        /* Floating Animation for ambient orbs */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+        .animate-float-slow { animation: float-slow 10s ease-in-out infinite; }
+        .animate-float-delayed { animation: float-slow 12s ease-in-out infinite 2s; }
+    </style>
+@endpush

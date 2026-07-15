@@ -1,218 +1,10 @@
-<!DOCTYPE html>
-<html class="light" lang="id">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Keberlanjutan | XDrew Fashion</title>
-    
-    <!-- Alpine.js & Tailwind -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
-    <!-- Import Font Premium (Outfit & Poppins) -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "on-tertiary": "#3b0764",
-                      "on-secondary": "#213145",
-                      "on-surface-variant": "#0A1612",
-                      "inverse-surface": "#0A1612",
-                      "surface-container": "#F9FAFB",
-                      "surface-container-highest": "#DDF0E6",
-                      "surface-variant": "#F9FAFB",
-                      "surface-bright": "#F4FAF7",
-                      "on-surface": "#0A1612",
-                      "secondary": "#4edea3",
-                      "background": "#DDF0E6",
-                      "surface-dim": "#F9FAFB",
-                      "error-container": "#93000a",
-                      "primary-container": "#4edea3",
-                      "on-secondary-container": "#0A1612",
-                      "outline": "#86948a",
-                      "surface-container-high": "#DDF0E6",
-                      "on-background": "#0A1612",
-                      "on-primary-fixed-variant": "#4edea3",
-                      "on-tertiary-fixed-variant": "#581c87",
-                      "on-tertiary-fixed": "#2e1065",
-                      "surface-tint": "#4edea3",
-                      "tertiary-fixed-dim": "#d8b4fe",
-                      "secondary-container": "#F9FAFB",
-                      "primary-fixed-dim": "#4edea3",
-                      "on-tertiary-container": "#f3e8ff",
-                      "surface-container-low": "#F4FAF7",
-                      "tertiary-fixed": "#e9d5ff",
-                      "on-error": "#690005",
-                      "tertiary": "#d8b4fe",
-                      "secondary-fixed": "#d3e4fe",
-                      "on-secondary-fixed": "#0b1c30",
-                      "surface-container-lowest": "#F4FAF7",
-                      "inverse-on-surface": "#2b322d",
-                      "surface": "#DDF0E6",
-                      "on-secondary-fixed-variant": "#38485d",
-                      "on-error-container": "#ffdad6",
-                      "primary": "#4edea3",
-                      "on-primary-fixed": "#002113",
-                      "primary-fixed": "#6ffbbe",
-                      "inverse-primary": "#4edea3",
-                      "on-primary": "#003824",
-                      "tertiary-container": "#a855f7",
-                      "outline-variant": "#3c4a42",
-                      "on-primary-container": "#ffffff",
-                      "secondary-fixed-dim": "#b7c8e1",
-                      "error": "#ffb4ab",
-                      "accent-purple": "#a855f7"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "base": "4px",
-                      "xs": "8px",
-                      "sm": "16px",
-                      "margin-mobile": "16px",
-                      "lg": "48px",
-                      "xl": "80px",
-                      "gutter": "24px",
-                      "margin-desktop": "64px",
-                      "md": "24px"
-              },
-              "fontFamily": {
-                      "body-md": ["Poppins", "sans-serif"],
-                      "headline-sm": ["Outfit", "sans-serif"],
-                      "display-lg": ["Outfit", "sans-serif"],
-                      "caption": ["Poppins", "sans-serif"],
-                      "body-lg": ["Poppins", "sans-serif"],
-                      "headline-md": ["Outfit", "sans-serif"],
-                      "label-md": ["Poppins", "sans-serif"],
-                      "display-lg-mobile": ["Outfit", "sans-serif"]
-              },
-              "fontSize": {
-                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                      "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                      "display-lg-mobile": ["36px", {"lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
-              }
-            },
-          },
-        }
-    </script>
-    
-    <style>
-        .material-symbols-outlined {
-            font-family: 'Material Symbols Outlined';
-            font-weight: normal;
-            font-style: normal;
-            font-size: 24px;
-            line-height: 1;
-            letter-spacing: normal;
-            text-transform: none;
-            display: inline-block;
-            white-space: nowrap;
-            word-wrap: normal;
-            direction: ltr;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #F9FAFB; }
-        ::-webkit-scrollbar-thumb { background: #CBE3D9; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #4edea3; }
+@extends('layouts.Front')
 
-        .glass-card {
-            background: #ffffff !important;
-            backdrop-filter: blur(24px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            border: 1px solid rgba(0, 0, 0, 0.05) !important;
-            border-top: 1px solid rgba(255, 255, 255, 1) !important;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.08),
-                0 1px 3px rgba(0, 0, 0, 0.05),
-                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
-        }
+@section('title', 'Keberlanjutan')
 
-        .emerald-glow { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        .emerald-glow:hover { box-shadow: 0 0 20px rgba(78, 222, 163, 0.2); border-color: rgba(78, 222, 163, 0.3) !important; transform: translateY(-8px); }
+@section('content')
+<div class="pt-24 opacity-0 transition-opacity duration-700 ease-out">
 
-        .page-enter {
-            animation: pageFadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-
-        @keyframes pageFadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-bg-anim { animation: slowZoomOut 10s ease-out forwards; }
-        @keyframes slowZoomOut {
-            from { transform: scale(1.1); }
-            to { transform: scale(1); }
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .scroll-reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Grid Pattern */
-        .bg-grid-pattern {
-            background-image: 
-                linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        /* Smooth Floating Keyframes */
-        @keyframes float-slow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(1deg); }
-        }
-        @keyframes float-reverse-slow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(8px) rotate(-1deg); }
-        }
-        [] { animation: float-slow 6s ease-in-out infinite; }
-        [] { animation: float-reverse-slow 7s ease-in-out infinite; }
-    </style>
-</head>
-<body class="bg-[#F9FAFB] text-[#0A1612] font-body-md selection:bg-emerald-100 antialiased relative overflow-x-hidden" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
-
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" style="will-change: transform;">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-30"></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-20"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#3bd58f] blur-[130px] opacity-25"></div>
-    </div>
-
-    <!-- Navbar -->
-    <div class="relative z-50">
-        @include('components.navbar')
-    </div>
-
-    <!-- Main Wrapper (Fades in smoothly on load) -->
-    <main class="pt-24 opacity-0 transition-opacity duration-700 ease-out relative z-10" :class="loaded ? 'opacity-100' : ''">
         
         <!-- Hero Section -->
         <section class="relative min-h-[85vh] flex items-center mb-24 overflow-hidden">
@@ -369,13 +161,103 @@
                 </div>
             </div>
         </section>
-    </main>
+    
+</div>
+@endsection
 
-    <!-- Footer -->
-    @include('components.footer')
 
-    <!-- Script Animasi Berperforma Tinggi -->
-    <script>
+@push('styles')
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F9FAFB; }
+        ::-webkit-scrollbar-thumb { background: #CBE3D9; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4edea3; }
+
+        .glass-card {
+            background: #ffffff !important;
+            backdrop-filter: blur(24px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+        }
+
+        .emerald-glow { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .emerald-glow:hover { box-shadow: 0 0 20px rgba(78, 222, 163, 0.2); border-color: rgba(78, 222, 163, 0.3) !important; transform: translateY(-8px); }
+
+        .page-enter {
+            animation: pageFadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes pageFadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-bg-anim { animation: slowZoomOut 10s ease-out forwards; }
+        @keyframes slowZoomOut {
+            from { transform: scale(1.1); }
+            to { transform: scale(1); }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Grid Pattern */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Smooth Floating Keyframes */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        @keyframes float-reverse-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(8px) rotate(-1deg); }
+        }
+        [] { animation: float-slow 6s ease-in-out infinite; }
+        [] { animation: float-reverse-slow 7s ease-in-out infinite; }
+    </style>
+@endpush
+
+
+@push('scripts')
+<script>
         // Animasi Counter Angka
         function animateValue(id, start, end, duration) {
             const obj = document.getElementById(id);
@@ -438,5 +320,4 @@
             });
         });
     </script>
-</body>
-</html>
+@endpush

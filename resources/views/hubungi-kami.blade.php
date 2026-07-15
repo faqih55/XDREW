@@ -1,68 +1,10 @@
-<!DOCTYPE html>
-<html class="light" lang="id">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Hubungi Kami | XDrew Fashion</title>
-    <meta name="description" content="Hubungi tim XDrew Fashion – kami siap membantu pertanyaan, masukan, atau keluhan Anda kapan saja."/>
+@extends('layouts.Front')
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+@section('title', 'Hubungi Kami')
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+@section('content')
+<div class="pt-28 pb-24 opacity-0 transition-opacity duration-700 ease-out">
 
-    <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: { extend: {
-            colors: { "primary": "#4edea3", "on-primary": "#003824" },
-            fontFamily: { "body-md": ["Poppins","sans-serif"], "display-lg": ["Outfit","sans-serif"] }
-          }}
-        }
-    </script>
-
-    <style>
-        .material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;}
-        ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#F9FAFB}::-webkit-scrollbar-thumb{background:#CBE3D9;border-radius:4px}::-webkit-scrollbar-thumb:hover{background:#4edea3}
-        .glass-card {
-            background: #ffffff !important;
-            backdrop-filter: blur(24px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            border: 1px solid rgba(0, 0, 0, 0.05) !important;
-            border-top: 1px solid rgba(255, 255, 255, 1) !important;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.08),
-                0 1px 3px rgba(0, 0, 0, 0.05),
-                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
-        }
-        .bg-grid-pattern{background-image:linear-gradient(rgba(78,222,163,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(78,222,163,0.04) 1px,transparent 1px);background-size:50px 50px;}
-        .scroll-reveal{opacity:0;transform:translateY(24px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}
-        .scroll-reveal.is-visible{opacity:1;transform:translateY(0);}
-        .contact-input{width:100%;background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.8);border-radius:12px;padding:14px 18px;font-size:.9375rem;color:#0A1612;outline:none;transition:border-color 0.25s,box-shadow 0.25s;font-family:'Poppins',sans-serif;}
-        .contact-input:focus{border-color:#4edea3;box-shadow:0 0 0 3px rgba(78,222,163,0.15);}
-        .contact-input::placeholder{color:#0A1612aa;}
-        .contact-card{display:flex;align-items:flex-start;gap:16px;padding:20px;border-radius:16px;background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.7);transition:all 0.3s;}
-        .contact-card:hover{background:rgba(255,255,255,0.75);transform:translateY(-3px);box-shadow:0 10px 30px rgba(78,222,163,0.12);}
-    </style>
-</head>
-<body class="bg-[#F9FAFB] text-[#0A1612] font-body-md antialiased relative overflow-x-hidden"
-      x-data="{ loaded: false, sent: false, sending: false, formError: '' }"
-      x-init="setTimeout(() => loaded = true, 100)">
-
-    <!-- Background -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute left-[-5%] top-[10%] w-[500px] h-[500px] rounded-full bg-[#6ffbbe] blur-[150px] opacity-25"></div>
-        <div class="absolute right-[-5%] bottom-[15%] w-[450px] h-[450px] rounded-full bg-[#4edea3] blur-[150px] opacity-20"></div>
-    </div>
-
-    <!-- Navbar -->
-    <div class="relative z-50">
-        @include('components.navbar')
-    </div>
-
-    <main class="pt-28 pb-24 opacity-0 transition-opacity duration-700 ease-out relative z-10" :class="loaded ? 'opacity-100' : ''">
         <div class="max-w-5xl mx-auto px-6 md:px-10">
 
             <!-- Hero -->
@@ -210,11 +152,40 @@
                 </div>
             </div>
         </div>
-    </main>
+    
+</div>
+@endsection
 
-    @include('components.footer')
 
-    <script>
+@push('styles')
+<style>
+        .material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;}
+        ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#F9FAFB}::-webkit-scrollbar-thumb{background:#CBE3D9;border-radius:4px}::-webkit-scrollbar-thumb:hover{background:#4edea3}
+        .glass-card {
+            background: #ffffff !important;
+            backdrop-filter: blur(24px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+        }
+        .bg-grid-pattern{background-image:linear-gradient(rgba(78,222,163,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(78,222,163,0.04) 1px,transparent 1px);background-size:50px 50px;}
+        .scroll-reveal{opacity:0;transform:translateY(24px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}
+        .scroll-reveal.is-visible{opacity:1;transform:translateY(0);}
+        .contact-input{width:100%;background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.8);border-radius:12px;padding:14px 18px;font-size:.9375rem;color:#0A1612;outline:none;transition:border-color 0.25s,box-shadow 0.25s;font-family:'Poppins',sans-serif;}
+        .contact-input:focus{border-color:#4edea3;box-shadow:0 0 0 3px rgba(78,222,163,0.15);}
+        .contact-input::placeholder{color:#0A1612aa;}
+        .contact-card{display:flex;align-items:flex-start;gap:16px;padding:20px;border-radius:16px;background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.7);transition:all 0.3s;}
+        .contact-card:hover{background:rgba(255,255,255,0.75);transform:translateY(-3px);box-shadow:0 10px 30px rgba(78,222,163,0.12);}
+    </style>
+@endpush
+
+
+@push('scripts')
+<script>
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
@@ -222,5 +193,4 @@
             document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
         });
     </script>
-</body>
-</html>
+@endpush

@@ -1,113 +1,10 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Pesanan Berhasil | XDrew Fashion</title>
-    
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-                primary: "#10b981",
-                background: "#F7F9F8",
-                surface: "#F7F9F8",
-                "surface-container": "#ffffff",
-                "on-surface": "#0A1612",
-                "on-surface-variant": "#0A1612",
-                "surface-container-highest": "#e2e8f0",
-            },
-          },
-        },
-      }
-    </script>
+@extends('layouts.Front')
 
-    <style>
-        body { background-color: #F9FAFB; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
-        
-        @keyframes pulse-emerald {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        . {
-            animation: pulse-emerald 3s infinite;
-        }
+@section('title', 'Pesanan Berhasil')
 
-        /* Grid Pattern */
-        .bg-grid-pattern {
-            background-image: 
-                linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
+@section('content')
+<div class="flex-grow container mx-auto px-4 md:px-6 pt-32 pb-24  max-w-5xl">
 
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-        }
-
-        .emerald-glow {
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
-        }
-
-        .item-glass {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .glass-btn-secondary {
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .glass-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.8);
-            border-color: rgba(16, 185, 129, 0.4);
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.8), 0 4px 12px rgba(98, 124, 112, 0.15);
-            color: #10b981;
-            transform: translateY(-2px);
-        }
-
-        @keyframes success-pop {
-            0% { transform: scale(0.8); opacity: 0; }
-            70% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        .animate-success { animation: success-pop 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #F9FAFB; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
-    </style>
-</head>
-<body class="selection:bg-primary/30 selection:text-primary antialiased flex flex-col min-h-screen relative overflow-x-hidden">
-
-        <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
-    </div>
-
-    <header class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/60 shadow-sm transition-all duration-300">
-        @include('components.navbar')
-    </header>
-
-    <main class="flex-grow container mx-auto px-4 md:px-6 pt-32 pb-24 relative z-10 max-w-5xl">
         
         <div class="text-center mb-12">
             <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-primary/20 border-4 border-primary text-primary mb-6 animate-pulse emerald-glow">
@@ -219,8 +116,72 @@
                 </div>
             </div>
         </div>
-    </main>
+    
+</div>
+@endsection
 
-    @include('components.footer')
-</body>
-</html>
+
+@push('styles')
+<style>
+        body { background-color: #F9FAFB; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+        
+        @keyframes pulse-emerald {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        . {
+            animation: pulse-emerald 3s infinite;
+        }
+
+        /* Grid Pattern */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .emerald-glow {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+        }
+
+        .item-glass {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .glass-btn-secondary {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.8), 0 4px 12px rgba(98, 124, 112, 0.15);
+            color: #10b981;
+            transform: translateY(-2px);
+        }
+
+        @keyframes success-pop {
+            0% { transform: scale(0.8); opacity: 0; }
+            70% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-success { animation: success-pop 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F9FAFB; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+    </style>
+@endpush

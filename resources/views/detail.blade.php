@@ -1,214 +1,10 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>{{ $produk->nama_produk ?? $produk->NAMA_PRODUK ?? 'Produk' }} | XDrew Fashion</title>
-    
-    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+@extends('layouts.Front')
 
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-                primary: "#10b981",
-                surface: "#F7F9F8",
-                "surface-container": "#ffffff",
-            },
-            fontFamily: {
-                heading: ["Outfit", "sans-serif"],
-                body: ["Poppins", "sans-serif"],
-            }
-          },
-        },
-      }
-    </script>
+@section('title', $produk->nama_produk ?? $produk->NAMA_PRODUK ?? 'Produk')
 
-    <style>
-        body { background-color: #F9FAFB; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #F9FAFB; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
-        [x-cloak] { display: none !important; }
+@section('content')
+<div class="flex-grow pt-32 pb-24 px-6 md:px-16 max-w-[1440px] mx-auto w-full">
 
-        @keyframes pulse-emerald {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        . {
-            animation: pulse-emerald 3s infinite;
-        }
-
-        /* Grid Pattern */
-        .bg-grid-pattern {
-            background-image: 
-                linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        /* Premium Liquid Glass Cards */
-        .glass-card {
-            background: #ffffff !important;
-            backdrop-filter: blur(24px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            border: 1px solid rgba(0, 0, 0, 0.05) !important;
-            border-top: 1px solid rgba(255, 255, 255, 1) !important;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.08),
-                0 1px 3px rgba(0, 0, 0, 0.05),
-                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
-        }
-        .glass-card:hover {
-            border-color: rgba(16, 185, 129, 0.4) !important;
-            box-shadow: 0 20px 45px rgba(98, 124, 112, 0.2), inset 0 1px 3px rgba(255,255,255,0.8) !important;
-            transform: translateY(-2px);
-        }
-
-        .glass-card.emerald-glow {
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
-        }
-        .glass-card.emerald-glow:hover {
-            box-shadow: 
-                0 20px 50px 0 rgba(98, 124, 112, 0.2), 
-                inset 0 1px 3px rgba(255,255,255,0.8), 
-                0 0 25px rgba(16, 185, 129, 0.3) !important;
-            transform: translateY(-4px);
-        }
-
-        /* Glass Image Frame */
-        .glass-image-container {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 16px 40px -10px rgba(98, 124, 112, 0.15), inset 0 1px 3px rgba(255, 255, 255, 0.8);
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .glass-image-container:hover {
-            border-color: rgba(16, 185, 129, 0.4);
-            box-shadow: 0 20px 45px rgba(98, 124, 112, 0.2), inset 0 1px 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(16, 185, 129, 0.15);
-        }
-
-        /* Glass Thumbnail Buttons */
-        .glass-thumb {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .glass-thumb:hover, .glass-thumb.active {
-            background: rgba(255, 255, 255, 0.8);
-            border-color: #10b981 !important;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
-            transform: scale(1.03);
-        }
-
-        /* Premium Buttons */
-        .btn-solid-glow {
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-        }
-        .btn-solid-glow:hover {
-            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4), 0 0 15px rgba(16, 185, 129, 0.2);
-            transform: translateY(-2px);
-        }
-        .btn-solid-glow:active {
-            transform: translateY(1px);
-        }
-
-        .btn-outline-glow {
-            background: rgba(16, 185, 129, 0.05);
-            border: 1px solid rgba(16, 185, 129, 0.5) !important;
-            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .btn-outline-glow:hover {
-            background-color: #10b981;
-            color: #ffffff !important;
-            box-shadow: 0 12px 25px rgba(16, 185, 129, 0.3), 0 0 15px rgba(16, 185, 129, 0.2);
-            transform: translateY(-2px);
-        }
-        .btn-outline-glow:active {
-            transform: translateY(1px);
-        }
-
-        /* Glass Qty Selector */
-        .glass-qty-container {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Glass Size Selector */
-        .size-btn {
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-            color: #1A2E26;
-        }
-        .size-btn:hover {
-            background: rgba(255, 255, 255, 0.8);
-            border-color: rgba(16, 185, 129, 0.4);
-            transform: translateY(-1px);
-        }
-        .size-btn.active {
-            background: rgba(16, 185, 129, 0.1) !important;
-            border-color: #10b981 !important;
-            color: #10b981 !important;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2), inset 0 1px 2px rgba(16, 185, 129, 0.1);
-        }
-
-        /* Glass Accordion */
-        .glass-accordion {
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .glass-accordion:hover {
-            border-color: rgba(16, 185, 129, 0.4);
-            background: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Page Animations */
-        @keyframes pageFadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .page-enter { animation: pageFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-        
-        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
-
-        .product-thumb { transition: all 0.3s ease; }
-        .product-thumb:hover, .product-thumb.active { border-color: #10b981; opacity: 1; }
-    </style>
-</head>
-<body class="selection:bg-primary/30 selection:text-primary antialiased flex flex-col min-h-screen relative overflow-x-hidden">
-
-        <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
-    </div>
-
-    <header class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/60 shadow-sm transition-all duration-300">
-        @include('components.navbar')
-    </header>
-
-    <main class="relative z-10 flex-grow pt-32 pb-24 px-6 md:px-16 max-w-[1440px] mx-auto w-full">
         
         @if(session('success'))
             <div class="mb-8 p-4 bg-primary/10 border border-primary/50 text-primary rounded-xl flex items-center justify-between page-enter">
@@ -392,11 +188,178 @@
             </div>
         </section>
 
-    </main>
+    
+</div>
+@endsection
 
-    @include('components.footer')
 
-    <script>
+@push('styles')
+<style>
+        body { background-color: #F9FAFB; color: #1A2E26; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F9FAFB; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+        [x-cloak] { display: none !important; }
+
+        @keyframes pulse-emerald {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        . {
+            animation: pulse-emerald 3s infinite;
+        }
+
+        /* Grid Pattern */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Premium Liquid Glass Cards */
+        .glass-card {
+            background: #ffffff !important;
+            backdrop-filter: blur(24px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+        }
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.4) !important;
+            box-shadow: 0 20px 45px rgba(98, 124, 112, 0.2), inset 0 1px 3px rgba(255,255,255,0.8) !important;
+            transform: translateY(-2px);
+        }
+
+        .glass-card.emerald-glow {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+        }
+        .glass-card.emerald-glow:hover {
+            box-shadow: 
+                0 20px 50px 0 rgba(98, 124, 112, 0.2), 
+                inset 0 1px 3px rgba(255,255,255,0.8), 
+                0 0 25px rgba(16, 185, 129, 0.3) !important;
+            transform: translateY(-4px);
+        }
+
+        /* Glass Image Frame */
+        .glass-image-container {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 16px 40px -10px rgba(98, 124, 112, 0.15), inset 0 1px 3px rgba(255, 255, 255, 0.8);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-image-container:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 45px rgba(98, 124, 112, 0.2), inset 0 1px 3px rgba(255, 255, 255, 0.8), 0 0 20px rgba(16, 185, 129, 0.15);
+        }
+
+        /* Glass Thumbnail Buttons */
+        .glass-thumb {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-thumb:hover, .glass-thumb.active {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: #10b981 !important;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+            transform: scale(1.03);
+        }
+
+        /* Premium Buttons */
+        .btn-solid-glow {
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        .btn-solid-glow:hover {
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4), 0 0 15px rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+        .btn-solid-glow:active {
+            transform: translateY(1px);
+        }
+
+        .btn-outline-glow {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.5) !important;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .btn-outline-glow:hover {
+            background-color: #10b981;
+            color: #ffffff !important;
+            box-shadow: 0 12px 25px rgba(16, 185, 129, 0.3), 0 0 15px rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+        .btn-outline-glow:active {
+            transform: translateY(1px);
+        }
+
+        /* Glass Qty Selector */
+        .glass-qty-container {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Glass Size Selector */
+        .size-btn {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            color: #1A2E26;
+        }
+        .size-btn:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-1px);
+        }
+        .size-btn.active {
+            background: rgba(16, 185, 129, 0.1) !important;
+            border-color: #10b981 !important;
+            color: #10b981 !important;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2), inset 0 1px 2px rgba(16, 185, 129, 0.1);
+        }
+
+        /* Glass Accordion */
+        .glass-accordion {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-accordion:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Page Animations */
+        @keyframes pageFadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-enter { animation: pageFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        .product-thumb { transition: all 0.3s ease; }
+        .product-thumb:hover, .product-thumb.active { border-color: #10b981; opacity: 1; }
+    </style>
+@endpush
+
+@push('scripts')
+<script>
         // Logika Pilihan Ukuran dengan Efek Glow Baru
         const sizeButtons = document.querySelectorAll('.size-btn');
         const hiddenSizeInput = document.getElementById('ukuran_terpilih');
@@ -459,5 +422,4 @@
             document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
         });
     </script>
-</body>
-</html>
+@endpush

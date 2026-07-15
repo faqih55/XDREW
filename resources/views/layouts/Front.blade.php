@@ -1,29 +1,16 @@
 <!DOCTYPE html>
-<html class="dark" lang="id">
+<html class="light" lang="id">
 <head>
     <meta charset="utf-8"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>XDrew Fashion | Streetwear Beretika</title>
-
-    <!-- Optimasi Prioritas Koneksi -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
-    <link rel="dns-prefetch" href="https://unpkg.com" />
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
-    <link rel="dns-prefetch" href="https://lh3.googleusercontent.com" />
-
+    <title>@yield('title', 'XDrew Fashion')</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
-        @font-face {
-            font-family: 'Material Symbols Outlined';
-            font-style: normal;
-        }
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined';
             font-weight: normal;
@@ -43,10 +30,10 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #0e1511;
+            background: #F9FAFB;
         }
         ::-webkit-scrollbar-thumb {
-            background: #1a211d;
+            background: #CBE3D9;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
@@ -54,37 +41,62 @@
         }
 
         .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transform: translateZ(0);
-            will-change: transform, backdrop-filter;
+            background: #ffffff !important;
+            backdrop-filter: blur(24px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
         }
 
         .emerald-glow:hover {
-            box-shadow: 0 0 20px rgba(78, 222, 163, 0.2);
+            box-shadow: 0 15px 35px rgba(78, 222, 163, 0.15) !important;
+            border-color: rgba(78, 222, 163, 0.3) !important;
         }
 
         @keyframes pulse-emerald {
-            0%, 100% { opacity: 1; transform: translateZ(0); }
-            50% { opacity: 0.7; transform: translateZ(0); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
         . {
             animation: pulse-emerald 3s infinite;
-            will-change: opacity;
-            transform: translateZ(0);
         }
 
-        @keyframes smoothReveal {
-            from { opacity: 0; transform: translateY(15px); filter: blur(4px); }
-            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        /* Grid Pattern */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
         }
-        .animate-smooth-reveal {
-            animation: smoothReveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+
+        /* Typography */
+        .text-outline-dark {
+            -webkit-text-stroke: 1.5px #1A2E26;
+            color: transparent;
+        }
+
+
+        /* Smooth Floating Keyframes */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        @keyframes float-reverse-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(8px) rotate(-1deg); }
+        }
+        [] {
+            animation: float-slow 6s ease-in-out infinite;
+        }
+        [] {
+            animation: float-reverse-slow 7s ease-in-out infinite;
         }
     </style>
-<script id="tailwind-config">
+    <script id="tailwind-config">
         tailwind.config = {
           darkMode: "class",
           theme: {
@@ -92,49 +104,49 @@
               "colors": {
                       "on-tertiary": "#3b0764",
                       "on-secondary": "#213145",
-                      "on-surface-variant": "#bbcabf",
-                      "inverse-surface": "#dde4dd",
-                      "surface-container": "#1a211d",
-                      "surface-container-highest": "#2f3632",
-                      "surface-variant": "#2f3632",
-                      "surface-bright": "#343b36",
-                      "on-surface": "#dde4dd",
-                      "secondary": "#b7c8e1",
-                      "background": "#0e1511",
-                      "surface-dim": "#0e1511",
+                      "on-surface-variant": "#0A1612",
+                      "inverse-surface": "#0A1612",
+                      "surface-container": "#F9FAFB",
+                      "surface-container-highest": "#DDF0E6",
+                      "surface-variant": "#F9FAFB",
+                      "surface-bright": "#F4FAF7",
+                      "on-surface": "#0A1612",
+                      "secondary": "#4edea3",
+                      "background": "#DDF0E6",
+                      "surface-dim": "#F9FAFB",
                       "error-container": "#93000a",
-                      "primary-container": "#10b981",
-                      "on-secondary-container": "#a9bad3",
+                      "primary-container": "#4edea3",
+                      "on-secondary-container": "#0A1612",
                       "outline": "#86948a",
-                      "surface-container-high": "#242c27",
-                      "on-background": "#dde4dd",
-                      "on-primary-fixed-variant": "#005236",
+                      "surface-container-high": "#DDF0E6",
+                      "on-background": "#0A1612",
+                      "on-primary-fixed-variant": "#4edea3",
                       "on-tertiary-fixed-variant": "#581c87",
                       "on-tertiary-fixed": "#2e1065",
                       "surface-tint": "#4edea3",
                       "tertiary-fixed-dim": "#d8b4fe",
-                      "secondary-container": "#3a4a5f",
+                      "secondary-container": "#F9FAFB",
                       "primary-fixed-dim": "#4edea3",
                       "on-tertiary-container": "#f3e8ff",
-                      "surface-container-low": "#161d19",
+                      "surface-container-low": "#F4FAF7",
                       "tertiary-fixed": "#e9d5ff",
                       "on-error": "#690005",
                       "tertiary": "#d8b4fe",
                       "secondary-fixed": "#d3e4fe",
                       "on-secondary-fixed": "#0b1c30",
-                      "surface-container-lowest": "#09100c",
+                      "surface-container-lowest": "#F4FAF7",
                       "inverse-on-surface": "#2b322d",
-                      "surface": "#0e1511",
+                      "surface": "#DDF0E6",
                       "on-secondary-fixed-variant": "#38485d",
                       "on-error-container": "#ffdad6",
                       "primary": "#4edea3",
                       "on-primary-fixed": "#002113",
                       "primary-fixed": "#6ffbbe",
-                      "inverse-primary": "#006c49",
+                      "inverse-primary": "#4edea3",
                       "on-primary": "#003824",
                       "tertiary-container": "#a855f7",
                       "outline-variant": "#3c4a42",
-                      "on-primary-container": "#00422b",
+                      "on-primary-container": "#ffffff",
                       "secondary-fixed-dim": "#b7c8e1",
                       "error": "#ffb4ab",
                       "accent-purple": "#a855f7"
@@ -157,14 +169,14 @@
                       "md": "24px"
               },
               "fontFamily": {
-                      "body-md": ["Poppins"],
-                      "headline-sm": ["Outfit"],
-                      "display-lg": ["Outfit"],
-                      "caption": ["Poppins"],
-                      "body-lg": ["Poppins"],
-                      "headline-md": ["Outfit"],
-                      "label-md": ["Poppins"],
-                      "display-lg-mobile": ["Outfit"]
+                      "body-md": ["Poppins", "sans-serif"],
+                      "headline-sm": ["Outfit", "sans-serif"],
+                      "display-lg": ["Outfit", "sans-serif"],
+                      "caption": ["Poppins", "sans-serif"],
+                      "body-lg": ["Poppins", "sans-serif"],
+                      "headline-md": ["Outfit", "sans-serif"],
+                      "label-md": ["Poppins", "sans-serif"],
+                      "display-lg-mobile": ["Outfit", "sans-serif"]
               },
               "fontSize": {
                       "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
@@ -180,10 +192,11 @@
           },
         }
       </script>
+    @stack('styles')
 </head>
-<body class="bg-background text-on-surface font-body-md selection:bg-primary/30 scroll-smooth animate-smooth-reveal">
+<body class="bg-[#F9FAFB] text-[#0A1612] font-body-md selection:bg-emerald-100 scroll-smooth relative overflow-x-hidden">
 
-    <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
+        <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
         <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
@@ -191,45 +204,55 @@
         <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
     </div>
 
-    <!-- Navbar -->
-    <header class="fixed top-0 w-full z-50 transition-all duration-500 ease-in-out"
-            id="site-header"
-            style="background: rgba(14,21,17,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+    <!-- Left Sidebar (Copyright) -->
+    <div class="hidden lg:flex fixed left-8 bottom-24 z-20 flex-col items-center gap-6 pointer-events-none">
+        <span class="font-['Outfit'] text-[10px] font-bold text-[#0A1612]/40 tracking-[0.25em] uppercase [writing-mode:vertical-lr] rotate-180">
+            © {{ date('Y') }} XDREW FASHION. ALL RIGHTS RESERVED.
+        </span>
+        <div class="w-[1px] h-16 bg-[#1A2E26]/20"></div>
+    </div>
+
+    <!-- Navbar Wrapper -->
+    <header id="site-header"
+            class="fixed top-0 w-full z-50 transition-all duration-500"
+            style="background: transparent;">
         @include('components.navbar')
     </header>
-    <main class="relative z-10">
-        @yield('content')
-    </main>
+
+    
+<main class="relative z-10">
+    @yield('content')
+</main>
+
 
     <!-- Footer -->
     @include('components.footer')
 
     <script>
-        // Smooth header animation on scroll
+        // ===== NAVBAR SCROLL EFFECT =====
         const header = document.getElementById('site-header');
-        let lastScroll = 0;
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.scrollY;
-            
-            if (currentScroll > 30) {
-                header.style.background = 'rgba(14,21,17,0.97)';
-                header.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
-                header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
+        function updateNavbar() {
+            if (window.scrollY > 60) {
+                // Blur & glass effect saat scroll
+                header.style.background = 'rgba(234, 243, 239, 0.85)';
+                header.style.backdropFilter = 'blur(24px)';
+                header.style.webkitBackdropFilter = 'blur(24px)';
+                header.style.borderBottom = '1px solid rgba(78, 222, 163, 0.08)';
+                header.style.boxShadow = '0 10px 30px rgba(98, 124, 112, 0.04)';
             } else {
-                header.style.background = 'rgba(14,21,17,0.85)';
-                header.style.borderBottom = '1px solid rgba(255,255,255,0)';
+                header.style.background = 'transparent';
+                header.style.backdropFilter = 'none';
+                header.style.webkitBackdropFilter = 'none';
+                header.style.borderBottom = 'none';
                 header.style.boxShadow = 'none';
             }
+        }
 
-            lastScroll = currentScroll;
-        });
+        updateNavbar();
+        window.addEventListener('scroll', updateNavbar, { passive: true });
 
-        // Simple revealing animation for sections
-        const observerOptions = {
-            threshold: 0.1
-        };
-
+        // ===== SECTION REVEAL ANIMATION =====
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -237,12 +260,53 @@
                     entry.target.classList.remove('opacity-0', 'translate-y-10');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.05 });
 
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
-            observer.observe(section);
+        document.querySelectorAll('section, .opacity-0.translate-y-10').forEach(el => {
+            if (el.tagName.toLowerCase() === 'section') {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            }
+            observer.observe(el);
+        });
+
+        // ===== WISHLIST TOGGLE SYSTEM =====
+        function toggleWishlist(productId, button) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const index = wishlist.indexOf(productId);
+            const icon = button.querySelector('span');
+            
+            if (index > -1) {
+                // Remove from wishlist
+                wishlist.splice(index, 1);
+                icon.style.fontVariationSettings = "'FILL' 0";
+                button.classList.remove('text-red-500');
+                button.classList.add('text-[#0A1612]/50');
+            } else {
+                // Add to wishlist
+                wishlist.push(productId);
+                icon.style.fontVariationSettings = "'FILL' 1";
+                button.classList.remove('text-[#0A1612]/50');
+                button.classList.add('text-red-500');
+            }
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            document.querySelectorAll('.wishlist-btn').forEach(button => {
+                const productId = parseInt(button.getAttribute('data-id'));
+                if (wishlist.includes(productId)) {
+                    const icon = button.querySelector('span');
+                    icon.style.fontVariationSettings = "'FILL' 1";
+                    button.classList.remove('text-[#0A1612]/50');
+                    button.classList.add('text-red-500');
+                }
+            });
         });
     </script>
+{{-- XDrew AI Chat (React) --}}
+
+
+    @stack('scripts')
 </body>
 </html>

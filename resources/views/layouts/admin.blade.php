@@ -46,12 +46,6 @@
         @keyframes pageIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
         body { animation: pageIn .4s cubic-bezier(.22,1,.36,1) both; }
 
-        /* ── Ambient glows ── */
-        .glow { position:fixed; border-radius:50%; pointer-events:none; z-index:0; filter: blur(60px); }
-        .glow-1 { top:-15%;right:-10%;width:520px;height:520px;background:radial-gradient(circle,rgba(111,251,190,0.3) 0%,transparent 70%); }
-        .glow-2 { bottom:-15%;left:-8%;width:440px;height:440px;background:radial-gradient(circle,rgba(78,222,163,0.2) 0%,transparent 70%); }
-        .glow-3 { top:40%;right:-8%;width:360px;height:360px;background:radial-gradient(circle,rgba(59,213,143,0.25) 0%,transparent 70%); }
-
         /* ════════════════════ SIDEBAR ════════════════════ */
         :root {
             --sb-w0: 68px;
@@ -65,21 +59,21 @@
         .sidebar {
             position:relative; z-index:40;
             display:flex; flex-direction:column; flex-shrink:0;
-            height:calc(100% - 2rem);  /* 100% of below-wrap height */
+            height:calc(100% - 2rem);
             align-self:flex-start;
             margin:1rem 0 1rem 1rem;
             width:var(--sb-w0);
             overflow:hidden;
             transition:width var(--spd) var(--ease);
 
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(28px) saturate(180%);
-            -webkit-backdrop-filter: blur(28px) saturate(180%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.4) 100%);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.6);
             border-radius: var(--sb-r);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.8), 0 8px 32px rgba(98,124,112,0.1);
             transform: translateZ(0);
-            will-change: width, transform, backdrop-filter;
+            will-change: width, transform;
         }
         .sidebar:hover { width:var(--sb-w1); }
 
@@ -180,14 +174,14 @@
             display: flex; align-items: center; gap: 14px;
             height: 58px;
             background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(28px) saturate(2);
-            -webkit-backdrop-filter: blur(28px) saturate(2);
+            backdrop-filter: blur(12px) saturate(2);
+            -webkit-backdrop-filter: blur(12px) saturate(2);
             border-bottom: 1px solid rgba(0,0,0,.05);
             box-shadow: 0 4px 30px rgba(0,0,0,.05);
             position: relative;
             z-index: 100;              /* tertinggi, selalu di atas sidebar */
             transform: translateZ(0);
-            will-change: backdrop-filter, transform;
+            will-change: transform;
         }
         .topbar-search {
             position: absolute;
@@ -211,8 +205,8 @@
 
         .glass-card {
             background: #ffffff !important;
-            backdrop-filter: blur(24px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            backdrop-filter: blur(12px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
             border: 1px solid rgba(0, 0, 0, 0.05) !important;
             border-top: 1px solid rgba(255, 255, 255, 1) !important;
             box-shadow: 
@@ -246,15 +240,15 @@
             position:absolute; top:calc(100% + 12px); right:0;
             width:340px;
             background:rgba(255,255,255,.95);
-            backdrop-filter:blur(28px) saturate(1.6);
-            -webkit-backdrop-filter:blur(28px) saturate(1.6);
+            backdrop-filter:blur(12px) saturate(1.6);
+            -webkit-backdrop-filter:blur(12px) saturate(1.6);
             border:1px solid rgba(0,0,0,.1);
             border-radius:18px;
             box-shadow:0 24px 56px rgba(0,0,0,.15);
             z-index:999;
             overflow:hidden;
             transform: translateZ(0);
-            will-change: opacity, transform, backdrop-filter;
+            will-change: opacity, transform;
 
             /* hidden by default */
             opacity:0; transform:translateY(-8px) scale(.97);
@@ -354,8 +348,8 @@
         /* glass-card utility */
         .glass-card {
             background: #ffffff !important;
-            backdrop-filter: blur(24px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            backdrop-filter: blur(12px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
             border: 1px solid rgba(0, 0, 0, 0.05) !important;
             border-top: 1px solid rgba(255, 255, 255, 1) !important;
             box-shadow: 
@@ -376,7 +370,7 @@
             padding: 0 16px;
             box-shadow: 0 2px 10px rgba(0,0,0,.05);
             transform: translateZ(0);
-            will-change: transform, backdrop-filter;
+            will-change: transform;
         }
         @media (max-width:1023px) {
             body { flex-direction: column; }
@@ -410,9 +404,6 @@
         <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
     </div>
 
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-    <div class="glow glow-3"></div>
 
     {{-- ─── Mobile Header ─── --}}
     <div class="mobile-header">

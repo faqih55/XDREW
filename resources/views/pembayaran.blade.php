@@ -1,202 +1,10 @@
-<!DOCTYPE html>
-<html lang="id">
+@extends('layouts.Front')
 
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Pembayaran | XDrew Fashion</title>
+@section('title', 'Pembayaran')
 
-    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+@section('content')
+<div class="flex-grow pt-[120px] pb-20 px-4 md:px-8 max-w-[1440px] mx-auto w-full">
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-container": "#f1f5f9",
-                        "error-container": "#93000a",
-                        "surface-container-highest": "#e2e8f0",
-                        "tertiary-container": "#a855f7",
-                        "surface-dim": "#F7F9F8",
-                        "on-error": "#690005",
-                        "inverse-surface": "#0A1612",
-                        "on-surface": "#0A1612",
-                        "on-primary": "#ffffff",
-                        "background": "#F7F9F8",
-                        "surface-tint": "#10b981",
-                        "on-secondary-fixed-variant": "#00513b",
-                        "on-secondary-container": "#87d2b2",
-                        "on-tertiary": "#3b0764",
-                        "tertiary-fixed": "#e9d5ff",
-                        "outline-variant": "#cbd5e1",
-                        "on-tertiary-fixed": "#2e1065",
-                        "on-primary-container": "#00422b",
-                        "error": "#ffb4ab",
-                      "accent-purple": "#a855f7",
-                        "on-primary-fixed-variant": "#005236",
-                        "secondary": "#8bd6b6",
-                        "primary-fixed": "#6ffbbe",
-                        "tertiary": "#d8b4fe",
-                        "surface-bright": "#ffffff",
-                        "surface-container-low": "#ffffff",
-                        "surface": "#F7F9F8",
-                        "secondary-fixed": "#a6f2d1",
-                        "on-secondary-fixed": "#002116",
-                        "inverse-primary": "#006c49",
-                        "surface-container-high": "#e2e8f0",
-                        "on-surface-variant": "#0A1612",
-                        "surface-container-lowest": "#ffffff",
-                        "on-tertiary-container": "#f3e8ff",
-                        "inverse-on-surface": "#F7F9F8",
-                        "primary-container": "#10b981",
-                        "primary": "#10b981",
-                        "on-secondary": "#003828",
-                        "secondary-fixed-dim": "#8bd6b6",
-                        "on-primary-fixed": "#002113",
-                        "on-tertiary-fixed-variant": "#581c87",
-                        "secondary-container": "#005c43",
-                        "tertiary-fixed-dim": "#d8b4fe",
-                        "on-error-container": "#ffdad6",
-                        "on-background": "#0A1612",
-                        "outline": "#94a3b8",
-                        "primary-fixed-dim": "#10b981",
-                        "surface-variant": "#f1f5f9"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    }
-                },
-            },
-        }
-    </script>
-
-    <style>
-        body {
-            background-color: #F9FAFB;
-            color: #1A2E26;
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #F9FAFB;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #10b981;
-        }
-
-        @keyframes pulse-emerald {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        . {
-            animation: pulse-emerald 3s infinite;
-        }
-
-        /* Grid Pattern */
-        .bg-grid-pattern {
-            background-image:
-                linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        .glass-card {
-            background: #ffffff !important;
-            backdrop-filter: blur(24px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            border: 1px solid rgba(0, 0, 0, 0.05) !important;
-            border-top: 1px solid rgba(255, 255, 255, 1) !important;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.08),
-                0 1px 3px rgba(0, 0, 0, 0.05),
-                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
-        }
-
-        .glass-card:hover {
-            border-color: rgba(16, 185, 129, 0.4) !important;
-            box-shadow: 0 20px 45px rgba(98, 124, 112, 0.2), inset 0 1px 3px rgba(255, 255, 255, 0.8) !important;
-            transform: translateY(-1px);
-        }
-
-        input:focus,
-        textarea:focus {
-            outline: none;
-            box-shadow: inset 0 0 0 1px #10b981;
-            border-color: transparent !important;
-        }
-
-        /* Loading Animation */
-        .btn-loading {
-            opacity: 0.7;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .animate-spin-slow {
-            animation: spin 1.5s linear infinite;
-        }
-    </style>
-</head>
-
-<body class="selection:bg-primary/30 selection:text-primary antialiased flex flex-col min-h-screen relative overflow-x-hidden">
-
-        <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
-    </div>
-
-    <header class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/60 transition-all duration-300 shadow-sm">
-        @include('components.navbar')
-    </header>
-
-    <main class="relative z-10 flex-grow pt-[120px] pb-20 px-4 md:px-8 max-w-[1440px] mx-auto w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 
             <div class="lg:col-span-7 space-y-8">
@@ -224,13 +32,23 @@
                                 <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Nomor Telepon</label>
                                 <input id="telepon" value="{{ Auth::guard('pelanggan')->user()->NOMOR_TELEPON ?? Auth::guard('pelanggan')->user()->nomor_telepon ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="+62 8xx-xxxx-xxxx" type="tel" required />
                             </div>
-                            <div class="flex flex-col gap-1">
+                            <div class="flex flex-col gap-1 md:col-span-2">
                                 <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Provinsi</label>
                                 <input id="provinsi" value="{{ Auth::guard('pelanggan')->user()->PROVINSI ?? Auth::guard('pelanggan')->user()->provinsi ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="Contoh: DI Yogyakarta" type="text" required />
                             </div>
+                            @php
+                                $savedKota = Auth::guard('pelanggan')->user()->KOTA ?? Auth::guard('pelanggan')->user()->kota ?? '';
+                                $isKabupaten = stripos($savedKota, 'Kab') !== false;
+                                $valKabupaten = $isKabupaten ? trim(str_ireplace(['Kabupaten', 'Kab.', 'Kab'], '', $savedKota)) : '';
+                                $valKota = !$isKabupaten && $savedKota ? trim(str_ireplace(['Kota '], '', $savedKota)) : '';
+                            @endphp
                             <div class="flex flex-col gap-1">
-                                <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Kota / Kabupaten</label>
-                                <input id="kota" value="{{ Auth::guard('pelanggan')->user()->KOTA ?? Auth::guard('pelanggan')->user()->kota ?? '' }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="Contoh: Sleman" type="text" required />
+                                <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Kota</label>
+                                <input id="kota" value="{{ $valKota }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="Isi jika Kota (Contoh: Yogyakarta)" type="text" />
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Kabupaten</label>
+                                <input id="kabupaten" value="{{ $valKabupaten }}" class="w-full bg-white/60 border border-white/60 rounded-lg p-3 text-[#0A1612] placeholder:text-gray-400 focus:outline-none focus:border-primary transition-all text-sm" placeholder="Isi jika Kab (Contoh: Sleman)" type="text" />
                             </div>
                             <div class="flex flex-col gap-1 md:col-span-2">
                                 <label class="font-semibold text-[12px] text-[#0A1612]/70 tracking-widest uppercase">Alamat Lengkap</label>
@@ -581,11 +399,117 @@
                 </div>
             </aside>
         </div>
-    </main>
+    
+</div>
+@endsection
 
-    @include('components.footer')
 
-    <script>
+@push('styles')
+<style>
+        body {
+            background-color: #F9FAFB;
+            color: #1A2E26;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F9FAFB;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+
+        @keyframes pulse-emerald {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        . {
+            animation: pulse-emerald 3s infinite;
+        }
+
+        /* Grid Pattern */
+        .bg-grid-pattern {
+            background-image:
+                linear-gradient(rgba(78, 222, 163, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(78, 222, 163, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .glass-card {
+            background: #ffffff !important;
+            backdrop-filter: blur(24px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 1px solid rgba(255, 255, 255, 1) !important;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.4) !important;
+            box-shadow: 0 20px 45px rgba(98, 124, 112, 0.2), inset 0 1px 3px rgba(255, 255, 255, 0.8) !important;
+            transform: translateY(-1px);
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            box-shadow: inset 0 0 0 1px #10b981;
+            border-color: transparent !important;
+        }
+
+        /* Loading Animation */
+        .btn-loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .animate-spin-slow {
+            animation: spin 1.5s linear infinite;
+        }
+    </style>
+@endpush
+
+
+@push('scripts')
+<script>
         // 1. Inisialisasi Konstanta Pembayaran
         let HARGA_ONGKIR = 50000;
         const BIAYA_ADMIN = 2000;
@@ -796,8 +720,11 @@
             const nama = document.getElementById('nama').value;
             const telepon = document.getElementById('telepon').value;
             const provinsi = document.getElementById('provinsi').value;
-            const kota = document.getElementById('kota').value;
+            const kotaVal = document.getElementById('kota').value.trim();
+            const kabVal = document.getElementById('kabupaten').value.trim();
             const alamat = document.getElementById('alamat').value;
+
+            const kota = kotaVal ? "Kota " + kotaVal : (kabVal ? "Kabupaten " + kabVal : "");
 
             if (!nama || !telepon || !provinsi || !kota || !alamat) {
                 alert('Mohon isi formulir Alamat Pengiriman dengan lengkap.');
@@ -838,7 +765,8 @@
             fetch('{{ route("checkout.process") }}', {
                     method: 'POST',
                     headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                        'Accept': 'application/json'
                     },
                     body: formData
                 })
@@ -867,6 +795,4 @@
         // Jalankan fungsi load produk saat halaman siap //
         document.addEventListener('DOMContentLoaded', loadProdukDetail);
     </script>
-</body>
-
-</html>
+@endpush

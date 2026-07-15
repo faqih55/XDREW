@@ -1,33 +1,10 @@
-<!DOCTYPE html>
-<html class="dark" lang="id">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Akun Saya | XDrew Fashion</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <style>
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .glass-card { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .emerald-glow:hover { box-shadow: 0 0 20px rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); }
-        body { background-color: #0e1511; color: #dde4dd; }
-    </style>
-</head>
-<body class="font-body-md text-on-surface min-h-screen">
+@extends('layouts.Front')
 
-    <!-- Background and Glows (Smooth Emerald & Violet Theme) -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
-        <div class="absolute left-[-10%] top-[20%] w-[500px] h-[500px] rounded-full bg-[#8b5cf6] blur-[160px] opacity-[0.15] "></div>
-        <div class="absolute right-[-10%] top-[40%] w-[600px] h-[600px] rounded-full bg-[#4edea3] blur-[180px] opacity-[0.15]"></div>
-        <div class="absolute left-[30%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#c4b5fd] blur-[150px] opacity-[0.15] " style="animation-delay: 1.5s;"></div>
-    </div>
+@section('title', 'Akun Saya')
 
-    <header class="fixed top-0 w-full z-50">
-        @include('components.navbar')
-    </header>
+@section('content')
+<div class="pt-32 pb-20 px-6 md:px-16 max-w-[1440px] mx-auto">
 
-    <main class="pt-32 pb-20 px-6 md:px-16 max-w-[1440px] mx-auto relative z-10">
         <h1 class="text-4xl md:text-5xl mb-10 tracking-tighter uppercase font-bold text-white">AKUN SAYA</h1>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
@@ -65,7 +42,16 @@
                 </section>
             </div>
         </div>
-    </main>
+    
+</div>
+@endsection
 
-</body>
-</html>
+
+@push('styles')
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .emerald-glow:hover { box-shadow: 0 0 20px rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); }
+        body { background-color: #0e1511; color: #dde4dd; }
+    </style>
+@endpush
