@@ -64,6 +64,8 @@ Platform e-commerce fashion berkelanjutan (**sustainable streetwear**) berbasis 
 didesain dengan estetika modern, arsitektur bersih, dan performa tinggi.\
 Dibangun dari nol oleh **satu developer** — iOS dev yang tak takut backend.
 
+--Muhamad Fakih---
+
 </div>
 
 ---
