@@ -1,6 +1,9 @@
 <div align="center">
 
-<!-- HEADER BANNER -->
+<!-- ═══════════════════════════════════════════════
+     XDREW — Fashion CMS & E-Commerce Platform
+     Built by faqih55 | iOS & Fullstack Developer
+═══════════════════════════════════════════════ -->
 
 ```
 ██╗  ██╗██████╗ ██████╗ ███████╗██╗    ██╗
@@ -14,7 +17,7 @@
 **◈ Fashion CMS & E-Commerce Platform ◈**
 
 <a href="https://github.com/faqih55">
-  <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=16&duration=3000&pause=800&color=00FFFF&center=true&vCenter=true&width=700&lines=⚡+Built+with+Laravel+%7C+PHP+%7C+MySQL;🍎+Crafted+by+faqih55+—+iOS+%26+Fullstack+Dev;🌐+Sustainable+Streetwear+Platform;🛒+Full-stack+E-Commerce+with+Admin+Panel;🚀+Clean+Code+%7C+Bold+Design+%7C+Real+Impact" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=16&duration=3000&pause=800&color=00FFFF&center=true&vCenter=true&width=700&lines=⚡+Built+with+Laravel+%7C+PHP+%7C+MySQL;🍎+Crafted+by+faqih55+—+iOS+%26+Fullstack+Dev;🌐+Sustainable+Streetwear+E-Commerce;🛒+Full-stack+CMS+with+Admin+Panel;🚀+Clean+Code+%7C+Bold+Design+%7C+Real+Impact" alt="Typing SVG" />
 </a>
 
 <br/>
@@ -24,6 +27,9 @@
 ![MySQL](https://img.shields.io/badge/MySQL-00618A?style=for-the-badge&logo=mysql&logoColor=white&labelColor=0d1117)
 ![Blade](https://img.shields.io/badge/Blade-FF2D20?style=for-the-badge&logo=laravel&logoColor=white&labelColor=0d1117)
 ![AlpineJS](https://img.shields.io/badge/Alpine.js-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=white&labelColor=0d1117)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white&labelColor=0d1117)
+
+<br/>
 
 ![STATUS](https://img.shields.io/badge/◈_STATUS-ACTIVE-00ffff?style=for-the-badge&labelColor=0d1117)
 ![VERSION](https://img.shields.io/badge/◈_VERSION-1.0.0-b700ff?style=for-the-badge&labelColor=0d1117)
@@ -61,17 +67,13 @@
 
 Platform e-commerce fashion berkelanjutan (**sustainable streetwear**) berbasis **Laravel**,\
 didesain dengan estetika modern, arsitektur bersih, dan performa tinggi.\
-Dibangun dari nol oleh satu developer — iOS dev yang tak takut backend.
+Dibangun dari nol oleh **satu developer** — iOS dev yang tak takut backend.
 
 </div>
 
 ---
 
-<div align="center">
-
 ## ◈ FITUR UTAMA
-
-</div>
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -113,11 +115,7 @@ Dibangun dari nol oleh satu developer — iOS dev yang tak takut backend.
 
 ---
 
-<div align="center">
-
 ## ◈ ARSITEKTUR
-
-</div>
 
 ```
 XDREW/
@@ -142,39 +140,35 @@ XDREW/
 │   ├── layouts/       # Front, admin, app, guest, profile
 │   └── *.blade.php    # welcome, produk, detail, keranjang, dll
 │
-├── 🛤️ routes/
+├── 🛤️  routes/
 │   ├── web.php         # Semua rute web
 │   └── api.php         # Rute API (user auth)
 │
-├── 🗄️ database/
+├── 🗄️  database/
 │   ├── migrations/     # Skema database
 │   ├── factories/      # Data factory
 │   └── seeders/        # Data seeder
 │
-├── ⚙️ config/           # Konfigurasi Laravel
+├── ⚙️  config/          # Konfigurasi Laravel
 ├── 📦 public/           # Aset terkompilasi
 └── 🔧 .env              # Environment variables (jangan di-commit!)
 ```
 
 ---
 
-<div align="center">
-
 ## ◈ QUICK START
 
-</div>
-
 ```bash
-# ── 1. Clone & masuk ke direktori ──────────────────────────
+# ── 1. Clone & masuk ke direktori ──────────────────────────────────
 git clone https://github.com/faqih55/XDREW.git && cd XDREW
 
-# ── 2. Install dependensi ──────────────────────────────────
+# ── 2. Install dependensi ──────────────────────────────────────────
 composer install && npm install
 
-# ── 3. Setup environment ──────────────────────────────────
+# ── 3. Setup environment ───────────────────────────────────────────
 cp .env.example .env && php artisan key:generate
 
-# ── 4. Konfigurasi .env ───────────────────────────────────
+# ── 4. Konfigurasi database di .env ───────────────────────────────
 # DB_CONNECTION=mysql
 # DB_HOST=127.0.0.1
 # DB_PORT=3306
@@ -182,26 +176,22 @@ cp .env.example .env && php artisan key:generate
 # DB_USERNAME=root
 # DB_PASSWORD=
 
-# ── 5. Migrasi & seed database ────────────────────────────
+# ── 5. Migrasi & seed database ─────────────────────────────────────
 php artisan migrate --seed
 
-# ── 6. Build aset & jalankan server ──────────────────────
+# ── 6. Build aset & jalankan server ───────────────────────────────
 npm run dev && php artisan serve
 
-# ── Buka di browser ───────────────────────────────────────
-# → http://127.0.0.1:8000
-# → http://127.0.0.1:8000/admin/login  (Panel Admin)
+# ── Buka di browser ────────────────────────────────────────────────
+# →  http://127.0.0.1:8000              (Storefront)
+# →  http://127.0.0.1:8000/admin/login  (Panel Admin)
 ```
 
-> **Prasyarat:** PHP ≥ 8.1 · Composer · Node.js ≥ 16 · MySQL
+> **Prasyarat:** `PHP ≥ 8.1` · `Composer` · `Node.js ≥ 16` · `MySQL`
 
 ---
 
-<div align="center">
-
 ## ◈ ROUTE MAP
-
-</div>
 
 ```
 PUBLIC ROUTES
@@ -223,9 +213,9 @@ AUTH ROUTES
 │  GET  /register            → Registrasi pelanggan            │
 │  GET  /profile/...         → Profil & pengaturan akun        │
 ├─────────────────────────────────────────────────────────────┤
-ADMIN ROUTES (Protected)
+ADMIN ROUTES  ⚠️  Protected
 │  GET  /admin/login         → Login admin                     │
-│  GET  /admin/dashboard     → Dashboard                       │
+│  GET  /admin/dashboard     → Dashboard & analitik            │
 │  GET  /admin/inventaris    → Manajemen produk                │
 │  GET  /admin/pesanan       → Manajemen pesanan               │
 │  GET  /admin/pelanggan     → Manajemen pelanggan             │
@@ -241,24 +231,24 @@ ADMIN ROUTES (Protected)
 <br/>
 
 <a href="https://github.com/faqih55">
-  <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=18&duration=3000&pause=800&color=00FFFF&center=true&vCenter=true&width=600&lines=faqih55+—+iOS+%26+Fullstack+Developer;Swift+%7C+Laravel+%7C+Flutter+%7C+PHP;Turning+ideas+into+digital+reality+🚀" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=18&duration=3000&pause=800&color=00FFFF&center=true&vCenter=true&width=620&lines=faqih55+—+iOS+%26+Fullstack+Developer;Swift+%7C+Laravel+%7C+Flutter+%7C+PHP+%7C+MySQL;Turning+ideas+into+digital+reality+🚀" alt="Typing SVG" />
 </a>
 
 <br/>
 
 [![GitHub](https://img.shields.io/badge/GitHub-faqih55-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117)](https://github.com/faqih55)
 [![Instagram](https://img.shields.io/badge/Instagram-lil.fqh-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=0d1117)](https://instagram.com/lil.fqh)
-[![Email](https://img.shields.io/badge/Gmail-faqihmuhamad553%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0d1117)](mailto:faqihmuhamad553@gmail.com)
+[![Gmail](https://img.shields.io/badge/Gmail-faqihmuhamad553-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0d1117)](mailto:faqihmuhamad553@gmail.com)
 
 <br/>
 
-> *"Every line of code is a brushstroke on a digital canvas."*\
+> *"Every line of code is a brushstroke on a digital canvas."*
 > — **faqih55** · iOS Developer · Fullstack Engineer · Digital Craftsman
 
 <br/>
 
 ---
 
-© 2025 **XDREW Fashion**. Crafted with ❤️ by [faqih55](https://github.com/faqih55) · Indonesia 🇮🇩
+© 2025 **XDREW Fashion** · Crafted with ❤️ by [faqih55](https://github.com/faqih55) · Indonesia 🇮🇩
 
 </div>
