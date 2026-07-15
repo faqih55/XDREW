@@ -7,7 +7,7 @@
 
 [![XDREW Header](https://raw.githubusercontent.com/faqih55/faqih55/main/header.svg)](https://github.com/faqih55/XDREW)
 
-**◈ XDREW FASHION ◈**
+**◈ XDREW FASHION PROJECT BY Muhamad Fakih ◈**
 
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=16&duration=3000&pause=800&color=00FFFF&center=true&vCenter=true&width=700&lines=Built+with+Laravel+%7C+PHP+%7C+MySQL;Crafted+by+faqih55+%E2%80%94+iOS+%26+Fullstack+Dev;Sustainable+Streetwear+E-Commerce;Full-stack+CMS+with+Admin+Panel;Clean+Code+%7C+Bold+Design+%7C+Real+Impact)
 
